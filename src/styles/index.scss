@@ -1,14 +1,11 @@
 @use 'reset';
 @use 'vars';
 
-@font-face {
-  font-family: 'Josefin';
-  src: url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap');
-}
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600;700&display=swap');
 
 
 body {
-  font-family: 'Josefin', sans-serif; 
+  font-family: 'Josefin Sans', sans-serif; 
 }
 
 /* 

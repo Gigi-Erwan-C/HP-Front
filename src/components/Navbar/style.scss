@@ -1,5 +1,12 @@
 @use 'src/styles/vars';
 
+.navbar {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding:35px 25px 25px 25px;
+}
+
 .menu {
   display:flex;
   align-items: center;
@@ -7,18 +14,19 @@
 
 .menu-link {
   color: vars.$color-white;
-  font-weight:800;
+  font-weight:600;
   font-size:16px;
   text-transform: uppercase;
   padding:0 20px 0 20px;
 }
 
 .menu-login {
+  margin-left:10px;
   border:none;
   background:vars.$color-grey;
   color:vars.$color-white;
   font-size:16px;
-  font-weight:800;
+  font-weight:500;
   border-radius:5px;
   padding:10px 25px 10px 25px;
 }

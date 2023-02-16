@@ -4,7 +4,9 @@ import './style.scss';
 const Logo = ({
   classColor,
 }) => (
-  <h1 className={classColor}>Coupe des 4 maisons</h1>
+  <a href="/">
+    <h1 className={classColor}>Coupe des 4 maisons</h1>
+  </a>
 );
 
 Logo.propTypes = {
