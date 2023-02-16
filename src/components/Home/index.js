@@ -1,3 +1,5 @@
+import WizardRanking from "../WizardRanking";
+
 // == Composant
 const Home = () => (
   <div className="home">
@@ -8,13 +10,7 @@ const Home = () => (
     <div>
       CLASSEMENT ICI
     </div>
-    <h2>
-      Classement des meilleurs sorciers
-      <aside>Mis à jour le [DATE] </aside>
-    </h2>
-    <div>
-      CLASSEMENT ICI
-    </div>
+    <WizardRanking />
   </div>
 
 );
