@@ -1,16 +1,14 @@
 // == Import
-import reactLogo from './react-logo.svg';
 import './styles.css';
+import Home from '../Home';
 
 // == Composant
-function App() {
-  return (
-    <div className="app">
-      <img src={reactLogo} alt="react logo" />
-      <h1>Composant : App</h1>
-    </div>
-  );
-}
+const App = () => (
+  <div className="app">
+    <Home />
+  </div>
+
+);
 
 // == Export
 export default App;
