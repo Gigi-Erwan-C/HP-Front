@@ -1,13 +1,9 @@
 // == Composant
+import HouseRanking from './HouseRanking';
+
 const Home = () => (
   <div className="home">
-    <h2>
-      Classement des 4 maisons
-      <aside>Mis à jour le [DATE]</aside>
-    </h2>
-    <div>
-      CLASSEMENT ICI
-    </div>
+    <HouseRanking />
     <h2>
       Classement des meilleurs sorciers
       <aside>Mis à jour le [DATE] </aside>
