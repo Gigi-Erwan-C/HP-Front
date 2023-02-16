@@ -1,1 +1,3 @@
-#Projet D'Apothéose: Plateforme Pédagogique avec le thème de Harry Potter. 
+# projet-07-plateforme-peda-harry-potter-front
+
+Ceci est un Readme.
