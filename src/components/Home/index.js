@@ -1,4 +1,4 @@
-import WizardRanking from '../WizardRanking';
+import WizardRanking from './WizardRanking';
 
 // == Composant
 import HouseRanking from './HouseRanking';
