@@ -1,11 +1,11 @@
 // == Import
-import Logo from 'src/components/Logo';
+import Header from '../Header';
 import './styles.css';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <Logo classColor="logo white" />
+    <Header />
   </div>
 );
 

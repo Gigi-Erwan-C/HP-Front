@@ -1,0 +1,24 @@
+@use 'src/styles/vars';
+
+.menu {
+  display:flex;
+  align-items: center;
+}
+
+.menu-link {
+  color: vars.$color-white;
+  font-weight:800;
+  font-size:16px;
+  text-transform: uppercase;
+  padding:0 20px 0 20px;
+}
+
+.menu-login {
+  border:none;
+  background:vars.$color-grey;
+  color:vars.$color-white;
+  font-size:16px;
+  font-weight:800;
+  border-radius:5px;
+  padding:10px 25px 10px 25px;
+}
