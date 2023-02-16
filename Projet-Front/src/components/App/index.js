@@ -3,7 +3,7 @@ import reactLogo from './react-logo.svg';
 import './styles.css';
 
 // == Composant
-function App() {
+const App = () => {
   return (
     <div className="app">
       <img src={reactLogo} alt="react logo" />
