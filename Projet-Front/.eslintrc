@@ -36,19 +36,13 @@
     "object-shorthand": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "react/prefer-stateless-function": "off",
-    "max-len": "off",
-    "jsx-a11y/label-has-associated-control": "off",
-    "react/no-redundant-should-component-update": "off",
     "react/function-component-definition": [
       "warn",
       {
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
-    ],
-    "camelcase": "off",
-    "import/no-extraneous-dependencies": "off"
+    ]
   },
   "settings": {
     "import/resolver": {
