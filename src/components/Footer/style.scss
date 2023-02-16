@@ -1,0 +1,17 @@
+.footer {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:35px 25px 25px 25px;
+}
+
+.footer-link {
+  font-weight:600;
+  font-size:14px;
+  margin-right:20px;
+}
+
+.footer-link:first-child::after {
+  content:"●";
+  margin-left:20px;
+}
