@@ -35,14 +35,7 @@
     "func-names": "off",
     "object-shorthand": "off",
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/function-component-definition": [
-      "warn",
-      {
-        "namedComponents": "arrow-function",
-        "unnamedComponents": "arrow-function"
-      }
-    ]
+    "react/react-in-jsx-scope": "off"
   },
   "settings": {
     "import/resolver": {
