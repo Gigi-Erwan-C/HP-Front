@@ -1,15 +1,10 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
 import './style.scss';
 
 const Hourglass = ({
   rank, points, pointsSinceLastTick, house, houseInEnglish, percentage,
 }) => {
   const firstLetter = Array.from(houseInEnglish)[0];
-  useEffect(() => {
-    console.log(percentage);
-    console.log(firstLetter);
-  });
   const generateKeyframes = () => `
       @keyframes points${firstLetter} {
         0% {
