@@ -2,14 +2,15 @@ import HourGlass from './Hourglass';
 import './style.scss';
 
 const HouseRanking = () => {
-  const hourGlassData = [
+  // Cet array contient les données de points de nos maisons
+  const housePoints = [
     { points: 500 },
-    { points: 355 },
-    { points: 260 },
+    { points: 250 },
     { points: 100 },
+    { points: 300 },
   ];
-
-  const totalPoints = hourGlassData.reduce((acc, curr) => acc + curr.points, 0);
+  // On utilise reduce pour ajouter tout les points entre eux
+  const totalPoints = housePoints.reduce((acc, curr) => acc + curr.points, 0);
 
   return (
     <div className="house-ranking">
@@ -24,8 +25,10 @@ const HouseRanking = () => {
       <div className="ranking-container">
         <HourGlass
           rank={1}
-          points={hourGlassData[0].points}
-          percentage={(hourGlassData[0].points / totalPoints) * 100}
+          // on prend les points dans l'index [0] de notre array points
+          points={housePoints[0].points}
+          // On effectue un calcul avec le total des points pour générer un pourcentage
+          percentage={((housePoints[0].points / totalPoints) * 100) * 2}
           pointsSinceLastTick={55}
           house="Gryffondor"
           houseInEnglish="Gryffindor"
@@ -33,8 +36,8 @@ const HouseRanking = () => {
         />
         <HourGlass
           rank={2}
-          points={hourGlassData[1].points}
-          percentage={(hourGlassData[1].points / totalPoints) * 100}
+          points={housePoints[1].points}
+          percentage={(housePoints[1].points / totalPoints) * 100}
           pointsSinceLastTick={20}
           house="Serpentard"
           houseInEnglish="Slytherin"
@@ -42,8 +45,8 @@ const HouseRanking = () => {
         />
         <HourGlass
           rank={3}
-          points={hourGlassData[2].points}
-          percentage={(hourGlassData[2].points / totalPoints) * 100}
+          points={housePoints[2].points}
+          percentage={(housePoints[2].points / totalPoints) * 100}
           pointsSinceLastTick={50}
           house="Serdaigle"
           houseInEnglish="Ravenclaw"
@@ -51,8 +54,8 @@ const HouseRanking = () => {
         />
         <HourGlass
           rank={4}
-          points={hourGlassData[3].points}
-          percentage={(hourGlassData[3].points / totalPoints) * 100}
+          points={housePoints[3].points}
+          percentage={(housePoints[3].points / totalPoints) * 100}
           pointsSinceLastTick={0}
           house="Poufsouffle"
           houseInEnglish="Hufflepuff"

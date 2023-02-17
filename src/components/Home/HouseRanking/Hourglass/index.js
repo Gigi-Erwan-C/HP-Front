@@ -5,16 +5,29 @@ import './style.scss';
 const Hourglass = ({
   rank, points, pointsSinceLastTick, house, houseInEnglish, percentage,
 }) => {
+  const firstLetter = Array.from(houseInEnglish)[0];
   useEffect(() => {
     console.log(percentage);
+    console.log(firstLetter);
   });
+  const generateKeyframes = () => `
+      @keyframes points${firstLetter} {
+        0% {
+          height: 0%;
+        }
+        100% {
+          height: ${percentage}%;
+        }
+      }
+    `;
   return (
-    <div className="hourglass-container">
+    <div className="hogwarts">
       <div className="score">
         <p>{rank}</p>
       </div>
-      <div className="hogwarts">
+      <div className="hourglass-container">
         <div className={`hourglass ${houseInEnglish.toLowerCase()}`}>
+          <style>{generateKeyframes()}</style>
           <div className="top">
             <div className="points" />
           </div>
