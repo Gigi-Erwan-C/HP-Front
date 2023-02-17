@@ -1,33 +1,37 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import './style.scss';
 
 const Hourglass = ({
-  rank, points, pointsSinceLastTick, house, houseInEnglish,
-}) => (
-  <div className="hourglass-container">
-    <div className="score">
-      <p>{rank}</p>
-    </div>
-    <div className="hogwarts">
-      <div className={`hourglass ${houseInEnglish.toLowerCase()}`}>
-        {console.log(house.toLowerCase())}
-        <div className="top">
-          <div className="points" />
-        </div>
-        <div className="middle" />
-        <div className="bottom-first" />
-        <div className="bottom-second">
-          <div className="points" />
+  rank, points, pointsSinceLastTick, house, houseInEnglish, percentage,
+}) => {
+  useEffect(() => {
+    console.log(percentage);
+  });
+  return (
+    <div className="hourglass-container">
+      <div className="score">
+        <p>{rank}</p>
+      </div>
+      <div className="hogwarts">
+        <div className={`hourglass ${houseInEnglish.toLowerCase()}`}>
+          <div className="top">
+            <div className="points" />
+          </div>
+          <div className="middle" />
+          <div className="bottom-first" />
+          <div className="bottom-second">
+            <div className="points" />
+          </div>
         </div>
       </div>
+      <h3 className="current-points">{points} points</h3>
+      <span className="gained-points">(+ {pointsSinceLastTick} points depuis [DATE])</span>
+      <h2 className="house-name">{house}</h2>
+      <span className="house-name__english">{houseInEnglish}</span>
     </div>
-    <h3 className="current-points">{points} points</h3>
-    <span className="gained-points">(+ {pointsSinceLastTick} points depuis [DATE])</span>
-    <h2 className="house-name">{house}</h2>
-    <span className="house-name__english">{houseInEnglish}</span>
-  </div>
-
-);
+  );
+};
 
 Hourglass.propTypes = {
   rank: PropTypes.number.isRequired,
@@ -35,6 +39,7 @@ Hourglass.propTypes = {
   pointsSinceLastTick: PropTypes.number.isRequired,
   house: PropTypes.string.isRequired,
   houseInEnglish: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired,
 };
 
 export default Hourglass;
