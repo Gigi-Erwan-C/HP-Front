@@ -2,9 +2,9 @@ import Navbar from '../Navbar';
 import './style.scss';
 
 const Header = () => (
-  <div className="header">
-    <Navbar classColor="logo white" />
-  </div>
+  <header className="header">
+    <Navbar classColor="logo white" classLinkColor="menu-link white" />
+  </header>
 
 );
 

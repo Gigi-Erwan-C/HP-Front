@@ -2,7 +2,7 @@ import Logo from '../Logo';
 import './style.scss';
 
 const Footer = () => (
-  <div className="footer">
+  <footer className="footer">
     <Logo classColor="logo grey" />
     <div className="footer-links">
       <a
@@ -20,7 +20,7 @@ const Footer = () => (
       </a>
 
     </div>
-  </div>
+  </footer>
 
 );
 

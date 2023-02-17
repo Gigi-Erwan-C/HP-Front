@@ -1,0 +1,24 @@
+@use 'src/styles/vars';
+@font-face {
+  font-family: 'Harry';
+  src: url('../../../assets/fonts/harryp.ttf');
+}
+
+.house-ranking {
+  background-color: vars.$color-grey;
+  color: vars.$color-white;
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  .ranking-type{
+    font-family: 'Harry', sans-serif;
+    font-size:2.6rem ;
+    text-transform: uppercase;
+    margin: 1em auto;
+  }
+  .ranking-container{
+    display: flex;
+    justify-content:space-evenly;
+    
+  }
+}
