@@ -4,27 +4,28 @@ import './style.scss';
 
 const Navbar = ({
   classColor,
+  classLinkColor,
 }) => (
   <div className="navbar">
     <Logo classColor={classColor} />
     <nav className="menu">
       <div className="menu-links">
         <a
-          className="menu-link active"
+          className={classLinkColor}
           href="/"
         >
           Accueil
         </a>
 
         <a
-          className="menu-link"
+          className={classLinkColor}
           href="/"
         >
           Règles
         </a>
 
         <a
-          className="menu-link"
+          className={classLinkColor}
           href="/"
         >
           Histoire des 4 maisons
@@ -40,6 +41,7 @@ const Navbar = ({
 
 Navbar.propTypes = {
   classColor: PropTypes.string.isRequired,
+  classLinkColor: PropTypes.string.isRequired,
 };
 
 export default Navbar;

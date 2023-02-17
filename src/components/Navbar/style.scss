@@ -13,11 +13,18 @@
 }
 
 .menu-link {
-  color: vars.$color-white;
   font-weight:600;
   font-size:16px;
   text-transform: uppercase;
   padding:0 20px 0 20px;
+}
+
+.menu-link.white {
+  color: vars.$color-white;
+}
+
+.menu-link.grey {
+  color: vars.$color-grey;
 }
 
 .menu-login {
@@ -25,6 +32,7 @@
   border:none;
   background:vars.$color-grey;
   color:vars.$color-white;
+  font-family: 'Josefin sans', sans-serif;
   font-size:16px;
   font-weight:500;
   border-radius:5px;
