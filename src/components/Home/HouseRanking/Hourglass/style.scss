@@ -38,13 +38,13 @@ align-items: center;
 
 .hogwarts {
   height: 500px;
-  width: 800px;
+  width: 100%;
   display: flex;
 }
 
 .hourglass {
   opacity: .8;
-  flex: 0 0 25%;
+  flex: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -143,8 +143,8 @@ align-items: center;
   background-color: #2a623d;
 }
 
-.rawenclaw .bottom-first::before,
-.rawenclaw .top .points {
+.ravenclaw .bottom-first::before,
+.ravenclaw .top .points {
   background-color: #222f5b;
 }
 
@@ -172,7 +172,7 @@ align-items: center;
   animation: pointsS 5s 6s forwards;
 }
 
-.rawenclaw .bottom-second .points {
+.ravenclaw .bottom-second .points {
   background-color: #222f5b;
   animation: pointsR 5s 6s forwards;
 }
@@ -204,7 +204,7 @@ align-items: center;
   background: linear-gradient(to right, #2a623d, #aaaaaa);
 }
 
-.rawenclaw .socle {
+.ravenclaw .socle {
   background: linear-gradient(to right, #222f5b, #946b2d);
 }
 

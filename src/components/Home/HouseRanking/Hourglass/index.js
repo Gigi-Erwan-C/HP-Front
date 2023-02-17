@@ -9,7 +9,8 @@ const Hourglass = ({
       <p>{rank}</p>
     </div>
     <div className="hogwarts">
-      <div className="hourglass slytherin">
+      <div className={`hourglass ${houseInEnglish.toLowerCase()}`}>
+        {console.log(house.toLowerCase())}
         <div className="top">
           <div className="points" />
         </div>
@@ -18,7 +19,6 @@ const Hourglass = ({
         <div className="bottom-second">
           <div className="points" />
         </div>
-        <div className="socle">S</div>
       </div>
     </div>
     <h3 className="current-points">{points} points</h3>
