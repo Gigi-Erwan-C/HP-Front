@@ -1,0 +1,12 @@
+@use 'src/styles/vars';
+
+@font-face {
+  font-family: 'Harry';
+  src: url('../../../assets/fonts/harryp.ttf');
+}
+
+h1 {
+font-family: 'Harry', sans-serif;
+font-size: 2.6rem;
+text-align: center;
+}

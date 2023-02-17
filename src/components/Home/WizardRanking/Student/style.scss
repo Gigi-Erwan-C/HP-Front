@@ -1,0 +1,47 @@
+@use 'src/styles/vars';
+
+@font-face {
+  font-family: 'Tangerine';
+  src: url('../../../../assets/fonts/Tangerine-Regular.ttf');
+}
+
+
+.student-list {
+  display: flex;
+  justify-content: center;
+}
+
+
+.student-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 38.5rem;
+}
+
+.text-container {
+  border: 3px solid vars.$color-gryffondor;
+  width: 22rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.student-name {
+  font-family: 'josefin Sans' sans-serif;
+  margin-left: 1.8rem;
+  color: vars.$color-gryffondor;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.student-house {
+  font-family: 'Tangerine', cursive;
+  margin-right: 1.8rem;
+  color: vars.$color-gryffondor;
+  font-size: 22px;
+}
