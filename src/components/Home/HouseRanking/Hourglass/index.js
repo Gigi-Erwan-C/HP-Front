@@ -4,11 +4,23 @@ import './style.scss';
 const Hourglass = ({
   rank, points, pointsSinceLastTick, house, houseInEnglish,
 }) => (
-  <div className="hourglass">
+  <div className="hourglass-container">
     <div className="score">
       <p>{rank}</p>
     </div>
-    <p>image de sablier</p>
+    <div className="hogwarts">
+      <div className="hourglass slytherin">
+        <div className="top">
+          <div className="points" />
+        </div>
+        <div className="middle" />
+        <div className="bottom-first" />
+        <div className="bottom-second">
+          <div className="points" />
+        </div>
+        <div className="socle">S</div>
+      </div>
+    </div>
     <h3 className="current-points">{points} points</h3>
     <span className="gained-points">(+ {pointsSinceLastTick} points depuis [DATE])</span>
     <h2 className="house-name">{house}</h2>

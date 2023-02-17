@@ -10,7 +10,7 @@ const HouseRanking = () => (
       // Il faudra mapper sur un array correspondant aux maisons  pour générer les sabliers avec les classements.
       // Pour l'instant, on les génère en dur:
     }
-    <div className="hourglass-container">
+    <div className="ranking-container">
       <HourGlass
         rank={1}
         points={360}
