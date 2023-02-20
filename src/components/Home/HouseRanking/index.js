@@ -4,7 +4,7 @@ import './style.scss';
 const HouseRanking = () => {
   // Cet array contient les données de points de nos maisons
   const housePoints = [
-    { points: 500 },
+    { points: 1000 },
     { points: 250 },
     { points: 100 },
     { points: 300 },
@@ -28,7 +28,7 @@ const HouseRanking = () => {
           // on prend les points dans l'index [0] de notre array points
           points={housePoints[0].points}
           // On effectue un calcul avec le total des points pour générer un pourcentage
-          percentage={((housePoints[0].points / totalPoints) * 100) * 2}
+          percentage={((housePoints[0].points / totalPoints) * 100)}
           pointsSinceLastTick={55}
           house="Gryffondor"
           houseInEnglish="Gryffindor"

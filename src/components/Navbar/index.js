@@ -1,4 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Logo from '../Logo';
 import NavbarMobile from './NavbarMobile';
@@ -29,38 +31,38 @@ const Navbar = ({
         </div>
 
         <div className="menu-links">
-          <a
+          <NavLink
             className={classLinkColor}
-            href="/"
+            to="/"
           >
             Accueil
-          </a>
+          </NavLink>
 
-          <a
+          <NavLink
             className={classLinkColor}
-            href="/"
+            to="/regles"
           >
             Règles
-          </a>
+          </NavLink>
 
-          <a
+          <NavLink
             className={classLinkColor}
-            href="/"
+            to="/histoire"
           >
             Histoire des 4 maisons
-          </a>
+          </NavLink>
         </div>
 
         {!isLogged && (
-        <button className="menu-login" type="button">
+        <NavLink to="/login" className="menu-login" type="button">
           Se connecter
-        </button>
+        </NavLink>
         )}
 
         {isLogged && (
-        <button className="menu-login" type="button">
+        <NavLink to="/mon-compte" className="menu-login" type="button">
           Mon compte
-        </button>
+        </NavLink>
         )}
       </nav>
     </div>

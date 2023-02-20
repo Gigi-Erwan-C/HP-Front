@@ -1,4 +1,4 @@
-@use 'src/styles/vars';
+@use '../../../styles/vars';
 
 .field-input {
   border:1px solid vars.$color-grey;
@@ -14,7 +14,6 @@
   color:vars.$color-grey;
   font-size:0.9rem;
 }
-@use 'src/styles/vars';
 
 .field-input {
   border:1px solid vars.$color-grey;

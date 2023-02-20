@@ -52,6 +52,8 @@
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",
+    "react-router": "^6.8.1",
+    "react-router-dom": "^6.8.1",
     "styled-components": "^5.3.6"
   }
 }
