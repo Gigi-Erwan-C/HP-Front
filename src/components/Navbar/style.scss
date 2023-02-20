@@ -115,7 +115,8 @@
 
   .menu-link {
     color:vars.$color-grey;
-    padding-bottom:20px;
+    padding-bottom:30px;
+    font-size:18px;
   }
 
   .menu-link.white {
@@ -124,6 +125,8 @@
 
   .menu-login {
     margin-left:20px;
+    padding: 10px 40px;
+    font-size:18px;
   }
 
   .navbar {
