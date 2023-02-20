@@ -1,0 +1,19 @@
+.lore-wrapper{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em auto;
+  width: 80%;
+}
+
+.lore-title{
+  margin: 1em auto;
+  font-size:2em;
+}
+
+.house-sigils{
+  width: 60%;
+  display:flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
