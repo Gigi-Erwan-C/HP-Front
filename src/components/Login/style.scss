@@ -1,0 +1,33 @@
+@use 'src/styles/vars';
+
+@font-face {
+  font-family: 'Harry';
+  src: url('../../assets/fonts/harryp.ttf');
+}
+
+.login-form-element {
+  height:75vh;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #F2F2F2;
+}
+
+.login-form-title {
+  font-family:'Harry', sans-serif;
+  font-size:4rem;
+  margin-bottom:2rem;
+}
+
+.login-form-button {
+  border:none;
+  background:vars.$color-grey;
+  color:vars.$color-white;
+  padding:10px;
+  width:300px;
+  border-radius:5px;
+  font-family: 'Josefin sans', sans-serif;
+  font-size:17px;
+  font-weight:600;
+}
