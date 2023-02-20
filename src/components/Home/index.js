@@ -1,10 +1,10 @@
+import Header from '../Header';
 import WizardRanking from './WizardRanking';
-
-// == Composant
 import HouseRanking from './HouseRanking';
 
 const Home = () => (
   <div className="home">
+    <Header />
     <HouseRanking />
     <WizardRanking />
   </div>
