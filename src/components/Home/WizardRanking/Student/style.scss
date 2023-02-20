@@ -29,6 +29,50 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
+
+&-gryffindor {
+border: 3px solid vars.$color-gryffondor;
+width: 22rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+&-slytherin {
+  border: 3px solid vars.$color-serpentard;
+  width: 22rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+&-ravenclaw {
+  border: 3px solid vars.$color-serdaigle;
+  width: 22rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+&-hufflepuff {
+  border: 3px solid vars.$color-poufsouffle;
+  width: 22rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
 }
 
 .student-name {
@@ -37,6 +81,38 @@
   color: vars.$color-gryffondor;
   font-weight: bold;
   font-size: 17px;
+
+&-gryffindor {
+  font-family: 'josefin Sans' sans-serif;
+  margin-left: 1.8rem;
+  color: vars.$color-gryffondor;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+&-slytherin {
+  font-family: 'josefin Sans' sans-serif;
+  margin-left: 1.8rem;
+  color: vars.$color-serpentard;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+&-hufflepuff {
+  font-family: 'josefin Sans' sans-serif;
+  margin-left: 1.8rem;
+  color: vars.$color-poufsouffle;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+&-ravenclaw {
+  font-family: 'josefin Sans' sans-serif;
+  margin-left: 1.8rem;
+  color: vars.$color-serdaigle;
+  font-weight: bold;
+  font-size: 17px;
+}
 }
 
 .student-house {
@@ -44,4 +120,66 @@
   margin-right: 1.8rem;
   color: vars.$color-gryffondor;
   font-size: 22px;
+
+&-gryffindor {
+  font-family: 'Tangerine', cursive;
+  margin-right: 1.8rem;
+  color: vars.$color-gryffondor;
+  font-size: 22px;
+}
+
+
+&-slytherin {
+  font-family: 'Tangerine', cursive;
+  margin-right: 1.8rem;
+  color: vars.$color-serpentard;
+  font-size: 22px;
+}
+
+&-hufflepuff {
+  font-family: 'Tangerine', cursive;
+  margin-right: 1.8rem;
+  color: vars.$color-poufsouffle;
+  font-size: 22px;
+}
+
+&-ravenclaw {
+  font-family: 'Tangerine', cursive;
+  margin-right: 1.8rem;
+  color: vars.$color-serdaigle;
+  font-size: 22px;
+}
+}
+
+
+.slytherin-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: vars.$color-serpentard;
+}
+
+.hufflepuff-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: vars.$color-poufsouffle;
+} 
+
+.ravenclaw-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: vars.$color-serdaigle;
+}
+
+.gryffindor-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: vars.$color-gryffondor;
 }
