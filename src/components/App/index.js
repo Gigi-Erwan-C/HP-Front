@@ -5,6 +5,7 @@ import Footer from '../Footer';
 import Home from '../Home';
 import Login from '../Login';
 import Account from '../Account';
+import LegalNotice from '../LegalNotice';
 import './styles.css';
 
 // == Composant
@@ -14,6 +15,7 @@ const App = () => (
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/account" element={<Account />} />
+      <Route path="/mentions-legales" element={<LegalNotice />} />
     </Routes>
     <Footer />
   </div>
