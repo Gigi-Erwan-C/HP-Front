@@ -24,7 +24,7 @@ const Account = () => {
           {role === 'admin' && (
           <Item link="#" image={user} name="Gestion des utilisateurs" />
           )}
-          <Item link="#" image={password} name="Modification de mot de passe" />
+          <Item link="/mon-compte/mot-de-passe" image={password} name="Modification de mot de passe" />
         </div>
       </div>
     </div>
