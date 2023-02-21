@@ -1,5 +1,6 @@
 // == Import : npm
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 import './style.scss';
@@ -10,12 +11,12 @@ const Item = ({
   name,
   image,
 }) => (
-  <a href={link}>
+  <NavLink to={link}>
     <div className="account-list-item">
       <img className="account-list-item-img" src={image} alt={name} />
       <h2>{name}</h2>
     </div>
-  </a>
+  </NavLink>
 );
 
 Item.propTypes = {

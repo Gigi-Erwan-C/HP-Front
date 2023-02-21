@@ -1,0 +1,19 @@
+@use 'src/styles/vars';
+
+.password-form {
+
+}
+
+.password-form h1 {
+  font-size:4rem;
+  color:vars.$color-white;
+  margin-bottom: 2rem;
+}
+
+
+@media (max-width: 942px) { 
+  .account-list {
+    flex-direction: column;
+  } 
+}
+
