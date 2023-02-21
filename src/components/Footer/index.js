@@ -1,23 +1,26 @@
+import { NavLink } from 'react-router-dom';
+
 import Logo from '../Logo';
+
 import './style.scss';
 
 const Footer = () => (
   <footer className="footer">
     <Logo classColor="logo grey" />
     <div className="footer-links">
-      <a
+      <NavLink
         className="footer-link"
-        href="/"
+        to="/equipe-projet"
       >
         Equipe projet
-      </a>
+      </NavLink>
 
-      <a
+      <NavLink
         className="footer-link"
-        href="/"
+        to="/mentions-legales"
       >
         Mentions légales
-      </a>
+      </NavLink>
 
     </div>
   </footer>
