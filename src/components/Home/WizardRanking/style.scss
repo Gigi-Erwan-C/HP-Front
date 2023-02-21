@@ -7,14 +7,17 @@
 
 .wizard-type {
   font-family: 'Harry', sans-serif;
-  font-size: 3rem;
+  font-size:vars.$font-size-title;
+  text-transform: uppercase;
   text-align: center;
   color:vars.$color-white;
   margin-bottom:2rem;
+  letter-spacing: vars.$title-letter-spacing;
 }
 
 .student-point {
   color:vars.$color-white;
+  font-size: 1.4rem;
 }
 
 .wizard-ranking {

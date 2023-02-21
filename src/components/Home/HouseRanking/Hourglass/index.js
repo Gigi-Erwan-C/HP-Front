@@ -10,6 +10,7 @@ const Hourglass = ({
         0% {
           height: 0%;
         }
+        
         100% {
           height: ${percentage}%;
         }

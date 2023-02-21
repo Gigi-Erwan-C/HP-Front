@@ -11,25 +11,32 @@
 }
 
 .rules {
-
+  background:vars.$color-grey;
 & h1 {
-  margin-top:3rem;
+  padding-top:3rem;
   font-size:4rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
   font-family:'Harry', sans-serif;
-  letter-spacing:0.2rem;
+  text-transform: uppercase;
+  letter-spacing: vars.$title-letter-spacing;
+  font-size:vars.$font-size-title;
+  text-align:center;
+  color:vars.$color-white;
   
 }
 
 &-item {
 
+  margin-left:2rem;
+  margin-right:2rem;
+
   &-title-left, &-title-right {
-    margin-top:2rem;
-    background:vars.$color-grey;
-    color:vars.$color-white;
+    background:vars.$color-white;
+    color:vars.$color-grey;
     padding:2rem;
     font-family: 'Tangerine', sans-serif;
     font-size:2.3rem;
+    margin-top:2rem;
   }
 
   &-title-right {
@@ -37,21 +44,22 @@
   }
 
   &-content {
-    background:#F2F2F2;
+    background:vars.$color-white;
     display:flex;
     justify-content: flex-start;
     align-items: center;
     padding-top:2rem;
+    margin-top:0.2rem;
 
     &-text {
       margin-left:5rem;
       margin-right:5rem;
-      font-size:1rem;
+      font-size:1.2rem;
       font-weight:300;
 
       & p {
-        padding-top:2rem;
-        padding-bottom:2rem;
+        padding-top:1rem;
+        padding-bottom:1rem;
       }
     }
   }

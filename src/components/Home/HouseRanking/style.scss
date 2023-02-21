@@ -21,8 +21,9 @@
   
   .ranking-type{
     font-family: 'Harry', sans-serif;
-    font-size:2rem ;
+    font-size:vars.$font-size-title;
     text-transform: uppercase;
+    letter-spacing: vars.$title-letter-spacing;
     margin: 1em auto;
   }
   .ranking-container{

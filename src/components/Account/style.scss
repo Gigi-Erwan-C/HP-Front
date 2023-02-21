@@ -28,9 +28,10 @@
 
 .account h1 {
   font-family:'Harry', sans-serif;
-  font-size:4rem;
   color:vars.$color-white;
-  letter-spacing:0.2rem;
+  letter-spacing: vars.$title-letter-spacing;
+  font-size:vars.$font-size-title;
+  text-transform: uppercase;
 }
 
 

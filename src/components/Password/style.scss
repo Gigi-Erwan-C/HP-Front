@@ -6,11 +6,12 @@
 }
 
 .password-form h1 {
-  font-size:4rem;
   color:vars.$color-white;
   margin-bottom: 2rem;
   font-family:'Harry', sans-serif;
-  letter-spacing:0.2rem;
+  letter-spacing: vars.$title-letter-spacing;
+  font-size:vars.$font-size-title;
+  text-transform: uppercase;
 }
 
 

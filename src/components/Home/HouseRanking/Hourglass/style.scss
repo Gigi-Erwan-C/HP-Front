@@ -18,17 +18,19 @@ align-items: center;
   }
 
   .current-points{
-    font-size: 2em;
+    font-size: 1.4rem;
   }
   .gained-points{
     margin-bottom:1em;
+    font-weight:300;
   }
   .house-name{
     font-weight:800;
-    font-size: 2em;
+    font-size: 2.4em;
     margin: 0.2em;
+    font-family:'Tangerine', sans-serif;
     &__english{
-    font-size:1.5em;
+    font-size:1.3em;
     font-weight: lighter;
     }
   }
@@ -119,19 +121,19 @@ align-items: center;
 }
 
 
-.bottom-second::before {
-  content: '';
-  position: absolute;
-  display: block;
-  //height: 105%;
-  width: 10%;
-  background-color: #000;
-  top: -10%;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: move 7s;
-  z-index: 1;
-}
+// .bottom-second::before {
+//   content: '';
+//   position: absolute;
+//   display: block;
+//   //height: 105%;
+//   width: 10%;
+//   background-color: #000;
+//   top: -10%;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   animation: move 7s forwards;
+//   z-index: 1;
+// }
 
 .top .points {
   width: 94%;
@@ -174,22 +176,22 @@ align-items: center;
 
 .slytherin .bottom-second .points {
   background-color: #2a623d;
-  animation: pointsS 2s 3s forwards;
+  animation: pointsS 3s 1.4s forwards;
 }
 
 .ravenclaw .bottom-second .points {
   background-color: #222f5b;
-  animation: pointsR 2s 3s forwards;
+  animation: pointsR 3s 1.4s forwards;
 }
 
 .gryffindor .bottom-second .points {
   background-color: #ae0001;
-  animation: pointsG 2s 3s forwards;
+  animation: pointsG 3s 1.4s forwards;
 }
 
 .hufflepuff .bottom-second .points {
   background-color: #ecb939;
-  animation: pointsH 2s 3s forwards;
+  animation: pointsH 3s 1.4s forwards;
 }
 
 .socle {
@@ -231,7 +233,8 @@ align-items: center;
 	}
 
   100% {
-    height: 0;
+   opacity:0;
+
 	}
 }
 

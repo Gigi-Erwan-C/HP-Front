@@ -4,8 +4,6 @@
   display:flex;
   flex-direction: column;
   align-items: center;
-  margin: 1em auto;
-  width: 95%;
   background-color: vars.$color-grey;
   padding:1em;
   color: vars.$color-white;
@@ -13,14 +11,21 @@
 
 .lore-title{
   margin: 1em auto;
-  font-size:3em;
+  margin-bottom: 2rem;
+  font-family:'Harry', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: vars.$title-letter-spacing;
+  font-size:vars.$font-size-title;
+  text-align:center;
+  
 }
 
 .house-sigils{
   width: 60%;
   display:flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: baseline;
+  flex-wrap: nowrap;
 
 
   li{
@@ -37,21 +42,22 @@
   cursor: pointer;
   transition: all 1s ease-in-out;
   &__selected{
-    width:70%;
-    height:70%;
+    width:65%;
+    height:65%;
     cursor: pointer;
   }
   }
   li:hover .image{
-    width:70%;
-    height:70%;
+    width:65%;
+    height:65%;
   }
   }
 
 
 .house-name{
-  font-size: 2.1em;
+  font-size: 2.3rem;
   margin:1em auto;
+  font-family: 'Tangerine', sans-serif;
 }
 
 
@@ -79,7 +85,8 @@
       margin: auto;
   }
   h3{
-    font-size:2em;
+    font-family: 'Tangerine', sans-serif;
+    font-size: 2.3rem;
     color:black;
     margin: 1em auto;
   }
@@ -87,8 +94,9 @@
 
 .lore-text{
   margin: 1em;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   line-height:1.4em;
+  font-weight:300;
   color: black;
 }
 
