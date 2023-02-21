@@ -13,47 +13,54 @@ import hufflepuffSigil from '../../assets/img/blason-poufsouffle.png';
 import './style.scss';
 
 const Lore = () => {
-  let returnedComponent;
-  const [selectedHouse, setHouse] = useState('default');
+  const [selectedHouse, setSelectedHouse] = useState('default');
   const handleClickOnSigil = (event) => {
-    console.log(selectedHouse);
-    setHouse(event.target.alt);
-    console.log(selectedHouse);
+    setSelectedHouse(event.target.alt);
   };
-  if (selectedHouse === 'default') {
-    returnedComponent = <LoreDefault />;
-  }
-  if (selectedHouse === 'Serpentard') {
-    returnedComponent = <LoreSlytherin />;
-  }
-  if (selectedHouse === 'Poufsouffle') {
-    returnedComponent = <LoreHufflepuff />;
-  }
-  if (selectedHouse === 'Serdaigle') {
-    returnedComponent = <LoreRavenclaw />;
-  }
-  if (selectedHouse === 'Gryffondor') {
-    returnedComponent = <LoreGryffindor />;
-  }
-
   return (
-
     <div>
       <Header />
       <div className="lore-wrapper">
         <h2 className="lore-title">Bienvenue à Poudlard!</h2>
         <ul className="house-sigils">
           {/* Liste des props pour SigilElement: img, name */}
-          <SigilElement img={gryffindorSigil} name="Gryffondor" handleClickOnSigil={handleClickOnSigil} />
-          <SigilElement img={slytherinSigil} name="Serpentard" handleClickOnSigil={handleClickOnSigil} />
-          <SigilElement img={ravenclawSigil} name="Serdaigle" handleClickOnSigil={handleClickOnSigil} />
-          <SigilElement img={hufflepuffSigil} name="Poufsouffle" handleClickOnSigil={handleClickOnSigil} />
+          <SigilElement
+            img={gryffindorSigil}
+            name="Gryffondor"
+            handleClickOnSigil={handleClickOnSigil}
+            selectedHouse={selectedHouse}
+            selected={selectedHouse === 'Gryffondor'}
+          />
+          <SigilElement
+            img={slytherinSigil}
+            name="Serpentard"
+            handleClickOnSigil={handleClickOnSigil}
+            selectedHouse={selectedHouse}
+            selected={selectedHouse === 'Serpentard'}
+          />
+          <SigilElement
+            img={ravenclawSigil}
+            name="Serdaigle"
+            handleClickOnSigil={handleClickOnSigil}
+            selectedHouse={selectedHouse}
+            selected={selectedHouse === 'Serdaigle'}
+          />
+          <SigilElement
+            img={hufflepuffSigil}
+            name="Poufsouffle"
+            handleClickOnSigil={handleClickOnSigil}
+            selectedHouse={selectedHouse}
+            selected={selectedHouse === 'Poufsouffle'}
+          />
         </ul>
         <div className="house-lore">
           <div className="house-lore__mid-border">
             <div className="house-lore__inner-border">
-              {returnedComponent}
-
+              {selectedHouse === 'default' && <LoreDefault />}
+              {selectedHouse === 'Serpentard' && <LoreSlytherin />}
+              {selectedHouse === 'Poufsouffle' && <LoreHufflepuff />}
+              {selectedHouse === 'Serdaigle' && <LoreRavenclaw />}
+              {selectedHouse === 'Gryffondor' && <LoreGryffindor />}
             </div>
           </div>
         </div>

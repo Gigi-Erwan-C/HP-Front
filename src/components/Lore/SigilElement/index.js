@@ -1,12 +1,12 @@
-import { func, string } from 'prop-types';
+import { bool, func, string } from 'prop-types';
 
-const SigilElement = ({ img, name, handleClickOnSigil }) => (
+const SigilElement = ({
+  img, name, handleClickOnSigil, selected,
+}) => (
 
   <li>
-    <div className="box-inner">
-      <img src={img} onClick={handleClickOnSigil} alt={name} />
-      <h3 className="house-name"> {name} </h3>
-    </div>
+    <img className={selected ? 'image__selected' : 'image'} src={img} onClick={handleClickOnSigil} alt={name} />
+    <h3 className="house-name"> {name} </h3>
   </li>
 );
 
@@ -16,4 +16,5 @@ SigilElement.propTypes = {
   name: string.isRequired,
   img: string.isRequired,
   handleClickOnSigil: func.isRequired,
+  selected: bool.isRequired,
 };
