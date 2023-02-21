@@ -1,14 +1,13 @@
 @use 'src/styles/vars';
 
 .password-form {
-  background: url('../../assets/img/forbidden-forest-hp.jpg');
-  background-size: cover;
-  background-position: center center;
+
 }
 
 .password-form h1 {
   font-size:4rem;
   color:vars.$color-white;
+  margin-bottom: 2rem;
 }
 
 
@@ -17,3 +16,4 @@
     flex-direction: column;
   } 
 }
+

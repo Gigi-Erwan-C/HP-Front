@@ -25,7 +25,7 @@ const Password = () => (
         <Field
           name="password"
           type="password"
-          placeholder="Confirmation du nouveau   mot de passe"
+          placeholder="Confirmation du nouveau mot de passe"
           // onChange={changeField}
           // value=""
         />
