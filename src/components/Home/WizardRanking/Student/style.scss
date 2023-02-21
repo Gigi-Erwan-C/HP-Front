@@ -18,6 +18,7 @@
   justify-content: space-around;
   align-items: center;
   width: 38.5rem;
+  margin-bottom:0.4rem;
 }
 
 .text-container {
@@ -39,6 +40,7 @@ width: 22rem;
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
+  background:vars.$color-white;
 }
 
 &-slytherin {
@@ -50,6 +52,7 @@ width: 22rem;
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
+  background:vars.$color-white;
 }
 
 &-ravenclaw {
@@ -61,6 +64,7 @@ width: 22rem;
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
+  background:vars.$color-white;
 }
 
 &-hufflepuff {
@@ -72,6 +76,7 @@ width: 22rem;
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
+  background:vars.$color-white;
 }
 }
 
@@ -182,4 +187,15 @@ width: 22rem;
   justify-content: space-around;
   align-items: center;
   color: vars.$color-gryffondor;
+}
+
+
+@media (max-width: 942px) {
+  .text-container-gryffindor, .text-container-slytherin, .text-container-ravenclaw, .text-container-hufflepuff {
+    width: 20rem;
+  }
+
+  .student-img {
+    width:70px;
+  }
 }

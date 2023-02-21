@@ -27,7 +27,7 @@ const Hourglass = ({
             <div className="points" />
           </div>
           <div className="middle" />
-          <div className="bottom-first" />
+          {/* <div className="bottom-first" /> */}
           <div className="bottom-second">
             <div className="points" />
           </div>

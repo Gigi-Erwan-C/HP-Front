@@ -5,7 +5,7 @@ import Footer from '../Footer';
 import Home from '../Home';
 import Login from '../Login';
 import Account from '../Account';
-import './styles.css';
+import './styles.scss';
 
 // == Composant
 const App = () => (

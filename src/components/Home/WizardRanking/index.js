@@ -2,8 +2,8 @@ import Student from './Student';
 import './style.scss';
 
 const WizardRanking = () => (
-  <div>
-    <h1>Classement des meilleurs sorciers</h1>
+  <div className="wizard-ranking">
+    <h2 className="wizard-type">Classement des meilleurs sorciers</h2>
     <Student name="Mathieu" house="Gryffondor" points={175} container="text-container-gryffindor" houseName="student-name-gryffindor" houseColor="student-house-gryffindor" />
     <Student name="David" house="Serpentard" points={160} container="text-container-slytherin" houseName="student-name-slytherin" houseColor="student-house-slytherin" />
     <Student name="Jean-Matthieu" house="Serdaigle" points={145} container="text-container-ravenclaw" houseName="student-name-ravenclaw" houseColor="student-house-ravenclaw" />

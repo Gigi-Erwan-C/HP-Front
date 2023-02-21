@@ -5,8 +5,18 @@
   src: url('../../../assets/fonts/harryp.ttf');
 }
 
-h1 {
-font-family: 'Harry', sans-serif;
-font-size: 2.6rem;
-text-align: center;
+.wizard-type {
+  font-family: 'Harry', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  color:vars.$color-white;
+  margin-bottom:2rem;
+}
+
+.student-point {
+  color:vars.$color-white;
+}
+
+.wizard-ranking {
+  padding-bottom:3rem;
 }

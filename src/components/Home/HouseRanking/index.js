@@ -15,7 +15,7 @@ const HouseRanking = () => {
   return (
     <div className="house-ranking">
       <h2 className="ranking-type">
-        Classement des 4 maisons (composant title ici)
+        Classement des 4 maisons
       </h2>
       {
       // Il faudra mapper sur un array correspondant aux maisons  pour générer les sabliers avec les classements.

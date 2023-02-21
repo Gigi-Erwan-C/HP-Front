@@ -92,28 +92,45 @@ align-items: center;
   position: relative;
 }
 
-.bottom-first::before {
+// .bottom-first::before {
+//   content: '';
+//   position: absolute;
+//   display: block;
+//   height: 200%;
+//   width: 10%;
+//   background-color: #000;
+//   top: -10%;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   animation: move 4s;
+//   z-index: 1;
+// }
+
+.bottom-second {
+  // height: 18%;
+  height:30%;
+  width: 40%;
+  background: linear-gradient(to right, #f4f4f4, #bad6e3, #bbdef0, #bbdef0, #bad6e3, #f4f4f4);
+  border: 1px solid #bbdef0;
+  // border-top-color: transparent;
+  // border-radius: 0 0 10% 10%;
+  border-radius: 45% 45% 0 0;
+  position: relative;
+}
+
+
+.bottom-second::before {
   content: '';
   position: absolute;
   display: block;
-  height: 200%;
+  //height: 105%;
   width: 10%;
   background-color: #000;
   top: -10%;
   left: 50%;
   transform: translateX(-50%);
-  animation: move 4s;
+  animation: move 7s;
   z-index: 1;
-}
-
-.bottom-second {
-  height: 18%;
-  width: 40%;
-  background: linear-gradient(to right, #f4f4f4, #bad6e3, #bbdef0, #bbdef0, #bad6e3, #f4f4f4);
-  border: 1px solid #bbdef0;
-  border-top-color: transparent;
-  border-radius: 0 0 10% 10%;
-  position: relative;
 }
 
 .top .points {
@@ -126,22 +143,22 @@ align-items: center;
   left: 3%;
 }
 
-.slytherin .bottom-first::before,
+.slytherin .bottom-second::before,
 .slytherin .top .points {
   background-color: #2a623d;
 }
 
-.ravenclaw .bottom-first::before,
+.ravenclaw .bottom-second::before,
 .ravenclaw .top .points {
   background-color: #222f5b;
 }
 
-.gryffindor .bottom-first::before,
+.gryffindor .bottom-second::before,
 .gryffindor .top .points {
   background-color: #ae0001;
 }
 
-.hufflepuff .bottom-first::before,
+.hufflepuff .bottom-second::before,
 .hufflepuff .top .points {
   background-color: #ecb939;
 }
@@ -149,7 +166,7 @@ align-items: center;
 .bottom-second .points {
   height: 0%;
   width: 98%;
-  border-radius: 25% 25% 10% 10%;
+  border-radius: 45% 45% 0 0;
   position: absolute;
   bottom: 1%;
   left: 1%;
@@ -209,8 +226,12 @@ align-items: center;
     height: 0;
 	}
 
-	100% {
-    height: 200%;
+	50% {
+    height: 108%;
+	}
+
+  100% {
+    height: 0;
 	}
 }
 
