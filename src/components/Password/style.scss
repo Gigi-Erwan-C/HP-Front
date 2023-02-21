@@ -1,13 +1,16 @@
 @use 'src/styles/vars';
 
-.password-form {
-
+@font-face {
+  font-family: 'Harry';
+  src: url('../../assets/fonts/harryp.ttf');
 }
 
 .password-form h1 {
   font-size:4rem;
   color:vars.$color-white;
   margin-bottom: 2rem;
+  font-family:'Harry', sans-serif;
+  letter-spacing:0.2rem;
 }
 
 
