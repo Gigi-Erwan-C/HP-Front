@@ -1,5 +1,14 @@
+@font-face {
+  font-family: 'Harry';
+  src: url('../../assets/fonts/harryp.ttf');
+}
+
 .legal-notice-container h1  {
+  font-family:'Harry', sans-serif;
+  font-size:4rem;
+  letter-spacing:0.2rem;
   margin-top: 2rem;
+  text-align:center;
 }
 
 .legal-notice-container h2 {
