@@ -5,12 +5,10 @@
   src: url('../../../../assets/fonts/Tangerine-Regular.ttf');
 }
 
-
 .student-list {
   display: flex;
   justify-content: center;
 }
-
 
 .student-item {
   display: flex;
@@ -48,7 +46,6 @@
   border: 3px solid vars.$color-serdaigle;
 }
 
-
 .student-name {
   font-family: 'josefin Sans' sans-serif;
   margin-left: 1.8rem;
@@ -83,7 +80,6 @@
 .student-img {
   width:90px;
 }
-
 
 @media (max-width: 942px) {
   .text-container-gryffindor, .text-container-slytherin, .text-container-ravenclaw, .text-container-hufflepuff {
