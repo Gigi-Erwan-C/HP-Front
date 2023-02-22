@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "lastname": "Laf",
+        "firstname": "JM",
+        "class": "3B",
+        "score": 0,
+        "house_id": 2,
+        "created_at": "2023-02-17T16:21:08.364Z",
+        "updated_at": null
+    },
+    {
+        "id": 2,
+        "lastname": "Res",
+        "firstname": "David",
+        "class": "4A",
+        "score": 0,
+        "house_id": 1,
+        "created_at": "2023-02-17T16:21:08.364Z",
+        "updated_at": null
+    },
+    {
+        "id": 3,
+        "lastname": "Mus",
+        "firstname": "Laurie",
+        "class": "4C",
+        "score": 0,
+        "house_id": 3,
+        "created_at": "2023-02-17T16:21:08.364Z",
+        "updated_at": null
+    },
+    {
+        "id": 4,
+        "lastname": "Moy",
+        "firstname": "Mathieu",
+        "class": "4P",
+        "score": 0,
+        "house_id": 4,
+        "created_at": "2023-02-17T16:21:08.364Z",
+        "updated_at": null
+    },
+    {
+        "id": 5,
+        "lastname": "Ros",
+        "firstname": "Gigi",
+        "class": "3C",
+        "score": 0,
+        "house_id": 2,
+        "created_at": "2023-02-17T16:21:08.364Z",
+        "updated_at": null
+    }
+]
