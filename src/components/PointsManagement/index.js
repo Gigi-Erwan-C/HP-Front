@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Navbar from '../Navbar';
+import Sort from '../Sort';
 import './style.scss';
 
 const PointsManagement = ({ component, selectedStudent, selectedHouse }) => (
@@ -15,7 +16,7 @@ const PointsManagement = ({ component, selectedStudent, selectedHouse }) => (
             <NavLink to="/classement/maisons" type="button" className={`select-button ${selectedHouse}`}>Les maisons</NavLink>
           </div>
           <div>
-            filtre ici
+            <Sort />
           </div>
         </div>
         <div>
