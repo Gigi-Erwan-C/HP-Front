@@ -7,7 +7,7 @@ const Student = ({
   house_name,
   score,
   house_name_in_english,
-  houseLogo
+  houseLogo,
 }) => (
   <ul className="student-list">
     <li className="student-item">

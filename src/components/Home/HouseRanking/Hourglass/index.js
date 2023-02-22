@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const Hourglass = ({
-  points, name, nameInEnglish, rank, percentage
+  points, name, nameInEnglish, rank, percentage,
 }) => {
   const firstLetter = Array.from(nameInEnglish)[0];
   const generateKeyframes = () => `
