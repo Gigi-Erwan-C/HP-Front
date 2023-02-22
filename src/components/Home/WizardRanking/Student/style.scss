@@ -22,63 +22,32 @@
 }
 
 .text-container {
+  width: 22rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  background:vars.$color-white;
+}
+
+.gryffindor-border {
   border: 3px solid vars.$color-gryffondor;
-  width: 22rem;
-  height: 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-
-&-gryffindor {
-border: 3px solid vars.$color-gryffondor;
-width: 22rem;
-  height: 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  background:vars.$color-white;
 }
 
-&-slytherin {
+.slytherin-border {
   border: 3px solid vars.$color-serpentard;
-  width: 22rem;
-  height: 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  background:vars.$color-white;
 }
 
-&-ravenclaw {
-  border: 3px solid vars.$color-serdaigle;
-  width: 22rem;
-  height: 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  background:vars.$color-white;
-}
-
-&-hufflepuff {
+.hufflepuff-border {
   border: 3px solid vars.$color-poufsouffle;
-  width: 22rem;
-  height: 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  background:vars.$color-white;
 }
+
+.ravenclaw-border {
+  border: 3px solid vars.$color-serdaigle;
 }
+
 
 .student-name {
   font-family: 'josefin Sans' sans-serif;
@@ -86,38 +55,6 @@ width: 22rem;
   color: vars.$color-gryffondor;
   font-weight: bold;
   font-size: 17px;
-
-&-gryffindor {
-  font-family: 'josefin Sans' sans-serif;
-  margin-left: 1.8rem;
-  color: vars.$color-gryffondor;
-  font-weight: bold;
-  font-size: 17px;
-}
-
-&-slytherin {
-  font-family: 'josefin Sans' sans-serif;
-  margin-left: 1.8rem;
-  color: vars.$color-serpentard;
-  font-weight: bold;
-  font-size: 17px;
-}
-
-&-hufflepuff {
-  font-family: 'josefin Sans' sans-serif;
-  margin-left: 1.8rem;
-  color: vars.$color-poufsouffle;
-  font-weight: bold;
-  font-size: 17px;
-}
-
-&-ravenclaw {
-  font-family: 'josefin Sans' sans-serif;
-  margin-left: 1.8rem;
-  color: vars.$color-serdaigle;
-  font-weight: bold;
-  font-size: 17px;
-}
 }
 
 .student-house {
@@ -125,68 +62,22 @@ width: 22rem;
   margin-right: 1.8rem;
   color: vars.$color-gryffondor;
   font-size: 22px;
-
-&-gryffindor {
-  font-family: 'Tangerine', cursive;
-  margin-right: 1.8rem;
-  color: vars.$color-gryffondor;
-  font-size: 22px;
 }
 
-
-&-slytherin {
-  font-family: 'Tangerine', cursive;
-  margin-right: 1.8rem;
-  color: vars.$color-serpentard;
-  font-size: 22px;
+.gryffindor {
+  color: vars.$color-gryffondor
 }
 
-&-hufflepuff {
-  font-family: 'Tangerine', cursive;
-  margin-right: 1.8rem;
-  color: vars.$color-poufsouffle;
-  font-size: 22px;
+.slytherin {
+  color: vars.$color-serpentard
 }
 
-&-ravenclaw {
-  font-family: 'Tangerine', cursive;
-  margin-right: 1.8rem;
-  color: vars.$color-serdaigle;
-  font-size: 22px;
-}
+.ravenclaw {
+  color: vars.$color-serdaigle
 }
 
-
-.slytherin-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  color: vars.$color-serpentard;
-}
-
-.hufflepuff-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  color: vars.$color-poufsouffle;
-} 
-
-.ravenclaw-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  color: vars.$color-serdaigle;
-}
-
-.gryffindor-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  color: vars.$color-gryffondor;
+.hufflepuff {
+  color: vars.$color-poufsouffle
 }
 
 .student-img {
