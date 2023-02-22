@@ -5,7 +5,6 @@
 }
 
 .professor-interface-container {
-  height:100vh;
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +30,6 @@
 
 .professor-interface{
   width:85%;
-  height: 85%;
   background-color:white;
 }
 
@@ -40,7 +38,8 @@
   letter-spacing: vars.$title-letter-spacing;
   font-size:vars.$font-size-title;
   text-transform: uppercase;
-  margin-bottom:2rem;
+  margin-top:2em;
+  margin-bottom:2em;
   color:vars.$color-white;
 }
 
@@ -48,5 +47,5 @@
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin: 2em 4em;
+  margin: 2em 2em;
 }

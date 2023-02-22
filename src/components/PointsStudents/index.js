@@ -1,4 +1,5 @@
 import './style.scss';
+import { useState } from 'react';
 import SearchBar from '../SearchBar';
 import Filter from '../Filter';
 import Student from './Student';

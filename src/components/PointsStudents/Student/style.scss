@@ -1,0 +1,47 @@
+@use 'src/styles/vars';
+
+.point-student {
+  width:100%;
+  margin-bottom:1rem;
+}
+
+.point-student-header {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  background:vars.$color-grey;
+  color:vars.$color-white;
+  padding:1rem 2rem;
+}
+
+.point-student-header span {
+  display:inline-block;
+  min-width:250px;
+}
+
+.student-point-points {
+  font-weight:800;
+}
+
+.point-student .add, .point-student .delete {
+  width:45px;
+  height:45px;
+  padding-top:2px;
+  background:vars.$color-white;
+  border-radius:40px;
+  color:vars.$color-grey;
+  text-align:center;
+  font-size:2.5rem;
+  cursor: pointer;
+}
+
+.point-student .add {
+  margin-right:1rem;
+}
+.point-student-manage {
+  display:flex;
+}
+
+.points-management-recipient {
+  margin:2em;
+}
