@@ -1,0 +1,51 @@
+@use 'src/styles/vars';
+@font-face {
+  font-family: 'Harry';
+  src: url('../../assets/fonts/harryp.ttf');
+}
+
+.professor-interface-container {
+  height:100vh;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url('../../assets/img/forbidden-forest-hp.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+.select-button{
+  margin:1em;
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+  padding:1em;
+  border-radius:5px;
+}
+
+.selected{
+  color: white;
+  background-color:black;
+}
+
+.professor-interface{
+  width:75%;
+  height: 75%;
+  background-color:white;
+}
+
+.professor-interface-title {
+  font-family:'Harry', sans-serif;
+  letter-spacing: vars.$title-letter-spacing;
+  font-size:vars.$font-size-title;
+  text-transform: uppercase;
+  margin-bottom:2rem;
+  color:vars.$color-white;
+}
+
+.professor-interface-top{
+  display:flex;
+  justify-content:space-between;
+  margin: 2em 4em;
+}
