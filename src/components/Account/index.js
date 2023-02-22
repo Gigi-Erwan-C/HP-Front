@@ -19,8 +19,8 @@ const Account = () => {
           Se déconnecter
         </a>
         <div className="account-list">
-          <Item link="#" image={student} name="Les élèves" />
-          <Item link="#" image={house} name="Les maisons" />
+          <Item link="/classement/eleves" image={student} name="Les élèves" />
+          <Item link="/classement/maisons" image={house} name="Les maisons" />
           {role === 'admin' && (
           <Item link="#" image={user} name="Gestion des utilisateurs" />
           )}
