@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Gryffondor",
+    "nameInEnglish": "Gryffindor",
+    "picture": "src/assets/img/blason-gryffondor.png",
+    "points": 1000
+  },
+  {
+    "id": 2,
+    "name": "Serpentard",
+    "nameInEnglish": "Slytherin",
+    "picture": "src/assets/img/blason-serpentard.png",
+    "points": 700
+  },
+  {
+    "id": 4,
+    "name": "Serdaigle",
+    "nameInEnglish": "Ravenclaw",
+    "picture": "src/assets/img/blason-serdaigle.png",
+    "points": 500
+  },
+  {
+    "id": 3,
+    "name": "Poufsouffle",
+    "nameInEnglish": "Hufflepuff",
+    "picture": "src/assets/img/blason-poufsouffle.png",
+    "points": 400
+  }
+]

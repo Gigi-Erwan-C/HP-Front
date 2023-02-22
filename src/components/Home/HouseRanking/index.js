@@ -1,16 +1,17 @@
 import HourGlass from './Hourglass';
+import houseData from '../../../db/houses.json';
 import './style.scss';
 
 const HouseRanking = () => {
   // Cet array contient les données de points de nos maisons
-  const housePoints = [
-    { points: 1000 },
-    { points: 250 },
-    { points: 100 },
-    { points: 300 },
-  ];
-  // On utilise reduce pour ajouter tout les points entre eux
-  const totalPoints = housePoints.reduce((acc, curr) => acc + curr.points, 0);
+  const housePoints = houseData.map((house) => (
+    house.points
+  ));
+
+  const totalPoints = housePoints.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+  );
+  console.log(totalPoints);
 
   return (
     <div className="house-ranking">
@@ -18,53 +19,18 @@ const HouseRanking = () => {
         Classement des 4 maisons
       </h2>
       {
-      // Il faudra mapper sur un array correspondant aux maisons  pour générer les sabliers avec les classements.
-      // Pour l'instant, on les génère en dur:
-    }
-
+      // Ce dont on a besoins pour mapper qui n'est pas dans les data:
+      // 1. Rank
+      // 2. Le total des points
+      // 3. Le pourcentage de chaque maisons
+      }
       <div className="ranking-container">
-        <HourGlass
-          rank={1}
-          // on prend les points dans l'index [0] de notre array points
-          points={housePoints[0].points}
-          // On effectue un calcul avec le total des points pour générer un pourcentage
-          percentage={((housePoints[0].points / totalPoints) * 100)}
-          pointsSinceLastTick={55}
-          house="Gryffondor"
-          houseInEnglish="Gryffindor"
-          totalPoints={totalPoints}
-        />
-        <HourGlass
-          rank={2}
-          points={housePoints[1].points}
-          percentage={(housePoints[1].points / totalPoints) * 100}
-          pointsSinceLastTick={20}
-          house="Serpentard"
-          houseInEnglish="Slytherin"
-          totalPoints={totalPoints}
-        />
-        <HourGlass
-          rank={3}
-          points={housePoints[2].points}
-          percentage={(housePoints[2].points / totalPoints) * 100}
-          pointsSinceLastTick={50}
-          house="Serdaigle"
-          houseInEnglish="Ravenclaw"
-          totalPoints={totalPoints}
-        />
-        <HourGlass
-          rank={4}
-          points={housePoints[3].points}
-          percentage={(housePoints[3].points / totalPoints) * 100}
-          pointsSinceLastTick={0}
-          house="Poufsouffle"
-          houseInEnglish="Hufflepuff"
-          totalPoints={totalPoints}
-        />
+        {houseData.map((house, index) => (
+          <HourGlass key={house.id} {...house} rank={index + 1} percentage={((house.points / totalPoints) * 100)} />
+        ))}
         {
-          // console.log(pointsArray)
         // Liste des props à passer à HourGlass:
-        // rank (number), points(number), pointsSinceLastTick(number), house(string), houseInEnglish(string),
+        // rank (number), points(number), pointsSinceLastTick(number), name(string), nameInEnglish(string),
       }
       </div>
 
