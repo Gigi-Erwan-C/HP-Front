@@ -12,6 +12,7 @@ import Password from '../Password';
 import PointsManagement from '../PointsManagement';
 import PointsHouse from '../PointsHouse';
 import PointsStudents from '../PointsStudents';
+import PageNotFound from '../PageNotFound';
 import './styles.scss';
 
 // == Composant
@@ -27,6 +28,7 @@ const App = () => (
       <Route path="/mon-compte/mot-de-passe" element={<Password />} />
       <Route path="/classement/maisons" element={<PointsManagement component={<PointsHouse />} selectedHouse="selected" />} />
       <Route path="/classement/eleves" element={<PointsManagement component={<PointsStudents />} selectedStudent="selected" />} />
+      <Route path="*" element={<PageNotFound />} />
 
     </Routes>
     <Footer />
