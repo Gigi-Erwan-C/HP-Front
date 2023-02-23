@@ -11,7 +11,7 @@ const Sort = ({
 (
   <form className="form-sort">
     <span className="form-sort-title">Trier par</span>
-    <select value="alphabet">
+    <select>
       <option value="alphabet">De A à Z</option>
       <option value="reverse-alphabet">De Z à A</option>
       <option value="sort">Score croissant</option>
