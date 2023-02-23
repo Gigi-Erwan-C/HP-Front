@@ -35,7 +35,7 @@ const PointsManagement = ({ component, selectedStudent, selectedHouse }) => (
 export default PointsManagement;
 
 PointsManagement.propTypes = {
-  component: PropTypes.string.isRequired,
+  component: PropTypes.any.isRequired,
   selectedStudent: PropTypes.string,
   selectedHouse: PropTypes.string,
 };

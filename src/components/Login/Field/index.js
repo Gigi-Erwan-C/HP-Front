@@ -6,23 +6,22 @@ import './style.scss';
 
 // == Composant
 const Field = ({
-  // value,
+  value,
   type,
   name,
   placeholder,
-  // onChange,
+  handleChange,
 }) => {
-  // const handleChange = (evt) => {
-  //   onChange(evt.target.value, name);
-  // };
-
+  const changeInput = (evt) => {
+    handleChange(evt.target.value, name);
+  };
   const inputId = `field-${name}`;
 
   return (
     <div className="input-field">
       <input
-        // value={value}
-        // onChange={handleChange}
+        value={value}
+        onChange={changeInput}
         id={inputId}
         type={type}
         className="field-input"
@@ -35,11 +34,11 @@ const Field = ({
 };
 
 Field.propTypes = {
-  //value: PropTypes.string,
-  type: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  //onChange: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 // == Export

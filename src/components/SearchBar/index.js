@@ -6,6 +6,7 @@ const SearchBar = () => (
     <Field
       type="text"
       placeholder="Rechercher un élève par nom/prénom"
+      value=""
     />
   </form>
 );

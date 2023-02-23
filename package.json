@@ -52,12 +52,15 @@
     "@fontsource/roboto": "^4.5.8",
     "@mui/material": "^5.11.10",
     "@mui/styled-engine-sc": "^5.11.9",
+    "@reduxjs/toolkit": "^1.9.3",
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",
     "react-helmet": "^6.1.0",
+    "react-redux": "^8.0.5",
     "react-router": "^6.8.1",
     "react-router-dom": "^6.8.1",
+    "redux": "^4.2.1",
     "styled-components": "^5.3.6"
   }
 }

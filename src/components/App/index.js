@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 // == Import
 import { Route, Routes } from 'react-router-dom';
 import Footer from '../Footer';
@@ -13,6 +12,9 @@ import PointsManagement from '../PointsManagement';
 import PointsHouse from '../PointsHouse';
 import PointsStudents from '../PointsStudents';
 import PageNotFound from '../PageNotFound';
+import AdminInterface from '../AdminInterface';
+import AdminInterfaceStudents from '../AdminInterfaceStudents';
+import AdminInterfaceTeachers from '../AdminInterfaceTeachers';
 import './styles.scss';
 
 // == Composant
@@ -23,11 +25,13 @@ const App = () => (
       <Route path="/regles" element={<Rules />} />
       <Route path="/login" element={<Login />} />
       <Route path="/histoire" element={<Lore />} />
-      <Route path="/mon-compte" element={<Account />} />
       <Route path="/mentions-legales" element={<LegalNotice />} />
+      <Route path="/mon-compte" element={<Account />} />
       <Route path="/mon-compte/mot-de-passe" element={<Password />} />
       <Route path="/classement/maisons" element={<PointsManagement component={<PointsHouse />} selectedHouse="selected" />} />
       <Route path="/classement/eleves" element={<PointsManagement component={<PointsStudents />} selectedStudent="selected" />} />
+      <Route path="/admin/eleves" element={<AdminInterface component={<AdminInterfaceStudents />} selectedStudent="selected" />} />
+      <Route path="/admin/utilisateurs" element={<AdminInterface component={<AdminInterfaceTeachers />} selectedTeacher="selected" />} />
       <Route path="*" element={<PageNotFound />} />
 
     </Routes>
