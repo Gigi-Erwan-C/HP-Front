@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { useDispatch, useSelector } from 'react-redux';
 import { changeEmailAndPassword } from '../../store/reducers/user';
 import Navbar from '../Navbar';
