@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import './style.scss';
 
-const Student = ({ firstname, lastname, house_name, score }) => {
+const Student = ({
+  firstname, lastname, house_name, score,
+}) => {
   const [showAdd, setShowAddForm] = useState(false);
   const [showDelete, setShowDeleteForm] = useState(false);
   const manageAddPoint = () => {
