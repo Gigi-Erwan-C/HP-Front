@@ -98,3 +98,25 @@
   font-size:17px;
   font-weight:600;
 }
+
+.form-select-change-house{
+  border:1px solid vars.$color-grey;
+  border-radius:5px;
+  width: 30%;
+  height: 40px;
+  padding: 0.7rem;
+  outline: none;
+  margin-left:1em;
+}
+
+.delete-button{
+  border:none;
+  background:#757575;
+  color:vars.$color-white;
+  height:45px;
+  width:10em;
+  border-radius:5px;
+  font-family: 'Josefin sans', sans-serif;
+  font-size:17px;
+  font-weight:600;
+}

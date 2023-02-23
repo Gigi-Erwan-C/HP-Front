@@ -9,12 +9,13 @@ import './style.scss';
 const LoginForm = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.user.userData);
-  // const { email, password } = { userData };
-  const { email, password } = userData;
   // const logged = useSelector((state) => state.user.logged);
+  const { email, password } = userData;
+
   const handleInputChange = (value, name) => {
     dispatch(changeEmailAndPassword({ key: name, value: value }));
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(event.target);
