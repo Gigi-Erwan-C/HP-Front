@@ -12,13 +12,16 @@ const Field = ({
   placeholder,
   handleChange,
 }) => {
+  const changeInput = (evt) => {
+    handleChange(evt.target.value, name);
+  };
   const inputId = `field-${name}`;
 
   return (
     <div className="input-field">
       <input
         value={value}
-        onChange={handleChange}
+        onChange={changeInput}
         id={inputId}
         type={type}
         className="field-input"

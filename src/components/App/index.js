@@ -11,6 +11,8 @@ import LegalNotice from '../LegalNotice';
 import Password from '../Password';
 import PointsManagement from '../PointsManagement';
 import PointsStudents from '../PointsStudents';
+import AdminInterface from '../AdminInterface';
+import AdminInterfaceStudents from '../AdminInterfaceStudents';
 import './styles.scss';
 
 // == Composant
@@ -21,11 +23,13 @@ const App = () => (
       <Route path="/regles" element={<Rules />} />
       <Route path="/login" element={<Login />} />
       <Route path="/histoire" element={<Lore />} />
-      <Route path="/mon-compte" element={<Account />} />
       <Route path="/mentions-legales" element={<LegalNotice />} />
+      <Route path="/mon-compte" element={<Account />} />
       <Route path="/mon-compte/mot-de-passe" element={<Password />} />
       <Route path="/classement/maisons" element={<PointsManagement component="maison" selectedHouse="selected" />} />
       <Route path="/classement/eleves" element={<PointsManagement component={<PointsStudents />} selectedStudent="selected" />} />
+      <Route path="/admin/eleves" element={<AdminInterface component={<AdminInterfaceStudents />} selectedStudent="selected" />} />
+      <Route path="/admin/utilisateurs" element={<AdminInterface component="profs" selectedTeacher="selected" />} />
 
     </Routes>
     <Footer />

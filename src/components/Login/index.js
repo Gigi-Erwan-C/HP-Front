@@ -9,26 +9,29 @@ import './style.scss';
 const LoginForm = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.user.userData);
-  const { email, password } = { userData };
+  // const { email, password } = { userData };
+  const { email, password } = userData;
   // const logged = useSelector((state) => state.user.logged);
-  const handleInputChange = (event, name) => {
-    dispatch(changeEmailAndPassword({ key: name, value: event.target.value }));
+  const handleInputChange = (value, name) => {
+    dispatch(changeEmailAndPassword({ key: name, value: value }));
   };
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    handleLogin();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(event.target);
+    // handleLogin();
   };
 
   return (
     <div className="login-form">
       <Navbar classColor="logo grey" classLinkColor="menu-link grey" />
-      <form autoComplete="off" className="login-form-element">
+      <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
         <h2 className="login-form-title">
           Se connecter
         </h2>
         <Field
           handleChange={handleInputChange}
           name="email"
+          type="email"
           placeholder="Email"
           value={email}
         />
