@@ -5,13 +5,21 @@
   margin-bottom:1rem;
   background:vars.$color-grey;
   padding:1rem 2rem;
+  row-gap: 1.5em;
 }
 
 .point-student-header {
   display:flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  row-gap: 1.5em;
   color:vars.$color-white;
+}
+
+.student-header-info {
+  display:flex;
+  flex-wrap: wrap;
 }
 
 .point-student-header span {
@@ -57,11 +65,13 @@
   margin-top:1rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .point-student-add, .point-student-delete {
   display:flex;
   margin-left:2rem;
+  flex-wrap: wrap;
 }
 
 .point-student-add .field-input, .point-student-delete .field-input {
@@ -97,4 +107,41 @@
   font-family: 'Josefin sans', sans-serif;
   font-size:17px;
   font-weight:600;
+}
+
+
+
+
+@media (max-width: 942px) {
+  .point-student-header, .student-header-info   {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 1.5em;
+  }
+
+  .point-student-footer-manage, .point-student-add, .point-student-delete {
+    display:flex;
+    flex-direction: column;
+    row-gap: 1em;
+    width:100;
+  }
+
+  .point-student-add, .point-student-delete {
+    margin-left:0;
+    width:100%;
+  }
+
+  .point-student-footer-manage, .point-student-add .field-input, .point-student-delete .field-input, 
+  .point-student-add input[type=number], .point-student-delete input[type=number], .point-student-cancel, .point-student-submit {
+    width:100%;
+
+  }
+  
+  .point-student-cancel {
+    margin-left:0;
+  }
+  .point-student-footer-text {
+    font-size:1.2rem;
+  }
 }
