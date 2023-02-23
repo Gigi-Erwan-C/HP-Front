@@ -10,6 +10,7 @@ import Rules from '../Rules';
 import LegalNotice from '../LegalNotice';
 import Password from '../Password';
 import PointsManagement from '../PointsManagement';
+import PointsHouse from '../PointsHouse';
 import PointsStudents from '../PointsStudents';
 import './styles.scss';
 
@@ -24,7 +25,7 @@ const App = () => (
       <Route path="/mon-compte" element={<Account />} />
       <Route path="/mentions-legales" element={<LegalNotice />} />
       <Route path="/mon-compte/mot-de-passe" element={<Password />} />
-      <Route path="/classement/maisons" element={<PointsManagement component="maison" selectedHouse="selected" />} />
+      <Route path="/classement/maisons" element={<PointsManagement component={<PointsHouse />} selectedHouse="selected" />} />
       <Route path="/classement/eleves" element={<PointsManagement component={<PointsStudents />} selectedStudent="selected" />} />
 
     </Routes>
