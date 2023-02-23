@@ -5,7 +5,7 @@ import Student from './Student';
 import AddStudentForm from './AddStudentForm';
 import studentData from '../../db/students.json';
 
-const PointsStudents = () => (
+const AdminInterfaceStudents = () => (
   <div className="points-management-recipient">
     <Filter />
     <AddStudentForm />
@@ -22,4 +22,4 @@ const PointsStudents = () => (
   </div>
 );
 
-export default PointsStudents;
+export default AdminInterfaceStudents;

@@ -13,6 +13,7 @@ import PointsManagement from '../PointsManagement';
 import PointsStudents from '../PointsStudents';
 import AdminInterface from '../AdminInterface';
 import AdminInterfaceStudents from '../AdminInterfaceStudents';
+import AdminInterfaceTeachers from '../AdminInterfaceTeachers';
 import './styles.scss';
 
 // == Composant
@@ -29,7 +30,7 @@ const App = () => (
       <Route path="/classement/maisons" element={<PointsManagement component="maison" selectedHouse="selected" />} />
       <Route path="/classement/eleves" element={<PointsManagement component={<PointsStudents />} selectedStudent="selected" />} />
       <Route path="/admin/eleves" element={<AdminInterface component={<AdminInterfaceStudents />} selectedStudent="selected" />} />
-      <Route path="/admin/utilisateurs" element={<AdminInterface component="profs" selectedTeacher="selected" />} />
+      <Route path="/admin/utilisateurs" element={<AdminInterface component={<AdminInterfaceTeachers />} selectedTeacher="selected" />} />
 
     </Routes>
     <Footer />

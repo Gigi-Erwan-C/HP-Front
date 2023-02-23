@@ -1,7 +1,7 @@
 import Field from '../../Login/Field';
 import './style.scss';
 
-const AddStudentField = () => (
+const AddStudentForm = () => (
   <form className="add-student-recipient">
     <h2> Ajouter un nouvel élève</h2>
     <div className="input-fields">
@@ -32,4 +32,4 @@ const AddStudentField = () => (
   </form>
 );
 
-export default AddStudentField;
+export default AddStudentForm;
