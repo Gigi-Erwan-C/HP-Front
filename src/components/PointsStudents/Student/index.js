@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import Field from '../../Login/Field';
 import './style.scss';
 
 const Student = ({
@@ -33,17 +34,91 @@ const Student = ({
           <div className="delete" onClick={manageDeletePoint}>-</div>
         </div>
       </div>
-      <div className="point-student-footer">
-        {showAdd && (
-        <div>hello add </div>
-        )}
-      </div>
 
-      <div className="point-student-footer">
-        {showDelete && (
-        <div>hello delete</div>
-        )}
-      </div>
+      {showAdd && (
+        <div className="point-student-footer">
+          <div className="point-student-footer-manage">
+            <span className="point-student-footer-text">Ajouter des points</span>
+            <form className="point-student-add">
+              <Field
+                name="motif"
+                placeholder="Motif"
+                type="text"
+                // onChange={changeField}
+                // value="email"
+              />
+
+              <Field
+                name="note"
+                placeholder="Note"
+                type="number"
+                className="field-note"
+                // onChange={changeField}
+                // value="email"
+              />
+
+              <button
+                type="submit"
+                className="point-student-submit"
+              >
+                Valider
+              </button>
+
+              <button
+                type="button"
+                className="point-student-cancel"
+                onClick={manageAddPoint}
+              >
+                Annuler
+              </button>
+
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showDelete && (
+        <div className="point-student-footer">
+          <div className="point-student-footer-manage">
+            <span className="point-student-footer-text">Enlever des points</span>
+            <form className="point-student-delete">
+              <Field
+                name="motif"
+                placeholder="Motif"
+                type="text"
+                  // onChange={changeField}
+                  // value="email"
+              />
+
+              <Field
+                name="note"
+                placeholder="Note"
+                type="number"
+                className="field-note"
+                // onChange={changeField}
+                // value="email"
+              />
+
+              <button
+                type="submit"
+                className="point-student-submit"
+              >
+                Valider
+              </button>
+
+              <button
+                type="button"
+                className="point-student-cancel"
+                onClick={manageDeletePoint}
+              >
+                Annuler
+              </button>
+
+
+            </form>
+          </div>
+        </div>
+      )}
     </div>
 
   );
