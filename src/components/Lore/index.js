@@ -22,7 +22,7 @@ const Lore = () => {
     <div>
       <Helmet>
         <title>
-          Histoire des maisons
+          Histoire des 4 maisons
         </title>
       </Helmet>
       <Header />
