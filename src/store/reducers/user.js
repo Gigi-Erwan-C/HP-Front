@@ -3,17 +3,21 @@ import { createAction, createReducer } from '@reduxjs/toolkit';
 
 export const initialState = {
   logged: false,
-  email: 'captain.sportsextremes@herocorp.io',
-  password: 'pingpong',
+  userData: {
+    email: '',
+    password: '',
+  },
 };
 
-export const changeField = createAction('user/changeField');
-export const saveUserInfos = createAction('user/saveUserInfos');
-export const logout = createAction('user/logout');
+export const changeEmailAndPassword = createAction('user/userData');
+export const changeLoggedStatus = createAction('user/logged');
+export const changeLoggedMessage = createAction('user/loggedMessage');
 
 const userReducer = createReducer(initialState, (builder) => {
   builder
-    
+    .addCase(changeEmailAndPassword, (state, action) => {
+      state.userData[action.payload.key] = action.payload.value;
+    });
 });
 
 export default userReducer;

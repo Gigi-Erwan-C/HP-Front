@@ -1,9 +1,18 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { changeEmailAndPassword } from '../../store/reducers/user';
 import Navbar from '../Navbar';
 import Field from './Field';
 
 import './style.scss';
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.user.userData);
+  const { email, password } = { userData };
+  // const logged = useSelector((state) => state.user.logged);
+  const handleInputChange = (event, name) => {
+    dispatch(changeEmailAndPassword({ key: name, value: event.target.value }));
+  };
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
@@ -17,17 +26,17 @@ const LoginForm = () => {
           Se connecter
         </h2>
         <Field
+          handleChange={handleInputChange}
           name="email"
           placeholder="Email"
-          // onChange={changeField}
-          // value="email"
+          value={email}
         />
         <Field
           name="password"
           type="password"
           placeholder="Mot de passe"
-          // onChange={changeField}
-          // value=""
+          handleChange={handleInputChange}
+          value={password}
         />
         <button
           type="submit"
