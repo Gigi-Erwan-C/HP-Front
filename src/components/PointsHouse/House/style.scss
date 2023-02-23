@@ -5,13 +5,21 @@
   margin-bottom:1rem;
   background:vars.$color-grey;
   padding:1rem 2rem;
+  row-gap: 1.5em;
 }
 
 .point-house-header {
   display:flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  row-gap: 1.5em;
   color:vars.$color-white;
+}
+
+.house-header-info {
+  display:flex;
+  flex-wrap: wrap;
 }
 
 .point-house-header span {
@@ -57,11 +65,13 @@
   margin-top:1rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.point-house-add, .point-student-delete {
+.point-house-add, .point-house-delete {
   display:flex;
   margin-left:2rem;
+  flex-wrap: wrap;
 }
 
 .point-house-add .field-input, .point-house-delete .field-input {
@@ -97,4 +107,41 @@
   font-family: 'Josefin sans', sans-serif;
   font-size:17px;
   font-weight:600;
+}
+
+
+
+
+@media (max-width: 942px) {
+  .point-house-header, .house-header-info   {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 1.5em;
+  }
+
+  .point-house-footer-manage, .point-house-add, .point-house-delete {
+    display:flex;
+    flex-direction: column;
+    row-gap: 1em;
+    width:100;
+  }
+
+  .point-house-add, .point-house-delete {
+    margin-left:0;
+    width:100%;
+  }
+
+  .point-house-footer-manage, .point-house-add .field-input, .point-house-delete .field-input, 
+  .point-house-add input[type=number], .point-house-delete input[type=number], .point-house-cancel, .point-house-submit {
+    width:100%;
+
+  }
+  
+  .point-house-cancel {
+    margin-left:0;
+  }
+  .point-house-footer-text {
+    font-size:1.2rem;
+  }
 }
