@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import Header from '../Header';
 import './style.scss';
 import rule1 from '../../assets/img/regle-1.jpg';
@@ -9,6 +10,9 @@ import rule6 from '../../assets/img/regle-6.jpg';
 
 const Rules = () => (
   <div className="page-rules">
+    <Helmet>
+      <title>Règles</title>
+    </Helmet>
     <Header />
     <div className="rules">
       <h1>Les droits des sorciers</h1>

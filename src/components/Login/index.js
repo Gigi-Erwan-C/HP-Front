@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import Navbar from '../Navbar';
 import Field from './Field';
 
@@ -11,6 +12,9 @@ const LoginForm = () => {
 
   return (
     <div className="login-form">
+      <Helmet>
+        <title>Connexion</title>
+      </Helmet>
       <Navbar classColor="logo grey" classLinkColor="menu-link grey" />
       <form autoComplete="off" className="login-form-element">
         <h2 className="login-form-title">

@@ -1,8 +1,12 @@
+import { Helmet } from 'react-helmet';
 import Header from '../Header';
 import './style.scss';
 
 const LegalNotice = () => (
   <div className="legal-notice-container">
+    <Helmet>
+      <title>Mentions Légales</title>
+    </Helmet>
     <Header />
     <h1>Mentions legales</h1>
     <h2>Propriété intellectuelle</h2>

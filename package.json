@@ -55,6 +55,7 @@
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",
+    "react-helmet": "^6.1.0",
     "react-router": "^6.8.1",
     "react-router-dom": "^6.8.1",
     "styled-components": "^5.3.6"

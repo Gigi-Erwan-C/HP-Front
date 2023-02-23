@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import Header from '../Header';
 import LoreDefault from './DefaultLore';
 import LoreGryffindor from './Gryffindor';
@@ -19,6 +20,11 @@ const Lore = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>
+          Histoire des maisons
+        </title>
+      </Helmet>
       <Header />
       <div className="lore-wrapper">
         <h2 className="lore-title">Bienvenue à Poudlard!</h2>

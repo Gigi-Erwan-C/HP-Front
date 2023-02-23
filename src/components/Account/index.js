@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import Item from './Item';
 import Navbar from '../Navbar';
 import './style.scss';
@@ -11,6 +12,9 @@ const Account = () => {
   const [role, setRole] = useState('prof');
   return (
     <div className="page-account">
+      <Helmet>
+        <title>Mon compte</title>
+      </Helmet>
       <Navbar classColor="logo grey" classLinkColor="menu-link grey" />
       <div className="account">
         <h1>Bienvenue sur votre compte [name]</h1>

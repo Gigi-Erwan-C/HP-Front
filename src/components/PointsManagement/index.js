@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import Navbar from '../Navbar';
 import Sort from '../Sort';
 import './style.scss';
+import { Helmet } from 'react-helmet';
 
 const PointsManagement = ({ component, selectedStudent, selectedHouse }) => (
   <div>
+    <Helmet>
+      <title>Gestion des points</title>
+    </Helmet>
     <Navbar classColor="logo grey" classLinkColor="menu-link grey" />
     <div className="professor-interface-container">
       <h2 className="professor-interface-title">Gestion des points</h2>
