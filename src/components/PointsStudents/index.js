@@ -1,6 +1,6 @@
 import './style.scss';
-import SearchBar from '../SearchBar';
 import { Helmet } from 'react-helmet';
+import SearchBar from '../SearchBar';
 import Student from './Student';
 import studentData from '../../db/students.json';
 

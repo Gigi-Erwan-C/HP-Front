@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Navbar from '../Navbar';
 import Sort from '../Sort';
-import './style.scss';
 
 const AdminInterface = ({ component, selectedStudent, selectedTeacher }) => (
   <div>
