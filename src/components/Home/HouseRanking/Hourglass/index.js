@@ -6,7 +6,8 @@ const Hourglass = ({
 }) => {
   const houseNameLowercase = typeof nameInEnglish === 'string' ? nameInEnglish.toLowerCase() : '';
   console.log(houseNameLowercase);
-  const firstLetter = Array.from(name)[0];
+  const houseNameNormal = typeof nameInEnglish === 'string' ? nameInEnglish.toUpperCase() : '';
+  const firstLetter = Array.from(houseNameNormal)[0];
   const generateKeyframes = () => `
       @keyframes points${firstLetter} {
         0% {

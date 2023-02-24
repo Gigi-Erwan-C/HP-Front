@@ -15,6 +15,8 @@ const HouseRanking = () => {
     (accumulator, currentValue) => accumulator + currentValue,
   );
 
+  console.log(totalPoints);
+
   return (
     <div className="house-ranking">
       <h2 className="ranking-type">
@@ -28,7 +30,7 @@ const HouseRanking = () => {
       }
       <div className="ranking-container">
         {houseData.map((house, index) => (
-          <HourGlass key={house.id} {...house} nameInEnglish={house.name_in_english} rank={index + 1} percentage={((house.points / totalPoints) * 100)} />
+          <HourGlass key={house.id} {...house} nameInEnglish={house.name_in_english} rank={index + 1} percentage={((house.score / totalPoints) * 100)} />
         ))}
         {
         // Liste des props à passer à HourGlass:
