@@ -30,8 +30,8 @@ const App = () => (
       <Route path="/mon-compte/mot-de-passe" element={<Password />} />
       <Route path="/classement/maisons" element={<PointsManagement component={<PointsHouse />} selectedHouse="selected" page="page-house" />} />
       <Route path="/classement/eleves" element={<PointsManagement component={<PointsStudents />} selectedStudent="selected" page="page-student" />} />
-      <Route path="/admin/eleves" element={<AdminInterface component={<AdminInterfaceStudents />} selectedStudent="selected" />} />
-      <Route path="/admin/utilisateurs" element={<AdminInterface component={<AdminInterfaceTeachers />} selectedTeacher="selected" />} />
+      <Route path="/admin/eleves" element={<AdminInterface component={<AdminInterfaceStudents />} selectedStudent="selected" page="page-student" />} />
+      <Route path="/admin/utilisateurs" element={<AdminInterface component={<AdminInterfaceTeachers />} selectedTeacher="selected" page="page-house" />} />
       <Route path="*" element={<PageNotFound />} />
 
     </Routes>

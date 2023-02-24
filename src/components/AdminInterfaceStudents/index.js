@@ -1,13 +1,11 @@
 import './style.scss';
 import SearchBar from '../SearchBar';
-import Filter from '../Filter';
 import Student from './Student';
 import AddStudentForm from './AddStudentForm';
 import studentData from '../../db/students.json';
 
 const AdminInterfaceStudents = () => (
   <div className="points-management-recipient">
-    <Filter />
     <AddStudentForm />
     <SearchBar />
     {studentData.map((student) => (

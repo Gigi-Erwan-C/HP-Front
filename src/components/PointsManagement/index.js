@@ -42,8 +42,6 @@ const PointsManagement = ({ component, selectedStudent, selectedHouse, page }) =
                   </div>
                 )}
 
-
-
                 <NavLink to="/classement/eleves" type="button" className={`select-button ${selectedStudent}`}>Les élèves</NavLink>
                 <NavLink to="/classement/maisons" type="button" className={`select-button ${selectedHouse}`}>Les maisons</NavLink>
               </div>
