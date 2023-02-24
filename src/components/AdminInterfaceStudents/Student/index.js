@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import './style.scss';
 import Field from '../../Login/Field';
+import wand from '../../../assets/img/wand.png';
 
 const Student = ({
   firstname, lastname, house_name, studentClass,
@@ -18,11 +19,11 @@ const Student = ({
           <span className="student-point-name">{firstname}  </span>
           <span className="student-point-name"> {lastname} </span>
           <span className="student-point-points"> classe: {studentClass}</span>
-          <button type="button" className="delete-button">Supprimer l'élève</button>
+          <button type="button" className="action-button">Supprimer l'élève</button>
         </div>
         <div className="point-student-manage">
-          {showAdd ? <div className="add" onClick={manageAddPoint}>-</div>
-            : <div className="add" onClick={manageAddPoint}>+</div> }
+          {showAdd ? <div className="add" onClick={manageAddPoint}><img src={wand} alt="baguette" /></div>
+            : <div className="add" onClick={manageAddPoint}><img src={wand} alt="baguette" /></div> }
         </div>
       </div>
 
