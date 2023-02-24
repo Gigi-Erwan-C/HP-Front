@@ -78,10 +78,10 @@ const House = ({
       )}
 
       {showDelete && (
-        <div className="point-student-footer">
-          <div className="point-student-footer-manage">
-            <span className="point-student-footer-text">Enlever des points</span>
-            <form className="point-student-delete">
+        <div className="point-house-footer">
+          <div className="point-house-footer-manage">
+            <span className="point-house-footer-text">Enlever des points</span>
+            <form className="point-house-delete">
               <Field
                 name="motif"
                 placeholder="Motif"
@@ -101,14 +101,14 @@ const House = ({
 
               <button
                 type="submit"
-                className="point-student-submit"
+                className="point-house-submit"
               >
                 Valider
               </button>
 
               <button
                 type="button"
-                className="point-student-cancel"
+                className="point-house-cancel"
                 onClick={manageDeletePoint}
               >
                 Annuler
