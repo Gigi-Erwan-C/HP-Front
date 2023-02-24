@@ -3,7 +3,7 @@ import './style.scss';
 
 const Header = () => (
   <header className="header">
-    <Navbar classColor="logo white" classLinkColor="menu-link white" />
+    <Navbar classColor="logo white" classLinkColor="menu-link white" classColorBurger="white" />
   </header>
 
 );

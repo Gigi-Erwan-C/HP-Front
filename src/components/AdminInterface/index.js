@@ -5,7 +5,7 @@ import Sort from '../Sort';
 
 const AdminInterface = ({ component, selectedStudent, selectedTeacher }) => (
   <div>
-    <Navbar classColor="logo grey" classLinkColor="menu-link grey" />
+    <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
     <div className="professor-interface-container">
       <h2 className="professor-interface-title">Interface administrateur</h2>
       <div className="professor-interface">

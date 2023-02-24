@@ -22,9 +22,16 @@
   .menu-burger span {
     display: block;
     height: 1.5px;
-    background:vars.$color-white;
     margin-bottom:6px;
     width:38px;
+  }
+
+  .menu-burger.white span {
+    background:vars.$color-white;
+  }
+
+  .menu-burger.grey span {
+    background:vars.$color-grey;
   }
 
   .menu-burger span:nth-child(2) {

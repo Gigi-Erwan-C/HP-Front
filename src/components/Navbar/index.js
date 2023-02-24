@@ -9,6 +9,7 @@ import './style.scss';
 const Navbar = ({
   classColor,
   classLinkColor,
+  classColorBurger
 }) => {
   // Utilisation du use state pour gérer l'affichage du menu
   const [showLinks, setShowLinks] = useState(false);
@@ -20,7 +21,7 @@ const Navbar = ({
 
   return (
     <div className="navbar">
-      <NavbarMobile handleShowLinks={handleShowLinks} />
+      <NavbarMobile handleShowLinks={handleShowLinks} classColorBurger={classColorBurger} />
       <Logo classColor={classColor} />
       <nav className={`menu ${showLinks ? 'show-nav' : ''}`}>
         <div className={`logo-menu-burger ${showLinks ? 'show-nav' : ''}`}>

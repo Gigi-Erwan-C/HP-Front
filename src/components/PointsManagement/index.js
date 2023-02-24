@@ -20,7 +20,7 @@ const PointsManagement = ({ component, selectedStudent, selectedHouse, page }) =
       <Helmet>
         <title>Gestion des points</title>
       </Helmet>
-      <Navbar classColor="logo grey" classLinkColor="menu-link grey" />
+      <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
       <div className={`professor-interface-container ${page} ${showFilter ? 'show-filter' : ''}`}>
         <h2 className="professor-interface-title">Gestion des points</h2>
         <div className="professor-interface">

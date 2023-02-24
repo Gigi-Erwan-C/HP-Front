@@ -4,7 +4,7 @@ import './style.scss';
 
 const Password = () => (
   <div className="password-page">
-    <Navbar classColor="logo grey" classLinkColor="menu-link grey" />
+    <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
     <div className="password-form">
       <form autoComplete="off" className="login-form-element">
         <h1> Modification du mot de passe</h1>

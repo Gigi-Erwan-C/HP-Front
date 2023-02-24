@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeEmailAndPassword } from '../../store/reducers/user';
 import Navbar from '../Navbar';
@@ -9,34 +8,27 @@ import './style.scss';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-  const userData = useSelector((state) => state.user.userData);
+  //const userData = useSelector((state) => state.user.userData);
+  const email = useSelector((state) => state.user.userData.email);
   // const logged = useSelector((state) => state.user.logged);
-  const { email, password } = userData;
-
   const handleInputChange = (value, name) => {
     dispatch(changeEmailAndPassword({ key: name, value: value }));
   };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target);
-    // handleLogin();
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    handleLogin();
   };
 
   return (
     <div className="login-form">
-      <Helmet>
-        <title>Connexion</title>
-      </Helmet>
-      <Navbar classColor="logo grey" classLinkColor="menu-link grey" />
-      <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+      <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
+      <form autoComplete="off" className="login-form-element">
         <h2 className="login-form-title">
           Se connecter
         </h2>
         <Field
-          handleChange={handleInputChange}
+          onChange={handleInputChange}
           name="email"
-          type="email"
           placeholder="Email"
           value={email}
         />
@@ -44,8 +36,8 @@ const LoginForm = () => {
           name="password"
           type="password"
           placeholder="Mot de passe"
-          handleChange={handleInputChange}
-          value={password}
+          onChange={handleInputChange}
+          //value={password}
         />
         <button
           type="submit"

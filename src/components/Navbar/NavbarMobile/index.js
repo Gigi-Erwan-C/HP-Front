@@ -3,8 +3,9 @@ import './style.scss';
 
 const NavbarMobile = ({
   handleShowLinks,
+  classColorBurger,
 }) => (
-  <div className="menu-burger" onClick={handleShowLinks}>
+  <div className={`menu-burger ${classColorBurger}`} onClick={handleShowLinks}>
     <span />
     <span />
     <span />
@@ -14,6 +15,7 @@ const NavbarMobile = ({
 
 NavbarMobile.propTypes = {
   handleShowLinks: PropTypes.func.isRequired,
+  classColorBurger: PropTypes.string.isRequired,
 };
 
 export default NavbarMobile;

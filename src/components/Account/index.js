@@ -15,7 +15,7 @@ const Account = () => {
       <Helmet>
         <title>Mon compte</title>
       </Helmet>
-      <Navbar classColor="logo grey" classLinkColor="menu-link grey" />
+      <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
       <div className="account">
         <h1>Bienvenue sur votre compte [name]</h1>
         {/* Ajouter un onclick pour la deconnexion */}
