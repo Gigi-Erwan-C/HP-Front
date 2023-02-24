@@ -6,6 +6,8 @@ export const initialState = {
   userData: {
     email: '',
     password: '',
+    role: null,
+    token: null,
   },
 };
 

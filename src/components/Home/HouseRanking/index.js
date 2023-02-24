@@ -1,11 +1,14 @@
+import { useSelector } from 'react-redux';
 import HourGlass from './Hourglass';
-import houseData from '../../../db/houses.json';
+// import houseData from '../../../db/houses.json';
 import './style.scss';
 
 const HouseRanking = () => {
+  const houseData = useSelector((state) => state.house.list);
+  console.log(houseData);
   // Cet array contient les données de points de nos maisons
   const housePoints = houseData.map((house) => (
-    house.points
+    house.score
   ));
 
   const totalPoints = housePoints.reduce(
@@ -25,7 +28,7 @@ const HouseRanking = () => {
       }
       <div className="ranking-container">
         {houseData.map((house, index) => (
-          <HourGlass key={house.id} {...house} rank={index + 1} percentage={((house.points / totalPoints) * 100)} />
+          <HourGlass key={house.id} {...house} nameInEnglish={house.name_in_english} rank={index + 1} percentage={((house.points / totalPoints) * 100)} />
         ))}
         {
         // Liste des props à passer à HourGlass:

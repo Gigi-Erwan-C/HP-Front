@@ -2,9 +2,11 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const Hourglass = ({
-  points, name, nameInEnglish, rank, percentage,
+  score, name, nameInEnglish, rank, percentage,
 }) => {
-  const firstLetter = Array.from(nameInEnglish)[0];
+  const houseNameLowercase = typeof nameInEnglish === 'string' ? nameInEnglish.toLowerCase() : '';
+  console.log(houseNameLowercase);
+  const firstLetter = Array.from(name)[0];
   const generateKeyframes = () => `
       @keyframes points${firstLetter} {
         0% {
@@ -21,7 +23,7 @@ const Hourglass = ({
         <p>{rank}</p>
       </div>
       <div className="hourglass-container">
-        <div className={`hourglass ${nameInEnglish.toLowerCase()}`}>
+        <div className={`hourglass ${houseNameLowercase}`}>
           <style>{generateKeyframes()}</style>
           <div className="top">
             <div className="points" />
@@ -33,7 +35,7 @@ const Hourglass = ({
           </div>
         </div>
       </div>
-      <h3 className="current-points">{points} points</h3>
+      <h3 className="current-points">{score} points</h3>
       <span className="gained-points">(+ {0} points depuis [DATE])</span>
       <h2 className="house-name">{name}</h2>
       <span className="house-name__english">{nameInEnglish}</span>
@@ -43,7 +45,7 @@ const Hourglass = ({
 
 Hourglass.propTypes = {
   rank: PropTypes.number.isRequired,
-  points: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
   // pointsSinceLastTick: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   nameInEnglish: PropTypes.string.isRequired,

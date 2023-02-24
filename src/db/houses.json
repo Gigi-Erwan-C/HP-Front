@@ -3,24 +3,24 @@
     "id": 1,
     "name": "Gryffondor",
     "nameInEnglish": "Gryffindor",
-    "points": 1000
+    "score": 1000
   },
   {
     "id": 2,
     "name": "Serpentard",
     "nameInEnglish": "Slytherin",
-    "points": 700
+    "score": 700
   },
   {
     "id": 4,
     "name": "Serdaigle",
     "nameInEnglish": "Ravenclaw",
-    "points": 500
+    "score": 500
   },
   {
     "id": 3,
     "name": "Poufsouffle",
     "nameInEnglish": "Hufflepuff",
-    "points": 400
+    "score": 400
   }
 ]

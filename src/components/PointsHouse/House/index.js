@@ -5,7 +5,7 @@ import Field from '../../Login/Field';
 import './style.scss';
 
 const House = ({
-  name, points, rank,
+  name, score, rank,
 }) => {
   const [showAdd, setShowAddForm] = useState(false);
   const [showDelete, setShowDeleteForm] = useState(false);
@@ -26,7 +26,7 @@ const House = ({
       <div className="point-student-header">
         <div className="house-header-info">
           <span className="house-point-name">Maison {name} </span>
-          <span className="house-point-points">{points} points </span>
+          <span className="house-point-points">{score} points </span>
           <span className="house-rank">Position {rank} </span>
         </div>
         <div className="point-house-manage">
@@ -128,6 +128,6 @@ export default House;
 
 House.propTypes = {
   name: PropTypes.string.isRequired,
-  points: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
   rank: PropTypes.number.isRequired,
 };
