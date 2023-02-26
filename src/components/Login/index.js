@@ -10,8 +10,10 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   //const userData = useSelector((state) => state.user.userData);
   const email = useSelector((state) => state.user.userData.email);
+  const password = useSelector((state) => state.user.userData.password);
   // const logged = useSelector((state) => state.user.logged);
   const handleInputChange = (value, name) => {
+    console.log(value);
     dispatch(changeEmailAndPassword({ key: name, value: value }));
   };
   const handleSubmit = (evt) => {
@@ -37,7 +39,7 @@ const LoginForm = () => {
           type="password"
           placeholder="Mot de passe"
           onChange={handleInputChange}
-          //value={password}
+          value={password}
         />
         <button
           type="submit"

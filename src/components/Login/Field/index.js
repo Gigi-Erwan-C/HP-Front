@@ -10,10 +10,10 @@ const Field = ({
   type,
   name,
   placeholder,
-  handleChange,
+  onChange,
 }) => {
-  const changeInput = (evt) => {
-    handleChange(evt.target.value, name);
+  const handleChange = (evt) => {
+    onChange(evt.target.value, name);
   };
   const inputId = `field-${name}`;
 
@@ -21,7 +21,7 @@ const Field = ({
     <div className="input-field">
       <input
         value={value}
-        onChange={changeInput}
+        onChange={handleChange}
         id={inputId}
         type={type}
         className="field-input"
@@ -38,7 +38,7 @@ Field.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 // == Export
