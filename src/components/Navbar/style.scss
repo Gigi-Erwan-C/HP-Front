@@ -21,8 +21,73 @@
   font-weight:600;
   font-size:16px;
   text-transform: uppercase;
-  padding:0 20px 0 20px;
+  margin-right: 2rem;
+  position:relative;
 }
+
+.menu-link.white.active::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+  width: 0;
+  height: 1px;
+  left:0;
+  right: auto;
+  width: 100%;
+  background-color:  vars.$color-white;
+ 
+}
+
+.menu-link.grey.active::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+  width: 0;
+  height: 1px;
+  left:0;
+  right: auto;
+  width: 100%;
+  background-color:  vars.$color-grey;
+ 
+}
+
+.menu-link::before{
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+  width: 0;
+  height: 1px;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  padding:0;
+}
+
+.menu-link.white::before {
+  background-color:  vars.$color-white;
+}
+
+.menu-link.grey::before {
+  background-color:  vars.$color-grey;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-link.white:hover::before{
+    left:0;
+    right: auto;
+    width: 100%;
+  }
+
+  .menu-link.grey:hover::before{
+    left:0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+
 
 .menu-link.white {
   color: vars.$color-white;
@@ -118,6 +183,7 @@
     color:vars.$color-grey;
     padding-bottom:30px;
     font-size:18px;
+    position:relative;
   }
 
   .menu-link.white {
