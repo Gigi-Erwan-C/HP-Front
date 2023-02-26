@@ -5,7 +5,7 @@
   src: url('../../assets/fonts/harryp.ttf');
 }
 
-.legal-notice-container h1  {
+.legal-notice-container h2  {
   font-family:'Harry', sans-serif;
   letter-spacing: vars.$title-letter-spacing;
   font-size:vars.$font-size-title;
@@ -14,7 +14,7 @@
   text-align:center;
 }
 
-.legal-notice-container h2 {
+.legal-notice-container h3 {
   text-align: center;
   margin: 2rem 0 2rem 0;
   text-decoration: underline;

@@ -8,8 +8,8 @@ const LegalNotice = () => (
       <title>Mentions Légales</title>
     </Helmet>
     <Header />
-    <h1>Mentions legales</h1>
-    <h2>Propriété intellectuelle</h2>
+    <h2>Mentions legales</h2>
+    <h3>Propriété intellectuelle</h3>
 
     <p>
       (url) est un site Internet pedagogique sur le thème <span>Harry Potter</span> à but non lucratif, édité par
