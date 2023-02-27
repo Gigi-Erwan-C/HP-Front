@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchHouses } from '../../api/houses';
-import { fetchStudents, fetchTopStudents } from '../../api/students';
+import { fetchStudents } from '../../api/students';
 import Footer from '../Footer';
 import Home from '../Home';
 import Login from '../Login';
@@ -28,7 +28,6 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchHouses());
     dispatch(fetchStudents());
-    dispatch(fetchTopStudents());
   }, []);
 
   return (
