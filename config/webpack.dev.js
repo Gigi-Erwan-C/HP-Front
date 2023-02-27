@@ -61,6 +61,7 @@ module.exports = merge(common, {
       stats: 'minimal',
 
     },
+    allowedHosts: 'auto' | 'all' | Array[string],
     static: {
       directory: paths.build,
     },
