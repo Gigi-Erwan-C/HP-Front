@@ -61,10 +61,10 @@ module.exports = merge(common, {
       stats: 'minimal',
 
     },
-    allowedHosts: 'auto' | 'all' | Array[string],
     static: {
       directory: paths.build,
     },
+    allowedHosts: 'all',
     historyApiFallback: true,
     open: false,
     compress: true,
