@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchHouses } from '../../api/houses';
-import { fetchStudents } from '../../api/students';
+import { fetchStudents, fetchTopStudents } from '../../api/students';
 import Footer from '../Footer';
 import Home from '../Home';
 import Login from '../Login';
@@ -21,13 +21,13 @@ import AdminInterfaceStudents from '../AdminInterfaceStudents';
 import AdminInterfaceTeachers from '../AdminInterfaceTeachers';
 import './styles.scss';
 
-
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHouses());
     dispatch(fetchStudents());
+    dispatch(fetchTopStudents());
   }, []);
 
   return (
