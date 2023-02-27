@@ -5,7 +5,7 @@ import Field from '../../Login/Field';
 import './style.scss';
 
 const Student = ({
-  firstname, lastname, house_name, score,
+  firstname, lastname, house_name, score
 }) => {
   const [showAdd, setShowAddForm] = useState(false);
   const [showDelete, setShowDeleteForm] = useState(false);
@@ -26,8 +26,8 @@ const Student = ({
       <div className="point-student-header">
         <div className="student-header-info">
           <span className="student-point-name">{firstname} {lastname} </span>
-          <span className="student-point-house">Maison {house_name} </span>
-          <span className="student-point-points">{score} points</span>
+          <span className="student-point-house">Maison attente du back </span>
+          <span className="student-point-points">{score} points </span>
         </div>
         <div className="point-student-manage">
           <div className="add" onClick={manageAddPoint}>+</div>

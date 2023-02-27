@@ -10,7 +10,6 @@ import './style.scss';
 
 const WizardRanking = () => {
   const studentData = useSelector((state) => state.student.topStudentsList);
-  console.log(studentData);
   return (
     <div className="wizard-ranking">
       <h2 className="wizard-type">Classement des meilleurs sorciers</h2>
