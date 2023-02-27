@@ -8,7 +8,9 @@ import Sort from '../Sort';
 import './style.scss';
 import FilterMobile from '../Filter/FilterMobile';
 
-const PointsManagement = ({ component, selectedStudent, selectedHouse, page }) => {
+const PointsManagement = ({
+  component, selectedStudent, selectedHouse, page, sentArray, setArray,
+}) => {
   const [showFilter, setShowFilter] = useState(false);
   const handleShowFilter = () => {
     console.log(showFilter);
@@ -51,7 +53,7 @@ const PointsManagement = ({ component, selectedStudent, selectedHouse, page }) =
                     Tri
                   </div>
                 )}
-                <Sort />
+                <Sort array={sentArray} setArray={setArray} />
               </div>
             </div>
             {showFilter && (
@@ -83,6 +85,8 @@ PointsManagement.propTypes = {
   selectedStudent: PropTypes.string,
   selectedHouse: PropTypes.string,
   page: PropTypes.string.isRequired,
+  sentArray: PropTypes.array.isRequired,
+  setArray: PropTypes.func.isRequired,
 };
 
 PointsManagement.defaultProps = {
