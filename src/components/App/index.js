@@ -21,13 +21,14 @@ import AdminInterfaceStudents from '../AdminInterfaceStudents';
 import AdminInterfaceTeachers from '../AdminInterfaceTeachers';
 import './styles.scss';
 
-
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHouses());
     dispatch(fetchStudents());
+    const loggedUser = localStorage.getItem('user');
+    console.log(loggedUser);
   }, []);
 
   return (
