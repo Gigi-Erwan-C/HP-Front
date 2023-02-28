@@ -8,6 +8,7 @@ export const initialState = {
   password: '',
   firstname: '',
   token: null,
+  id: null,
   ...JSON.parse(localStorage.getItem('user')),
 };
 

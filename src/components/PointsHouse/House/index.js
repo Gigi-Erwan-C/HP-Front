@@ -1,19 +1,23 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addPointHouses } from '../../../api/houses'
 import Field from '../../Login/Field';
-import { changeContentAndValue } from '../../../store/reducers/addPoints';
+import { changeContentAndValue, changeUser, selectHouse } from '../../../store/reducers/addPoints';
 import './style.scss';
 
 const House = ({
-  houseName, score,
+  houseName, score, id,
 }) => {
   const content = useSelector((state) => state.addPoints.content);
   const valueContent = useSelector((state) => state.addPoints.value);
+  const user_id = useSelector((state) => state.user.id);
+  const dispatch = useDispatch();
 
   const [showAdd, setShowAddForm] = useState(false);
   const [showDelete, setShowDeleteForm] = useState(false);
+
   const manageAddPoint = () => {
     setShowAddForm(!showAdd);
     if (showDelete) {
@@ -26,13 +30,15 @@ const House = ({
       setShowAddForm(!showAdd);
     }
   };
-
-  const dispatch = useDispatch();
   const handleAddPoint = (evt) => {
     evt.preventDefault();
+    dispatch(addPointHouses());
   };
 
   const handleInputChange = (value, name) => {
+    dispatch(selectHouse(id));
+    dispatch(changeUser(user_id));
+    console.log(user_id);
     dispatch(changeContentAndValue({ key: name, value: value }));
   };
 
@@ -65,7 +71,6 @@ const House = ({
 
               <Field
                 name="value"
-                min="0"
                 placeholder="Note"
                 type="number"
                 className="field-note"
@@ -144,4 +149,5 @@ export default House;
 House.propTypes = {
   houseName: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 };
