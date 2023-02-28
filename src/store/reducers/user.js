@@ -2,16 +2,13 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
 export const initialState = {
-  // logged: false,
-  email: 'axel@harrypotter.fr',
+  logged: false,
+  email: '',
   firstname: '',
   lastname: '',
-  password: 'azerty',
+  password: '',
   role_id: null,
   token: null,
-  id: null,
-  created_at: null,
-  updated_at: null,
 };
 
 export const changeEmailAndPassword = createAction('user/userData');
@@ -30,8 +27,8 @@ const userReducer = createReducer(initialState, (builder) => {
       // Je fais de cette manière car je n'ai pas le droit de réassigner une valeur à un paramètre
       Object.assign(state, action.payload);
     })
-    .addCase(setLogged, (state) => {
-      state.logged = true;
+    .addCase(setLogged, (state, action) => {
+      state.logged = action.payload.value;
     })
     .addCase(logout, (state) => {
       state.logged = false;

@@ -19,8 +19,6 @@ const LoginForm = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(login());
-    const serializedState = JSON.stringify(userData);
-    localStorage.setItem('user', serializedState);
   };
 
   return (

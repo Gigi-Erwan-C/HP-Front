@@ -7,14 +7,18 @@ export const login = () => async (dispatch, getState) => {
   const { email, password } = state.user;
 
   try {
-    const { data } = await axiosInstance.post('auth', {
+    await axiosInstance.post('auth', {
       email,
       password,
-    });
-    console.log(`First ${data.result}`);
-    axiosInstance.defaults.headers.common.Authorization = `Bearer ${data.result.token}`;
-    // dispatch(setLogged());
-    dispatch(saveUserInfos(data.result));
+    })
+      .then((response) => {
+        if (response.data.result.token) {
+          const serializedState = JSON.stringify(response.data.result);
+          localStorage.setItem('user', serializedState);
+        }
+        axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.result.token}`;
+        return response.data.result;
+      });
   }
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
