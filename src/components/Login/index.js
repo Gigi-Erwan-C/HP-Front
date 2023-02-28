@@ -10,7 +10,6 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
-  const isLogged = false;
   // const logged = useSelector((state) => state.user.logged);
   const handleInputChange = (value, name) => {
     dispatch(changeEmailAndPassword({ key: name, value: value }));
@@ -22,7 +21,6 @@ const LoginForm = () => {
 
   return (
     <div className="login-form">
-      {isLogged && <Redirect />}
       <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
       <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
         <h2 className="login-form-title">

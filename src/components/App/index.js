@@ -1,5 +1,5 @@
 // == Import
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHouses } from '../../api/houses';
@@ -23,6 +23,8 @@ import './styles.scss';
 
 // == Composant
 const App = () => {
+  const isLogged = useSelector((state) => state.user.isLogged);
+  const userRole = useSelector((state) => state.user.role_id);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHouses());
@@ -34,15 +36,15 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/regles" element={<Rules />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={isLogged ? (<Navigate replace to="/mon-compte" />) : <Login />} />
         <Route path="/histoire" element={<Lore />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
-        <Route path="/mon-compte" element={<Account />} />
-        <Route path="/mon-compte/mot-de-passe" element={<Password />} />
-        <Route path="/classement/maisons" element={<PointsManagement component={<PointsHouse />} selectedHouse="selected" page="page-house" />} />
-        <Route path="/classement/eleves" element={<PointsManagement component={<PointsStudents />} selectedStudent="selected" page="page-student" />} />
-        <Route path="/admin/eleves" element={<AdminInterface component={<AdminInterfaceStudents />} selectedStudent="selected" page="page-student" />} />
-        <Route path="/admin/utilisateurs" element={<AdminInterface component={<AdminInterfaceTeachers />} selectedTeacher="selected" page="page-house" />} />
+        <Route path="/mon-compte" element={isLogged ? <Account /> : (<Navigate replace to="/" />)} />
+        <Route path="/mon-compte/mot-de-passe" element={isLogged ? <Password /> : (<Navigate replace to="/" />)} />
+        <Route path="/classement/maisons" element={isLogged ? <PointsManagement component={<PointsHouse />} selectedHouse="selected" page="page-house" /> : (<Navigate replace to="/" />)} />
+        <Route path="/classement/eleves" element={isLogged ? <PointsManagement component={<PointsStudents />} selectedStudent="selected" page="page-student" /> : (<Navigate replace to="/" />)} />
+        <Route path="/admin/eleves" element={isLogged && userRole === 1 ? <AdminInterface component={<AdminInterfaceStudents />} selectedStudent="selected" page="page-student" /> : (<Navigate replace to="/" />)} />
+        <Route path="/admin/utilisateurs" element={isLogged && userRole === 1 ? <AdminInterface component={<AdminInterfaceTeachers />} selectedTeacher="selected" page="page-house" /> : (<Navigate replace to="/" />)} />
         <Route path="*" element={<PageNotFound />} />
 
       </Routes>

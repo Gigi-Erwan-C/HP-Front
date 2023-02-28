@@ -2,7 +2,7 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
 export const initialState = {
-  logged: false,
+  isLogged: false,
   email: '',
   password: '',
   firstname: '',
@@ -28,9 +28,12 @@ const userReducer = createReducer(initialState, (builder) => {
       state.logged = action.payload.value;
     })
     .addCase(logout, (state) => {
-      state.logged = false;
-      state.pseudo = null;
+      state.isLogged = false;
       state.token = null;
+      state.password = null;
+      state.email = null;
+      state.firstname = null;
+      localStorage.clear();
     });
 });
 
