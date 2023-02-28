@@ -3,11 +3,15 @@ import { createAction, createReducer } from '@reduxjs/toolkit';
 
 export const initialState = {
   logged: false,
-  userData: { ...JSON.parse(localStorage.getItem('user')) },
+  email: '',
+  password: '',
+  firstname: '',
+  token: null,
+  ...JSON.parse(localStorage.getItem('user')),
 };
 
 export const changeEmailAndPassword = createAction('user/userData');
-export const saveUserInfos = createAction('user/saveUserInfos');
+export const handleLogged = createAction('user/handleLogged');
 export const setLogged = createAction('user/setLogged');
 export const logout = createAction('user/logout');
 
@@ -16,7 +20,8 @@ const userReducer = createReducer(initialState, (builder) => {
     .addCase(changeEmailAndPassword, (state, action) => {
       state[action.payload.key] = action.payload.value;
     })
-    .addCase(saveUserInfos, (state, action) => {
+    .addCase(handleLogged, (state, action) => {
+      localStorage.setItem('user', JSON.stringify(action.payload));
       Object.assign(state, action.payload);
     })
     .addCase(setLogged, (state, action) => {

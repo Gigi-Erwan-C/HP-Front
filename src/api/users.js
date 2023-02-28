@@ -1,4 +1,6 @@
-import { saveUserInfos } from '../store/reducers/user';
+/* eslint-disable import/no-extraneous-dependencies */
+import jwt from 'jwt-decode';
+import { handleLogged } from '../store/reducers/user';
 import { axiosInstance } from './index';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -12,11 +14,12 @@ export const login = () => async (dispatch, getState) => {
       password,
     })
       .then((response) => {
-        if (response.data.result.token) {
-          const serializedState = JSON.stringify(response.data.result);
-          localStorage.setItem('user', serializedState);
-        }
-        dispatch(saveUserInfos(response.data.result));
+        const { token } = response.data.result;
+        const user = jwt(token); // decode your token here
+        dispatch(handleLogged({
+          ...user,
+          token,
+        }));
         axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.result.token}`;
         return response.data.result;
       });

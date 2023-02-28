@@ -1,7 +1,7 @@
 // == Import
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchHouses } from '../../api/houses';
 import { fetchStudents } from '../../api/students';
 import Footer from '../Footer';
