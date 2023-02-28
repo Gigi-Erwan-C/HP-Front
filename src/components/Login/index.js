@@ -11,7 +11,6 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
-  const userData = useSelector((state) => state.user);
   // const logged = useSelector((state) => state.user.logged);
   const handleInputChange = (value, name) => {
     dispatch(changeEmailAndPassword({ key: name, value: value }));

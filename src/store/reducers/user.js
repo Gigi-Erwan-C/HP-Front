@@ -3,12 +3,7 @@ import { createAction, createReducer } from '@reduxjs/toolkit';
 
 export const initialState = {
   logged: false,
-  email: '',
-  firstname: '',
-  lastname: '',
-  password: '',
-  role_id: null,
-  token: null,
+  userData: { ...JSON.parse(localStorage.getItem('user')) },
 };
 
 export const changeEmailAndPassword = createAction('user/userData');
@@ -22,9 +17,6 @@ const userReducer = createReducer(initialState, (builder) => {
       state[action.payload.key] = action.payload.value;
     })
     .addCase(saveUserInfos, (state, action) => {
-      // Object.assign permet de fusionner deux objets.
-      // Le première objet est modifier avec les données du second objet
-      // Je fais de cette manière car je n'ai pas le droit de réassigner une valeur à un paramètre
       Object.assign(state, action.payload);
     })
     .addCase(setLogged, (state, action) => {

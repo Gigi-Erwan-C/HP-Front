@@ -1,7 +1,7 @@
 // == Import
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchHouses } from '../../api/houses';
 import { fetchStudents } from '../../api/students';
 import Footer from '../Footer';
@@ -20,21 +20,13 @@ import AdminInterface from '../AdminInterface';
 import AdminInterfaceStudents from '../AdminInterfaceStudents';
 import AdminInterfaceTeachers from '../AdminInterfaceTeachers';
 import './styles.scss';
-import { setLogged, saveUserInfos } from '../../store/reducers/user';
 
 // == Composant
 const App = () => {
-  const loggedStatus = useSelector((state) => state.user.logged);
-  const user = useSelector((state) => state.user);
-  console.log(user);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHouses());
     dispatch(fetchStudents());
-    const loggedUser = localStorage.getItem('user');
-    console.log(loggedUser);
-    dispatch(saveUserInfos(loggedUser));
-    console.log(user);
   }, []);
 
   return (
