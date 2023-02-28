@@ -19,12 +19,14 @@ import PageNotFound from '../PageNotFound';
 import AdminInterface from '../AdminInterface';
 import AdminInterfaceStudents from '../AdminInterfaceStudents';
 import AdminInterfaceTeachers from '../AdminInterfaceTeachers';
+import { sortHouseList } from '../../store/reducers/house';
 import './styles.scss';
 
 // == Composant
 const App = () => {
   const isLogged = useSelector((state) => state.user.isLogged);
   const userRole = useSelector((state) => state.user.role_id);
+  const houseData = useSelector((state) => state.house.sortedList);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHouses());
@@ -42,7 +44,7 @@ const App = () => {
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/mon-compte" element={isLogged ? <Account /> : (<Navigate replace to="/" />)} />
         <Route path="/mon-compte/mot-de-passe" element={isLogged ? <Password /> : (<Navigate replace to="/" />)} />
-        <Route path="/classement/maisons" element={isLogged ? <PointsManagement component={<PointsHouse />} selectedHouse="selected" page="page-house" /> : (<Navigate replace to="/" />)} />
+        <Route path="/classement/maisons" element={isLogged ? <PointsManagement component={<PointsHouse />} selectedHouse="selected" page="page-house" /> : (<Navigate replace to="/" />)} sentArray={houseData} setArray={sortHouseList} />
         <Route path="/classement/eleves" element={isLogged ? <PointsManagement component={<PointsStudents />} selectedStudent="selected" page="page-student" /> : (<Navigate replace to="/" />)} />
         <Route path="/admin/eleves" element={isLogged && userRole === 1 ? <AdminInterface component={<AdminInterfaceStudents />} selectedStudent="selected" page="page-student" /> : (<Navigate replace to="/" />)} />
         <Route path="/admin/utilisateurs" element={isLogged && userRole === 1 ? <AdminInterface component={<AdminInterfaceTeachers />} selectedTeacher="selected" page="page-house" /> : (<Navigate replace to="/" />)} />
