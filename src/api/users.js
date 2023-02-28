@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import jwt from 'jwt-decode';
-import { handleLogged } from '../store/reducers/user';
+import { handleLogged, sendErrorMessage } from '../store/reducers/user';
 import { axiosInstance } from './index';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -15,7 +15,7 @@ export const login = () => async (dispatch, getState) => {
     })
       .then((response) => {
         const { token } = response.data.result;
-        const user = jwt(token); // decode your token here
+        const user = jwt(token);
         dispatch(handleLogged({
           ...user,
           token,
@@ -25,6 +25,7 @@ export const login = () => async (dispatch, getState) => {
       });
   }
   catch (e) {
+    dispatch(sendErrorMessage("Votre mot de passe ou votre email n'est pas correct"));
     console.log('Errorus Console-logus!!!', e);
   }
 };

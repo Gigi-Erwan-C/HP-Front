@@ -10,6 +10,7 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
+  const errorMessage = useSelector((state) => state.user.errorMessage);
   // const logged = useSelector((state) => state.user.logged);
   const handleInputChange = (value, name) => {
     dispatch(changeEmailAndPassword({ key: name, value: value }));
@@ -45,6 +46,11 @@ const LoginForm = () => {
         >
           Connexion
         </button>
+        {errorMessage && (
+        <div className="error-message">
+          {errorMessage}
+        </div>
+        )};
       </form>
     </div>
   );

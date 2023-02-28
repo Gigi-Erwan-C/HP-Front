@@ -2,6 +2,7 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
 export const initialState = {
+  errorMessage: null,
   isLogged: false,
   email: '',
   password: '',
@@ -13,6 +14,7 @@ export const initialState = {
 export const changeEmailAndPassword = createAction('user/userData');
 export const handleLogged = createAction('user/handleLogged');
 export const setLogged = createAction('user/setLogged');
+export const sendErrorMessage = createAction('user/sendErrorMessage');
 export const logout = createAction('user/logout');
 
 const userReducer = createReducer(initialState, (builder) => {
@@ -34,6 +36,9 @@ const userReducer = createReducer(initialState, (builder) => {
       state.email = null;
       state.firstname = null;
       localStorage.clear();
+    })
+    .addCase(sendErrorMessage, (state, action) => {
+      state.errorMessage = action.payload;
     });
 });
 
