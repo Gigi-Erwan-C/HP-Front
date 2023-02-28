@@ -18,7 +18,7 @@ export const fetchTopStudents = () => async (dispatch) => {
     const { data } = await axiosInstance.get('/student/top5');
     // Dispatch à créer dans le reducer:
     dispatch(setTopStudentList(data));
-    console.log(data);
+    // console.log(data);
   }
   catch (e) {
     console.log('Dommage, ça n\'a pas marché', e);

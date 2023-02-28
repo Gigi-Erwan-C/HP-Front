@@ -1,12 +1,17 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import Field from '../../Login/Field';
+import { changeContentAndValue } from '../../../store/reducers/addPoints';
 import './style.scss';
 
 const House = ({
-  name, score,
+  houseName, score,
 }) => {
+  const content = useSelector((state) => state.addPoints.content);
+  const valueContent = useSelector((state) => state.addPoints.value);
+
   const [showAdd, setShowAddForm] = useState(false);
   const [showDelete, setShowDeleteForm] = useState(false);
   const manageAddPoint = () => {
@@ -21,11 +26,21 @@ const House = ({
       setShowAddForm(!showAdd);
     }
   };
+
+  const dispatch = useDispatch();
+  const handleAddPoint = (evt) => {
+    evt.preventDefault();
+  };
+
+  const handleInputChange = (value, name) => {
+    dispatch(changeContentAndValue({ key: name, value: value }));
+  };
+
   return (
     <div className="point-house">
       <div className="point-student-header">
         <div className="house-header-info">
-          <span className="house-point-name">Maison {name} </span>
+          <span className="house-point-name">Maison {houseName} </span>
           <span className="house-point-points">{score} points </span>
           {/* <span className="house-rank">Position {rank} </span> */}
         </div>
@@ -39,22 +54,23 @@ const House = ({
         <div className="point-house-footer">
           <div className="point-house-footer-manage">
             <span className="point-house-footer-text">Ajouter des points</span>
-            <form className="point-house-add">
+            <form className="point-house-add" onSubmit={handleAddPoint}>
               <Field
-                name="motif"
+                name="content"
                 placeholder="Motif"
                 type="text"
-                // onChange={changeField}
-                // value="email"
+                onChange={handleInputChange}
+                value={content}
               />
 
               <Field
-                name="note"
+                name="value"
+                min="0"
                 placeholder="Note"
                 type="number"
                 className="field-note"
-                // onChange={changeField}
-                // value="email"
+                onChange={handleInputChange}
+                value={valueContent}
               />
 
               <button
@@ -114,7 +130,6 @@ const House = ({
                 Annuler
               </button>
 
-
             </form>
           </div>
         </div>
@@ -127,6 +142,6 @@ const House = ({
 export default House;
 
 House.propTypes = {
-  name: PropTypes.string.isRequired,
+  houseName: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
 };

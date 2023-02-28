@@ -11,3 +11,15 @@ export const fetchHouses = () => async (dispatch) => {
     console.log('Errorus Console-logus!!!', e);
   }
 };
+
+// export const addPointHouses = () => async (dispatch) => {
+//   try {
+//     await axiosInstance.post('auth', {
+//       email,
+//       password,
+//     });
+//   }
+//   catch (e) {
+//     console.log('Errorus Console-logus!!!', e);
+//   }
+// };

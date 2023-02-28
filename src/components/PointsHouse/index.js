@@ -11,6 +11,7 @@ const PointsHouse = () => {
         <House
           key={house.id}
           {...house}
+          houseName={house.name}
           rank={index + 1}
         />
       ))}
