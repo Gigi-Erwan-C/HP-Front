@@ -4,11 +4,11 @@ import './style.scss';
 
 const Student = ({
   firstname,
-  house_name,
+  name,
   student_total_score,
   houseLogo,
 }) => {
-  const houseNameLowercase = typeof house_name === 'string' ? house_name.toLowerCase() : '';
+  const houseNameLowercase = typeof name === 'string' ? name.toLowerCase() : '';
   return (
     <ul className="student-list">
       <li className="student-item">
@@ -18,7 +18,7 @@ const Student = ({
             {firstname}
           </p>
           <p className={`student-house ${houseNameLowercase}`}>
-            {house_name}
+            {name}
           </p>
         </div>
         <p className="student-point">
@@ -33,7 +33,7 @@ export default Student;
 
 Student.propTypes = {
   firstname: PropTypes.string.isRequired,
-  house_name: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   student_total_score: PropTypes.number.isRequired,
   // house_name_in_english: PropTypes.string.isRequired,
   houseLogo: PropTypes.string.isRequired,

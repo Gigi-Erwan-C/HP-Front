@@ -4,7 +4,7 @@ import { setStudentList, setTopStudentList } from '../store/reducers/student';
 // eslint-disable-next-line import/prefer-default-export
 export const fetchStudents = () => async (dispatch) => {
   try {
-    const { data } = await axiosInstance.get('/student');
+    const { data } = await axiosInstance.get('/student/total-score-and-house');
     // Dispatch à créer dans le reducer:
     dispatch(setStudentList(data));
     console.log(data);

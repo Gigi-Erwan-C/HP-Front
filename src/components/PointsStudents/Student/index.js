@@ -5,7 +5,7 @@ import Field from '../../Login/Field';
 import './style.scss';
 
 const Student = ({
-  firstname, lastname, house_name, score
+  firstname, lastname, house_name, student_total_score,
 }) => {
   const [showAdd, setShowAddForm] = useState(false);
   const [showDelete, setShowDeleteForm] = useState(false);
@@ -26,8 +26,8 @@ const Student = ({
       <div className="point-student-header">
         <div className="student-header-info">
           <span className="student-point-name">{firstname} {lastname} </span>
-          <span className="student-point-house">Maison attente du back </span>
-          <span className="student-point-points">{score} points </span>
+          <span className="student-point-house">Maison : {house_name} </span>
+          <span className="student-point-points">{student_total_score} points </span>
         </div>
         <div className="point-student-manage">
           <div className="add" onClick={manageAddPoint}>+</div>
@@ -114,7 +114,6 @@ const Student = ({
                 Annuler
               </button>
 
-
             </form>
           </div>
         </div>
@@ -130,5 +129,5 @@ Student.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   house_name: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
+  student_total_score: PropTypes.number.isRequired,
 };
