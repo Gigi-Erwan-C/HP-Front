@@ -5,7 +5,6 @@ import './style.scss';
 
 const HouseRanking = () => {
   const houseData = useSelector((state) => state.house.list);
-  console.log(houseData);
   // Cet array contient les données de points de nos maisons
   const housePoints = houseData.map((house) => (
     house.score
@@ -14,8 +13,6 @@ const HouseRanking = () => {
   const totalPoints = housePoints.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
   );
-
-  console.log(totalPoints);
 
   return (
     <div className="house-ranking">

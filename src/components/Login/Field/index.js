@@ -27,6 +27,7 @@ const Field = ({
         className="field-input"
         placeholder={placeholder}
         name={name}
+        required
       />
 
     </div>

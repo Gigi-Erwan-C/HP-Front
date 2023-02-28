@@ -64,6 +64,7 @@ module.exports = merge(common, {
     static: {
       directory: paths.build,
     },
+    allowedHosts: 'all',
     historyApiFallback: true,
     open: false,
     compress: true,

@@ -7,7 +7,6 @@ export const fetchStudents = () => async (dispatch) => {
     const { data } = await axiosInstance.get('/student/total-score-and-house');
     // Dispatch à créer dans le reducer:
     dispatch(setStudentList(data));
-    console.log(data);
   }
   catch (e) {
     console.log('Dommage, ça n\'a pas marché', e);

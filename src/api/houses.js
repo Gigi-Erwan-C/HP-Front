@@ -4,7 +4,6 @@ import { setHouseList } from '../store/reducers/house';
 export const fetchHouses = () => async (dispatch) => {
   try {
     const { data } = await axiosInstance.get('house');
-    console.log(data);
     dispatch(setHouseList(data));
   }
   catch (e) {
