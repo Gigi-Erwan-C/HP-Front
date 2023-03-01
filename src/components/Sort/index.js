@@ -18,7 +18,6 @@ const Sort = ({
       '1-9': [...array].sort((a, b) => (a.score < b.score ? -1 : 1)),
       '9-1': [...array].sort((a, b) => (a.score < b.score ? 1 : -1)),
     };
-
     dispatch(setArray(options[selectEvent.target.value]));
   };
   return (

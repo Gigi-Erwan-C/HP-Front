@@ -66,10 +66,24 @@ export const addUser = () => async (dispatch, getState) => {
       role_id,
       user_id,
     });
-   dispatch(fetchUsers());
+    dispatch(fetchUsers());
   }
   catch (e) {
     console.log(e);
   }
 };
 
+export const deleteUser = () => async (dispatch, getState) => {
+  const state = getState();
+  const {
+    target_id,
+  } = state.adminUser;
+  console.log(target_id);
+  try {
+    await axiosInstance.delete(`admin/user/${target_id}`);
+    dispatch(fetchUsers());
+  }
+  catch (e) {
+    console.log(e);
+  }
+};

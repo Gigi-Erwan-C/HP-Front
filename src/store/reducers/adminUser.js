@@ -9,6 +9,7 @@ export const initialState = {
   role_id: 2,
   user_id: null,
   userList: [],
+  target_id: null,
 };
 
 export const changeContentAndValue = createAction('adminUser/changeContentAndValue');
@@ -19,6 +20,8 @@ export const setUserList = createAction('adminUser/setUserList');
 // export const selectStudent = createAction('addPoints/selectStudent');
 // export const sendSuccessMessage = createAction('addPoints/sendSuccessMessage');
 export const resetForm = createAction('adminUser/resetForm');
+export const changeTargetId = createAction('adminUser/changeTargetId');
+export const setDeleteConfirmation = createAction('adminUser/setDeleteConfirmation');
 
 const adminUserReducer = createReducer(initialState, (builder) => {
   builder
@@ -39,6 +42,9 @@ const adminUserReducer = createReducer(initialState, (builder) => {
       state.lastname = '';
       state.password = '';
       state.role_id = 2;
+    })
+    .addCase(changeTargetId, (state, action) => {
+      state.target_id = action.payload;
     });
 });
 

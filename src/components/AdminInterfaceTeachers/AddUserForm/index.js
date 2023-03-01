@@ -25,7 +25,6 @@ const AddUserForm = () => {
 
   const handleAddUser = (evt) => {
     evt.preventDefault();
-    console.log("yo");
     dispatch(addUser());
     dispatch(resetForm());
   };

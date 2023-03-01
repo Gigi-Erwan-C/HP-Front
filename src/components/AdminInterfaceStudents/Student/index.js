@@ -6,7 +6,7 @@ import Field from '../../Login/Field';
 import wand from '../../../assets/img/wand.png';
 
 const Student = ({
-  firstname, lastname, house_name, studentClass,
+  firstname, lastname, house_name, class_name,
 }) => {
   const [showAdd, setShowAddForm] = useState(false);
   const manageAddPoint = () => {
@@ -18,7 +18,7 @@ const Student = ({
         <div className="student-header-info">
           <span className="student-point-name">{firstname}  </span>
           <span className="student-point-name"> {lastname} </span>
-          <span className="student-point-points"> classe: {studentClass}</span>
+          <span className="student-point-points"> Classe : {class_name}</span>
           <button type="button" className="action-button">Supprimer l'élève</button>
         </div>
         <div className="point-student-manage">
@@ -40,14 +40,14 @@ const Student = ({
             />
             <Field
               name="class"
-              placeholder={studentClass}
+              placeholder={class_name}
             />
 
             <select name="house" className="form-select-change-house" value={house_name}>
-              <option value="Gryffondor">Gryffondor</option>
-              <option value="Serpentard">Serpentard</option>
-              <option value="Poufsouffle">Poufsouffle</option>
-              <option value="Serdaigle">Serdaigle</option>
+              <option value="2">Gryffondor</option>
+              <option value="4">Serpentard</option>
+              <option value="3">Poufsouffle</option>
+              <option value="1">Serdaigle</option>
             </select>
 
           </div>
@@ -67,5 +67,5 @@ Student.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   house_name: PropTypes.string.isRequired,
-  studentClass: PropTypes.string.isRequired,
+  class_name: PropTypes.string.isRequired,
 };

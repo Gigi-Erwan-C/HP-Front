@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import { axiosInstance } from './index';
 import { setStudentList, setTopStudentList } from '../store/reducers/student';
+import { setAdminStudentList } from '../store/reducers/adminStudent';
 import { sendSuccessMessage } from '../store/reducers/addPoints';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -14,6 +15,19 @@ export const fetchStudents = () => async (dispatch) => {
     console.log('Dommage, ça n\'a pas marché', e);
   }
 };
+
+export const fetchAdminStudents = () => async (dispatch) => {
+  try {
+    const { data } = await axiosInstance.get('/student');
+    // Dispatch à créer dans le reducer:
+    dispatch(setAdminStudentList(data));
+    console.log(data);
+  }
+  catch (e) {
+    console.log('Dommage, ça n\'a pas marché', e);
+  }
+};
+
 
 export const fetchTopStudents = () => async (dispatch) => {
   try {
@@ -70,5 +84,27 @@ export const removePointStudents = () => async (dispatch, getState) => {
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
     console.log(state.addPoints);
+  }
+};
+
+export const addStudent = () => async (dispatch, getState) => {
+  const state = getState();
+  const {
+    lastname, firstname, class_name, user_id, house_id, score,
+  } = state.adminStudent;
+  console.log(house_id);
+  try {
+    await axiosInstance.post('admin/student', {
+      lastname,
+      firstname,
+      class_name,
+      user_id,
+      house_id,
+      score,
+    });
+    dispatch(fetchAdminStudents());
+  }
+  catch (e) {
+    console.log(e);
   }
 };

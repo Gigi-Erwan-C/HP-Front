@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import User from './User';
 import AddUserForm from './AddUserForm';
-import { fetchUsers } from '../../api/users';
+import { fetchUsers, deleteUser } from '../../api/users';
+import { changeTargetId } from '../../store/reducers/adminUser';
 // import userData from '../../db/users.json';
 
 const AdminInterfaceTeachers = () => {
@@ -12,6 +13,12 @@ const AdminInterfaceTeachers = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
+  const handleClick = (id) => {
+    dispatch(changeTargetId(id));
+  };
+  const onClickConfirm = () => {
+    dispatch(deleteUser());
+  };
 
   return (
     <div className="points-management-recipient">
@@ -20,6 +27,8 @@ const AdminInterfaceTeachers = () => {
         <User
           key={user.id}
           {...user}
+          handleClick={handleClick}
+          onClickConfirm={onClickConfirm}
         />
       ))}
 
