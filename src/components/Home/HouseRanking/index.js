@@ -7,13 +7,12 @@ const HouseRanking = () => {
   const houseData = useSelector((state) => state.house.list);
   // Cet array contient les données de points de nos maisons
   const housePoints = houseData.map((house) => (
-    house.total_score
+    parseInt(house.house_total_score, 16)
   ));
 
   const totalPoints = housePoints.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
   );
-
   return (
     <div className="house-ranking">
       <h2 className="ranking-type">
@@ -21,7 +20,7 @@ const HouseRanking = () => {
       </h2>
       <div className="ranking-container">
         {houseData.map((house, index) => (
-          <HourGlass key={house.id} {...house} nameInEnglish={house.name_in_english} rank={index + 1} percentage={((house.score / totalPoints) * 100)} />
+          <HourGlass key={house.id} {...house} nameInEnglish={house.name_in_english} rank={index + 1} percentage={((house.house_total_score / totalPoints) * 100)} />
         ))}
       </div>
     </div>

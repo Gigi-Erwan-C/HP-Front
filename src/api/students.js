@@ -27,10 +27,10 @@ export const fetchTopStudents = () => async (dispatch) => {
   }
 };
 
-export const addPointHouses = () => async (dispatch, getState) => {
+export const addPointStudents = () => async (dispatch, getState) => {
   const state = getState();
   const { value, content, user_id } = state.addPoints;
-  const student_id = state.addPoints.id;
+  const student_id = state.addPoints.student_id;
 
   try {
     await axiosInstance.post('point/add', {
@@ -41,7 +41,30 @@ export const addPointHouses = () => async (dispatch, getState) => {
     })
       .then((response) => {
         console.log(response);
-        dispatch(sendSuccessMessage('Vos points ont bien été ajouté.'));
+        dispatch(sendSuccessMessage("Vos points à l'élève ont bien été ajoutés."));
+      });
+  }
+  catch (e) {
+    console.log('Errorus Console-logus!!!', e);
+    console.log(state.addPoints);
+  }
+};
+
+export const removePointStudents = () => async (dispatch, getState) => {
+  const state = getState();
+  const { value, content, user_id } = state.addPoints;
+  const student_id = state.addPoints.student_id;
+
+  try {
+    await axiosInstance.post('point/remove', {
+      student_id,
+      value,
+      content,
+      user_id,
+    })
+      .then((response) => {
+        console.log(response);
+        dispatch(sendSuccessMessage("Vos points à l'élève ont bien été enlevés."));
       });
   }
   catch (e) {

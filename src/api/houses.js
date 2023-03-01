@@ -29,7 +29,31 @@ export const addPointHouses = () => async (dispatch, getState) => {
     })
       .then((response) => {
         console.log(response);
-        dispatch(sendSuccessMessage('Vos points ont bien été ajouté.'));
+        dispatch(sendSuccessMessage('Vos points ont bien été ajoutés.'));
+      });
+  }
+  catch (e) {
+    console.log('Errorus Console-logus!!!', e);
+    console.log(state.addPoints);
+  }
+};
+
+export const removePointHouses = () => async (dispatch, getState) => {
+  const state = getState();
+  const {
+    value, content, user_id, house_id,
+  } = state.addPoints;
+
+  try {
+    await axiosInstance.post('point/remove', {
+      house_id,
+      value,
+      content,
+      user_id,
+    })
+      .then((response) => {
+        console.log(response);
+        dispatch(sendSuccessMessage('Vos points ont bien été enlevés.'));
       });
   }
   catch (e) {

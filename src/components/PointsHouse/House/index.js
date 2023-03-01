@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPointHouses } from '../../../api/houses';
+import { addPointHouses, removePointHouses } from '../../../api/houses';
 import Field from '../../Login/Field';
 import {
   changeContentAndValue, changeUser, selectHouse, resetForm,
@@ -32,10 +32,18 @@ const House = ({
       setShowAddForm(!showAdd);
     }
   };
+
   const handleAddPoint = (evt) => {
     evt.preventDefault();
     dispatch(addPointHouses());
     setShowAddForm(!showAdd);
+    dispatch(resetForm());
+  };
+
+  const handleRemovePoint = (evt) => {
+    evt.preventDefault();
+    dispatch(removePointHouses());
+    setShowDeleteForm(!showDelete);
     dispatch(resetForm());
   };
 
@@ -106,22 +114,22 @@ const House = ({
         <div className="point-house-footer">
           <div className="point-house-footer-manage">
             <span className="point-house-footer-text">Enlever des points</span>
-            <form className="point-house-delete">
+            <form className="point-house-delete" onSubmit={handleRemovePoint}>
               <Field
-                name="motif"
+                name="content"
                 placeholder="Motif"
                 type="text"
-                  // onChange={changeField}
-                  // value="email"
+                onChange={handleInputChange}
+                value={content}
               />
 
               <Field
-                name="note"
+                name="value"
                 placeholder="Note"
                 type="number"
                 className="field-note"
-                // onChange={changeField}
-                // value="email"
+                onChange={handleInputChange}
+                value={valueContent}
               />
 
               <button
