@@ -19,6 +19,7 @@ const House = ({
 
   const [showAdd, setShowAddForm] = useState(false);
   const [showDelete, setShowDeleteForm] = useState(false);
+  const [shouldRender, setShouldRender] = useState(true);
 
   const manageAddPoint = () => {
     setShowAddForm(!showAdd);
@@ -38,6 +39,7 @@ const House = ({
     dispatch(addPointHouses());
     setShowAddForm(!showAdd);
     dispatch(resetForm());
+    setShouldRender(!shouldRender);
   };
 
   const handleRemovePoint = (evt) => {
@@ -45,6 +47,7 @@ const House = ({
     dispatch(removePointHouses());
     setShowDeleteForm(!showDelete);
     dispatch(resetForm());
+    setShouldRender(!shouldRender);
   };
 
   const handleInputChange = (value, name) => {
@@ -56,6 +59,7 @@ const House = ({
 
   return (
     <div className="point-house">
+
       <div className="point-student-header">
         <div className="house-header-info">
           <span className="house-point-name">Maison {houseName} </span>
@@ -111,46 +115,47 @@ const House = ({
       )}
 
       {showDelete && (
-        <div className="point-house-footer">
-          <div className="point-house-footer-manage">
-            <span className="point-house-footer-text">Enlever des points</span>
-            <form className="point-house-delete" onSubmit={handleRemovePoint}>
-              <Field
-                name="content"
-                placeholder="Motif"
-                type="text"
-                onChange={handleInputChange}
-                value={content}
-              />
+      <div className="point-house-footer">
+        <div className="point-house-footer-manage">
+          <span className="point-house-footer-text">Enlever des points</span>
+          <form className="point-house-delete" onSubmit={handleRemovePoint}>
+            <Field
+              name="content"
+              placeholder="Motif"
+              type="text"
+              onChange={handleInputChange}
+              value={content}
+            />
 
-              <Field
-                name="value"
-                placeholder="Note"
-                type="number"
-                className="field-note"
-                onChange={handleInputChange}
-                value={valueContent}
-              />
+            <Field
+              name="value"
+              placeholder="Note"
+              type="number"
+              className="field-note"
+              onChange={handleInputChange}
+              value={valueContent}
+            />
 
-              <button
-                type="submit"
-                className="point-house-submit"
-              >
-                Valider
-              </button>
+            <button
+              type="submit"
+              className="point-house-submit"
+            >
+              Valider
+            </button>
 
-              <button
-                type="button"
-                className="point-house-cancel"
-                onClick={manageDeletePoint}
-              >
-                Annuler
-              </button>
+            <button
+              type="button"
+              className="point-house-cancel"
+              onClick={manageDeletePoint}
+            >
+              Annuler
+            </button>
 
-            </form>
-          </div>
+          </form>
         </div>
+      </div>
       )}
+
     </div>
 
   );

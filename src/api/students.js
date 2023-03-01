@@ -42,6 +42,7 @@ export const addPointStudents = () => async (dispatch, getState) => {
       .then((response) => {
         console.log(response);
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été ajoutés."));
+        dispatch(fetchStudents());
       });
   }
   catch (e) {
@@ -65,6 +66,7 @@ export const removePointStudents = () => async (dispatch, getState) => {
       .then((response) => {
         console.log(response);
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été enlevés."));
+        dispatch(fetchStudents());
       });
   }
   catch (e) {
