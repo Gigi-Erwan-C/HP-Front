@@ -25,7 +25,7 @@ export const login = () => async (dispatch, getState) => {
       });
   }
   catch (e) {
-    dispatch(sendErrorMessage("Votre mot de passe ou votre email n'est pas correct"));
+    dispatch(sendErrorMessage('Votre mot de passe ou votre email est incorrect'));
     console.log('Errorus Console-logus!!!', e);
   }
 };

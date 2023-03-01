@@ -2,13 +2,15 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPointHouses } from '../../../api/houses'
+import { addPointHouses } from '../../../api/houses';
 import Field from '../../Login/Field';
-import { changeContentAndValue, changeUser, selectHouse } from '../../../store/reducers/addPoints';
+import {
+  changeContentAndValue, changeUser, selectHouse, resetForm,
+} from '../../../store/reducers/addPoints';
 import './style.scss';
 
 const House = ({
-  houseName, score, id,
+  houseName, house_total_score, id,
 }) => {
   const content = useSelector((state) => state.addPoints.content);
   const valueContent = useSelector((state) => state.addPoints.value);
@@ -33,12 +35,14 @@ const House = ({
   const handleAddPoint = (evt) => {
     evt.preventDefault();
     dispatch(addPointHouses());
+    setShowAddForm(!showAdd);
+    dispatch(resetForm());
   };
 
   const handleInputChange = (value, name) => {
     dispatch(selectHouse(id));
+    console.log(id);
     dispatch(changeUser(user_id));
-    console.log(user_id);
     dispatch(changeContentAndValue({ key: name, value: value }));
   };
 
@@ -47,7 +51,7 @@ const House = ({
       <div className="point-student-header">
         <div className="house-header-info">
           <span className="house-point-name">Maison {houseName} </span>
-          <span className="house-point-points">{score} points </span>
+          <span className="house-point-points">{house_total_score} points </span>
           {/* <span className="house-rank">Position {rank} </span> */}
         </div>
         <div className="point-house-manage">
@@ -148,6 +152,6 @@ export default House;
 
 House.propTypes = {
   houseName: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
+  house_total_score: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
 };

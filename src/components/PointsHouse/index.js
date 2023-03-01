@@ -6,9 +6,15 @@ import House from './House';
 
 const PointsHouse = () => {
   const houseData = useSelector((state) => state.house.sortedList);
+  const successMessage = useSelector((state) => state.addPoints.successMessage);
 
   return (
     <div className="points-management-recipient">
+      {successMessage && (
+        <div className="success-message">
+          {successMessage}
+        </div>
+      )}
       {houseData.map((house, index) => (
         <House
           key={house.id}

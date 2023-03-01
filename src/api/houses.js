@@ -1,10 +1,11 @@
 /* eslint-disable camelcase */
 import { axiosInstance } from './index';
 import { setHouseList, sortHouseList } from '../store/reducers/house';
+import { sendSuccessMessage } from '../store/reducers/addPoints';
 // eslint-disable-next-line import/prefer-default-export
 export const fetchHouses = () => async (dispatch) => {
   try {
-    const { data } = await axiosInstance.get('house');
+    const { data } = await axiosInstance.get('house/total-score');
     dispatch(setHouseList(data));
     dispatch(sortHouseList(data));
   }
@@ -15,8 +16,9 @@ export const fetchHouses = () => async (dispatch) => {
 
 export const addPointHouses = () => async (dispatch, getState) => {
   const state = getState();
-  const { value, content, user_id } = state.addPoints;
-  const house_id = state.addPoints.id;
+  const {
+    value, content, user_id, house_id,
+  } = state.addPoints;
 
   try {
     await axiosInstance.post('point/add', {
@@ -26,7 +28,8 @@ export const addPointHouses = () => async (dispatch, getState) => {
       user_id,
     })
       .then((response) => {
-       console.log(response);
+        console.log(response);
+        dispatch(sendSuccessMessage('Vos points ont bien été ajouté.'));
       });
   }
   catch (e) {
