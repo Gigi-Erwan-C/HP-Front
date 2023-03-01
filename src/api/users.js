@@ -1,7 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable camelcase */
 import jwt from 'jwt-decode';
 import { handleLogged, sendErrorMessage } from '../store/reducers/user';
 import { axiosInstance } from './index';
+import { setUserList } from '../store/reducers/adminUser';
 
 // eslint-disable-next-line import/prefer-default-export
 export const login = () => async (dispatch, getState) => {
@@ -16,11 +18,12 @@ export const login = () => async (dispatch, getState) => {
       .then((response) => {
         const { token } = response.data.result;
         const user = jwt(token);
+        axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.result.token}`;
+        console.log(axiosInstance.defaults.headers);
         dispatch(handleLogged({
           ...user,
           token,
         }));
-        axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.result.token}`;
         return response.data.result;
       });
   }
@@ -29,3 +32,44 @@ export const login = () => async (dispatch, getState) => {
     console.log('Errorus Console-logus!!!', e);
   }
 };
+
+export const fetchUsers = () => async (dispatch, getState) => {
+  const state = getState();
+  const { token } = state.user;
+  console.log(token);
+
+  try {
+    const { data } = await axiosInstance.get('admin/user', {
+      headers: {
+        token,
+      },
+    });
+    dispatch(setUserList(data));
+  }
+  catch (e) {
+    console.log('Errorus Console-logus!!!', e);
+  }
+};
+
+export const addUser = () => async (dispatch, getState) => {
+  const state = getState();
+  const {
+    lastname, firstname, email, password, role_id, user_id,
+  } = state.adminUser;
+  console.log(role_id);
+  try {
+    await axiosInstance.post('admin/user', {
+      lastname,
+      firstname,
+      email,
+      password,
+      role_id,
+      user_id,
+    });
+   dispatch(fetchUsers());
+  }
+  catch (e) {
+    console.log(e);
+  }
+};
+

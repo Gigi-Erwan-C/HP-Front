@@ -15,8 +15,8 @@ const User = ({
       </div>
       <form className="form-select-change-house">
         <select name="house" className="form-select-change-user-role" value={role_id}>
-          <option value={1}>Administrateur</option>
           <option value={2}>Professeur</option>
+          <option value={1}>Administrateur</option>
         </select>
       </form>
     </div>

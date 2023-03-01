@@ -30,7 +30,7 @@ export const fetchTopStudents = () => async (dispatch) => {
 export const addPointStudents = () => async (dispatch, getState) => {
   const state = getState();
   const { value, content, user_id } = state.addPoints;
-  const student_id = state.addPoints.student_id;
+  const { student_id } = state.addPoints;
 
   try {
     await axiosInstance.post('point/add', {
@@ -40,7 +40,6 @@ export const addPointStudents = () => async (dispatch, getState) => {
       user_id,
     })
       .then((response) => {
-        console.log(response);
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été ajoutés."));
         dispatch(fetchStudents());
       });
@@ -54,7 +53,7 @@ export const addPointStudents = () => async (dispatch, getState) => {
 export const removePointStudents = () => async (dispatch, getState) => {
   const state = getState();
   const { value, content, user_id } = state.addPoints;
-  const student_id = state.addPoints.student_id;
+  const { student_id } = state.addPoints;
 
   try {
     await axiosInstance.post('point/remove', {
@@ -63,8 +62,7 @@ export const removePointStudents = () => async (dispatch, getState) => {
       content,
       user_id,
     })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été enlevés."));
         dispatch(fetchStudents());
       });
