@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable camelcase */
 import jwt from 'jwt-decode';
-import { handleLogged, sendErrorMessage } from '../store/reducers/user';
+import { handleLogged, sendErrorMessage, sendSuccessMessage } from '../store/reducers/user';
 import { axiosInstance } from './index';
 import { setUserList } from '../store/reducers/adminUser';
 
@@ -82,6 +82,26 @@ export const deleteUser = () => async (dispatch, getState) => {
   try {
     await axiosInstance.delete(`admin/user/${target_id}`);
     dispatch(fetchUsers());
+  }
+  catch (e) {
+    console.log(e);
+  }
+};
+
+export const changePassword = () => async (dispatch, getState) => {
+  const state = getState();
+  const {
+    id, oldPassword, newPassword, confirmation,
+  } = state.user;
+  const password = newPassword;
+  console.log(id);
+  try {
+    await axiosInstance.patch(`user/${id}`, {
+      oldPassword,
+      password,
+      confirmation,
+    });
+    dispatch(sendSuccessMessage('Votre mot de passe a bien été modifié.'));
   }
   catch (e) {
     console.log(e);
