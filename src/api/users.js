@@ -106,3 +106,23 @@ export const changePassword = () => async (dispatch, getState) => {
     console.log(e);
   }
 };
+
+export const changeInfoUser = () => async (dispatch, getState) => {
+  const state = getState();
+  const {
+    id, firstname, lastname, email, role_id,
+  } = state.changeUserInfo;
+  console.log(id);
+  try {
+    await axiosInstance.patch(`admin/user/${id}`, {
+      firstname,
+      lastname,
+      email,
+      role_id,
+    });
+    dispatch(fetchUsers());
+  }
+  catch (e) {
+    console.log(e);
+  }
+};
