@@ -122,3 +122,28 @@ export const deleteStudent = () => async (dispatch, getState) => {
     console.log(e);
   }
 };
+
+export const editStudent = () => async (dispatch, getState) => {
+  const state = getState();
+  const {
+    lastname, firstname, class_name, house_id, score, target_id,
+  } = state.changeStudent;
+  const { user_id } = state.user.id;
+  try {
+    await axiosInstance.patch(`admin/student/${target_id}`, {
+      lastname, firstname, class_name, house_id, score, user_id,
+    });
+    dispatch(fetchAdminStudents());
+    dispatch(fetchStudents());
+    dispatch(fetchTopStudents());
+  }
+  catch (e) {
+    console.log(e);
+  }
+};
+// Infos à envoyer pour le edit-student:
+//  "lastname" =
+// "firstname" =
+// "class_name" =
+// "score" =
+// "house_id" =

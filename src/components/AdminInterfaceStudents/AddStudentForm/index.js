@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { useDispatch, useSelector } from 'react-redux';
 import { addStudent } from '../../../api/students';
 import {
@@ -12,7 +13,6 @@ const AddStudentForm = () => {
   const firstname = useSelector((state) => state.adminStudent.firstname);
   const class_name = useSelector((state) => state.adminStudent.class_name);
   const user_id = useSelector((state) => state.user.id);
-  const house_id = useSelector((state) => state.adminStudent.house_id);
 
   const handleInputChange = (value, name) => {
     dispatch(changeUser(user_id));
@@ -20,14 +20,11 @@ const AddStudentForm = () => {
   };
 
   const handleHouseChange = (evt) => {
-    console.log(evt.target.value);
-    console.log(house_id);
     dispatch(changeHouse(evt.target.value));
   };
 
   const handleAddStudent = (evt) => {
     evt.preventDefault();
-    console.log("hello");
     dispatch(addStudent());
     dispatch(resetForm());
   };
@@ -68,6 +65,6 @@ const AddStudentForm = () => {
 
     </form>
   );
-  }
+};
 
 export default AddStudentForm;

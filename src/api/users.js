@@ -19,7 +19,6 @@ export const login = () => async (dispatch, getState) => {
         const { token } = response.data.result;
         const user = jwt(token);
         axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.result.token}`;
-        console.log(axiosInstance.defaults.headers);
         dispatch(handleLogged({
           ...user,
           token,
