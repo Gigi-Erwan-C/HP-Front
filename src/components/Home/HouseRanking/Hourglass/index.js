@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 const Hourglass = ({
-  house_total_score, name, nameInEnglish, rank, percentage,
+  houses_total_score, name, nameInEnglish, rank, percentage,
 }) => {
   const houseNameLowercase = typeof nameInEnglish === 'string' ? nameInEnglish.toLowerCase() : '';
   const houseNameNormal = typeof nameInEnglish === 'string' ? nameInEnglish.toUpperCase() : '';
@@ -36,7 +36,7 @@ const Hourglass = ({
         </div>
       </div>
       <div className="top-bottom">
-        <h3 className="current-points">{house_total_score} points</h3>
+        <h3 className="current-points">{houses_total_score} points</h3>
         {/* <span className="gained-points">(+ {0} points depuis [DATE])</span> */}
         <h2 className="house-name">{name}</h2>
         <span className="house-name__english">{nameInEnglish}</span>
@@ -47,7 +47,7 @@ const Hourglass = ({
 
 Hourglass.propTypes = {
   rank: PropTypes.number.isRequired,
-  house_total_score: PropTypes.number.isRequired,
+  houses_total_score: PropTypes.number.isRequired,
   // pointsSinceLastTick: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   nameInEnglish: PropTypes.string.isRequired,
