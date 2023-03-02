@@ -20,7 +20,7 @@ const HouseRanking = () => {
       </h2>
       <div className="ranking-container">
         {houseData.map((house, index) => (
-          <HourGlass key={house.id} {...house} nameInEnglish={house.name_in_english} rank={index + 1} percentage={((house.house_total_score / totalPoints) * 100)} />
+          <HourGlass key={house.id} {...house} nameInEnglish={house.name_in_english} rank={index + 1} percentage={((house.houses_total_score / totalPoints) * 100)} />
         ))}
       </div>
     </div>
