@@ -9,6 +9,9 @@ export const initialState = {
   firstname: '',
   token: null,
   id: null,
+  actualPassword: '',
+  newPassword: '',
+  confirmNewPassword: '',
   ...JSON.parse(localStorage.getItem('user')),
 };
 
@@ -17,6 +20,7 @@ export const handleLogged = createAction('user/handleLogged');
 export const setLogged = createAction('user/setLogged');
 export const sendErrorMessage = createAction('user/sendErrorMessage');
 export const logout = createAction('user/logout');
+export const changeNewPassword = createAction('user/changeNewPassword');
 
 const userReducer = createReducer(initialState, (builder) => {
   builder
@@ -40,6 +44,9 @@ const userReducer = createReducer(initialState, (builder) => {
     })
     .addCase(sendErrorMessage, (state, action) => {
       state.errorMessage = action.payload;
+    })
+    .addCase(changeNewPassword, (state, action) => {
+      state[action.payload.key] = action.payload.value;
     });
 });
 
