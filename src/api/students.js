@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import { axiosInstance } from './index';
 import { setStudentList, setTopStudentList } from '../store/reducers/student';
@@ -28,7 +29,6 @@ export const fetchAdminStudents = () => async (dispatch) => {
   }
 };
 
-
 export const fetchTopStudents = () => async (dispatch) => {
   try {
     const { data } = await axiosInstance.get('/student/top5');
@@ -53,7 +53,7 @@ export const addPointStudents = () => async (dispatch, getState) => {
       content,
       user_id,
     })
-      .then((response) => {
+      .then(() => {
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été ajoutés."));
         dispatch(fetchStudents());
       });
@@ -102,6 +102,20 @@ export const addStudent = () => async (dispatch, getState) => {
       house_id,
       score,
     });
+    dispatch(fetchAdminStudents());
+  }
+  catch (e) {
+    console.log(e);
+  }
+};
+
+export const deleteStudent = () => async (dispatch, getState) => {
+  const state = getState();
+  const {
+    target_id,
+  } = state.adminStudent;
+  try {
+    await axiosInstance.delete(`admin/student/${target_id}`);
     dispatch(fetchAdminStudents());
   }
   catch (e) {

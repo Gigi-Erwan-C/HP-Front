@@ -5,7 +5,6 @@ import User from './User';
 import AddUserForm from './AddUserForm';
 import { fetchUsers, deleteUser } from '../../api/users';
 import { changeTargetId } from '../../store/reducers/adminUser';
-// import userData from '../../db/users.json';
 
 const AdminInterfaceTeachers = () => {
   const userData = useSelector((state) => state.adminUser.userList);

@@ -8,7 +8,6 @@ export const initialState = {
   student_id: '',
   user_id: null,
   successMessage: null,
-
 };
 
 export const changeContentAndValue = createAction('addPoints/changeContentAndValue');

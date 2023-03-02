@@ -6,9 +6,10 @@ import Field from '../../Login/Field';
 import wand from '../../../assets/img/wand.png';
 
 const Student = ({
-  firstname, lastname, house_name, class_name,
+  firstname, lastname, house_name, class_name, handleFirstClick, onClickConfirm, id,
 }) => {
   const [showAdd, setShowAddForm] = useState(false);
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
   const manageAddPoint = () => {
     setShowAddForm(!showAdd);
   };
@@ -19,7 +20,18 @@ const Student = ({
           <span className="student-point-name">{firstname}  </span>
           <span className="student-point-name"> {lastname} </span>
           <span className="student-point-points"> Classe : {class_name}</span>
-          <button type="button" className="action-button">Supprimer l'élève</button>
+          {deleteConfirmation ? <button type="button" className="action-button" onClick={onClickConfirm}>Recliquez pour confirmer</button>
+            : (
+              <button
+                type="button"
+                className="action-button"
+                value={id}
+                onClick={() => {
+                  setDeleteConfirmation(true); handleFirstClick(id);
+                }}
+              >Supprimer l'élève
+              </button>
+            ) }
         </div>
         <div className="point-student-manage">
           {showAdd ? <div className="add" onClick={manageAddPoint}><img src={wand} alt="baguette" /></div>
@@ -68,4 +80,7 @@ Student.propTypes = {
   lastname: PropTypes.string.isRequired,
   house_name: PropTypes.string.isRequired,
   class_name: PropTypes.string.isRequired,
+  handleFirstClick: PropTypes.func.isRequired,
+  onClickConfirm: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
 };

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import './style.scss';
 
 const User = ({
-  firstname, lastname, role_id, handleClick, id, onClickConfirm
+  firstname, lastname, role_id, handleClick, id, onClickConfirm,
 }) => {
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
 
@@ -18,7 +18,17 @@ const User = ({
           <span className="student-point-name"> {lastname} </span>
           <button type="button" className="action-button">Modifier le mot de passe</button>
           { deleteConfirmation ? <button type="button" className="action-button" onClick={onClickConfirm}>Recliquez pour confirmer</button>
-            : <button type="button" className="action-button" value={id} onClick={() => { setDeleteConfirmation(true); handleClick(id) }}>Supprimer l'utilisateur</button>}
+            : (
+              <button
+                type="button"
+                className="action-button"
+                value={id}
+                onClick={() => {
+                  setDeleteConfirmation(true); handleClick(id);
+                }}
+              >Supprimer l'utilisateur
+              </button>
+            )}
         </div>
         <form className="form-select-change-house">
           <select name="house" className="form-select-change-user-role" value={role_id}>

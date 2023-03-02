@@ -21,7 +21,6 @@ export const setUserList = createAction('adminUser/setUserList');
 // export const sendSuccessMessage = createAction('addPoints/sendSuccessMessage');
 export const resetForm = createAction('adminUser/resetForm');
 export const changeTargetId = createAction('adminUser/changeTargetId');
-export const setDeleteConfirmation = createAction('adminUser/setDeleteConfirmation');
 
 const adminUserReducer = createReducer(initialState, (builder) => {
   builder
