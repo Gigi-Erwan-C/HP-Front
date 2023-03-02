@@ -17,7 +17,7 @@ const User = ({
           <span className="student-point-name">{firstname}  </span>
           <span className="student-point-name"> {lastname} </span>
           <button type="button" className="action-button">Modifier le mot de passe</button>
-          { deleteConfirmation ? <button type="button" className="action-button" onClick={onClickConfirm}>Recliquez pour confirmer</button>
+          { id !== 1 && (deleteConfirmation ? <button type="button" className="action-button" onClick={onClickConfirm}>Recliquez pour confirmer</button>
             : (
               <button
                 type="button"
@@ -28,7 +28,7 @@ const User = ({
                 }}
               >Supprimer l'utilisateur
               </button>
-            )}
+            ))}
         </div>
         <form className="form-select-change-house">
           <select name="house" className="form-select-change-user-role" value={role_id}>
