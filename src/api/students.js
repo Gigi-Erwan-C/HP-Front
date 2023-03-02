@@ -122,3 +122,17 @@ export const deleteStudent = () => async (dispatch, getState) => {
     console.log(e);
   }
 };
+
+export const editStudent = () => async (dispatch, getState) => {
+  const state = getState();
+  const {
+    target_id,
+  } = state.adminStudent;
+  try {
+    await axiosInstance.patch(`admin/student/${target_id}`);
+    dispatch(fetchAdminStudents());
+  }
+  catch (e) {
+    console.log(e);
+  }
+};
