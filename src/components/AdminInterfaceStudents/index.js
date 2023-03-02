@@ -5,8 +5,7 @@ import './style.scss';
 import SearchBar from '../SearchBar';
 import Student from './Student';
 import AddStudentForm from './AddStudentForm';
-import { changeTargetId } from '../../store/reducers/adminStudent';
-// import studentData from '../../db/students.json';
+import { changeTargetId, changeContentAndValue } from '../../store/reducers/adminStudent';
 
 const AdminInterfaceStudents = () => {
   const studentData = useSelector((state) => state.adminStudent.studentList);
@@ -20,6 +19,9 @@ const AdminInterfaceStudents = () => {
   useEffect(() => {
     dispatch(fetchAdminStudents());
   }, []);
+  const handleInputChange = (value, name) => {
+    dispatch(changeContentAndValue({ key: name, value: value }));
+  };
   return (
     <div className="points-management-recipient">
       <AddStudentForm />
@@ -30,6 +32,7 @@ const AdminInterfaceStudents = () => {
           {...student}
           handleFirstClick={handleClick}
           onClickConfirm={onClickConfirm}
+          handleInputChange={handleInputChange}
         />
       ))}
 
