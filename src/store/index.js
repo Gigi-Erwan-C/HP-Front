@@ -6,6 +6,7 @@ import studentReducer from './reducers/student';
 import addPointsReducer from './reducers/addPoints';
 import adminUserReducer from './reducers/adminUser';
 import adminStudentReducer from './reducers/adminStudent';
+import changeUserInfoReducer from './reducers/changeUserInfo';
 
 const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ const store = configureStore({
     addPoints: addPointsReducer,
     adminUser: adminUserReducer,
     adminStudent: adminStudentReducer,
+    changeUserInfo: changeUserInfoReducer,
   },
 });
 
