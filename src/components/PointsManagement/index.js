@@ -37,9 +37,9 @@ const PointsManagement = ({
     ? studentData.filter((student) => selectedHouses.includes(student.house_name))
     : studentData;
 
-    console.log(filteredStudents);
 
   dispatch(filterAllStudent(filteredStudents));
+
 
   return (
     <div>
@@ -117,7 +117,6 @@ const PointsManagement = ({
             {component}
           </div>
         </div>
-
       </div>
     </div>
   );

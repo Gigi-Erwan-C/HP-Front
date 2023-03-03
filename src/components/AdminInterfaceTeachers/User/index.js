@@ -66,8 +66,8 @@ const User = ({
             <form className="change-user-recipient">
               <div className="input-fields">
                 <Field
-                  name="lastname"
-                  placeholder=""
+                  name="password"
+                  placeholder="Nouveau mot de passe"
                 />
                 <button
                   type="submit"
@@ -129,7 +129,7 @@ const User = ({
 
             <select name="role-id" className="form-select-change-house" value={newRole_id} onChange={handleRoleChange}>
               <option value="1">Administrateur</option>
-              <option value="2">Professeur</option>
+              {id !== 1 && (<option value="2">Professeur</option>)}
             </select>
 
           </div>
