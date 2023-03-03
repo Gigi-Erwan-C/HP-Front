@@ -2,14 +2,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchAdminStudents, deleteStudent } from '../../api/students';
 import './style.scss';
-import { changeSearchStudent } from '../../store/reducers/student';
 import SearchBar from '../SearchBar';
 import Student from './Student';
 import AddStudentForm from './AddStudentForm';
 import { changeTargetId, changeContentAndValue } from '../../store/reducers/adminStudent';
+import { changeSearchStudent } from '../../store/reducers/student';
 
 const AdminInterfaceStudents = () => {
-  const studentData = useSelector((state) => state.adminStudent.studentList);
+  const studentData = useSelector((state) => state.adminStudent.filterStudentAdmin);
   const searchStudent = useSelector((state) => state.student.searchStudent);
   const dispatch = useDispatch();
   const handleClick = (id) => {

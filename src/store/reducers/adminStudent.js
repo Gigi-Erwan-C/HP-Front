@@ -10,6 +10,7 @@ export const initialState = {
   score: 0,
   studentList: [],
   target_id: null,
+  filterStudentAdmin: [],
 };
 
 export const changeContentAndValue = createAction('adminStudent/changeContentAndValue');
@@ -18,6 +19,7 @@ export const changeUser = createAction('adminStudent/changeUser');
 export const resetForm = createAction('adminStudent/resetForm');
 export const setAdminStudentList = createAction('adminStudent/setAdminStudentList');
 export const changeTargetId = createAction('adminStudent/changeTargetId');
+export const filterAllStudentAdmin = createAction('adminStudent/filterAllStudentAdmin');
 
 const adminStudentReducer = createReducer(initialState, (builder) => {
   builder
@@ -41,6 +43,9 @@ const adminStudentReducer = createReducer(initialState, (builder) => {
     })
     .addCase(changeTargetId, (state, action) => {
       state.target_id = action.payload;
+    })
+    .addCase(filterAllStudentAdmin, (state, action) => {
+      state.filterStudentAdmin = action.payload;
     });
 });
 
