@@ -33,7 +33,7 @@ const App = () => {
   const isLogged = useSelector((state) => state.user.isLogged);
   const userRole = useSelector((state) => state.user.role_id);
   const houseData = useSelector((state) => state.house.sortedList);
-  const studentData = useSelector((state) => state.student.filterStudent);
+  const studentData = useSelector((state) => state.student.list);
   const studentAdminData = useSelector((state) => state.adminStudent.studentList);
   const userData = useSelector((state) => state.adminUser.userList);
   const dispatch = useDispatch();
