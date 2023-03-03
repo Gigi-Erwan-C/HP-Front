@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 import { axiosInstance } from './index';
-import { setStudentList, setTopStudentList, sortStudentList } from '../store/reducers/student';
+import { setStudentList, setTopStudentList } from '../store/reducers/student';
 import { setAdminStudentList } from '../store/reducers/adminStudent';
 import { sendSuccessMessage } from '../store/reducers/addPoints';
 
@@ -11,7 +11,6 @@ export const fetchStudents = () => async (dispatch) => {
     const { data } = await axiosInstance.get('/student/total-score-and-house');
     // Dispatch à créer dans le reducer:
     dispatch(setStudentList(data));
-    dispatch(sortStudentList(data));
   }
   catch (e) {
     console.log('Dommage, ça n\'a pas marché', e);

@@ -6,9 +6,11 @@ import SearchBar from '../SearchBar';
 import Student from './Student';
 import AddStudentForm from './AddStudentForm';
 import { changeTargetId, changeContentAndValue } from '../../store/reducers/adminStudent';
+import { changeSearchStudent } from '../../store/reducers/student';
 
 const AdminInterfaceStudents = () => {
-  const studentData = useSelector((state) => state.adminStudent.studentList);
+  const studentData = useSelector((state) => state.adminStudent.filterStudentAdmin);
+  const searchStudent = useSelector((state) => state.student.searchStudent);
   const dispatch = useDispatch();
   const handleClick = (id) => {
     dispatch(changeTargetId(id));
@@ -22,11 +24,22 @@ const AdminInterfaceStudents = () => {
   const handleInputChange = (value, name) => {
     dispatch(changeContentAndValue({ key: name, value: value }));
   };
+
+  const filteredStudents = searchStudent
+    ? studentData.filter((student) =>
+      student.firstname.toLowerCase().includes(searchStudent.toLowerCase())
+      || student.lastname.toLowerCase().includes(searchStudent.toLowerCase()))
+    : studentData;
+
+  const handleInputStudentChange = (value, name) => {
+    dispatch(changeSearchStudent({ key: name, value: value }));
+  };
+
   return (
     <div className="points-management-recipient">
       <AddStudentForm />
-      <SearchBar />
-      {studentData.map((student) => (
+      <SearchBar name="searchStudent" value={searchStudent} onChange={handleInputStudentChange} />
+      {filteredStudents.map((student) => (
         <Student
           key={student.id}
           {...student}

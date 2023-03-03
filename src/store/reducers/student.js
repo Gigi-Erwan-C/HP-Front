@@ -4,12 +4,14 @@ import data from '../../db/students.json';
 export const initialState = {
   list: data,
   topStudentsList: data,
-  sortedList: [],
+  searchStudent: '',
+  filterStudent: [],
 };
 
 export const setStudentList = createAction('student/setList');
 export const setTopStudentList = createAction('student/setTopStudentsList');
-export const sortStudentList = createAction('student/sortStudentList');
+export const changeSearchStudent = createAction('student/changeSearchStudent');
+export const filterAllStudent = createAction('student/filterAllStudent');
 
 const studentReducer = createReducer(initialState, (builder) => {
   builder
@@ -21,8 +23,12 @@ const studentReducer = createReducer(initialState, (builder) => {
       state.topStudentsList = action.payload;
     })
 
-    .addCase(sortStudentList, (state, action) => {
-      state.sortedList = action.payload;
+    .addCase(changeSearchStudent, (state, action) => {
+      state[action.payload.key] = action.payload.value;
+    })
+
+    .addCase(filterAllStudent, (state, action) => {
+      state.filterStudent = action.payload;
     });
 });
 

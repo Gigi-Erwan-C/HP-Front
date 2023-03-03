@@ -43,7 +43,6 @@ const Student = ({
         value: id,
       }));
     }
-    console.log(selectedStudent);
   };
   const handleInputChange = (value, name) => {
     dispatch(changeContentAndValue({ key: name, value: value }));
@@ -55,6 +54,7 @@ const Student = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(editStudent());
+    setShowAddForm(!showAdd);
   };
   return (
     <div className="point-student">

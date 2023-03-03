@@ -24,7 +24,7 @@ import SortStudent from '../SortStudent';
 import SortUser from '../SortUser';
 import { sortHouseList } from '../../store/reducers/house';
 import './styles.scss';
-import { sortStudentList } from '../../store/reducers/student';
+import { setStudentList } from '../../store/reducers/student';
 import { setAdminStudentList } from '../../store/reducers/adminStudent';
 import { setUserList } from '../../store/reducers/adminUser';
 
@@ -33,7 +33,7 @@ const App = () => {
   const isLogged = useSelector((state) => state.user.isLogged);
   const userRole = useSelector((state) => state.user.role_id);
   const houseData = useSelector((state) => state.house.sortedList);
-  const studentData = useSelector((state) => state.student.sortedList);
+  const studentData = useSelector((state) => state.student.filterStudent);
   const studentAdminData = useSelector((state) => state.adminStudent.studentList);
   const userData = useSelector((state) => state.adminUser.userList);
   const dispatch = useDispatch();
@@ -78,7 +78,7 @@ const App = () => {
                 component={<PointsStudents />}
                 selectedStudent="selected"
                 page="page-student"
-                sortComponent={<SortStudent studentArray={studentData} setArray={sortStudentList} />}
+                sortComponent={<SortStudent studentArray={studentData} setArray={setStudentList} />}
               />
             )
             : (<Navigate replace to="/" />)}

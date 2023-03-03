@@ -111,12 +111,12 @@ const User = ({
         <form className="add-student-recipient" onSubmit={handleChangeUser}>
           <div className="input-fields">
             <Field
-              name="lastname"
+              name="firstname"
               value={newFirstName}
               onChange={handleInputChange}
             />
             <Field
-              name="firstname"
+              name="lastname"
               value={newLastName}
               onChange={handleInputChange}
             />
