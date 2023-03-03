@@ -6,7 +6,7 @@ import Student from './Student';
 // import studentData from '../../db/students.json';
 
 const PointsStudents = () => {
-  const studentData = useSelector((state) => state.student.list);
+  const studentData = useSelector((state) => state.student.sortedList);
   const successMessage = useSelector((state) => state.addPoints.successMessage);
   return (
     <div className="points-management-recipient">

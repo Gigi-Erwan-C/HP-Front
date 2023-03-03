@@ -4,12 +4,11 @@ import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import Filter from '../Filter';
 import Navbar from '../Navbar';
-import Sort from '../Sort';
 import './style.scss';
 import FilterMobile from '../Filter/FilterMobile';
 
 const PointsManagement = ({
-  component, selectedStudent, selectedHouse, page, sentArray, setArray,
+  component, selectedStudent, selectedHouse, page, sortComponent,
 }) => {
   const [showFilter, setShowFilter] = useState(false);
   const handleShowFilter = () => {
@@ -53,7 +52,7 @@ const PointsManagement = ({
                     Tri
                   </div>
                 )}
-                <Sort array={sentArray} setArray={setArray} />
+                {sortComponent}
               </div>
             </div>
             {showFilter && (
@@ -87,6 +86,7 @@ PointsManagement.propTypes = {
   page: PropTypes.string.isRequired,
   sentArray: PropTypes.array.isRequired,
   setArray: PropTypes.func.isRequired,
+  sortComponent: PropTypes.object.isRequired,
 };
 
 PointsManagement.defaultProps = {

@@ -4,10 +4,12 @@ import data from '../../db/students.json';
 export const initialState = {
   list: data,
   topStudentsList: data,
+  sortedList: [],
 };
 
 export const setStudentList = createAction('student/setList');
 export const setTopStudentList = createAction('student/setTopStudentsList');
+export const sortStudentList = createAction('student/sortStudentList');
 
 const studentReducer = createReducer(initialState, (builder) => {
   builder
@@ -17,6 +19,10 @@ const studentReducer = createReducer(initialState, (builder) => {
 
     .addCase(setTopStudentList, (state, action) => {
       state.topStudentsList = action.payload;
+    })
+
+    .addCase(sortStudentList, (state, action) => {
+      state.sortedList = action.payload;
     });
 });
 

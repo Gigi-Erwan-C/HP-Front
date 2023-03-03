@@ -3,10 +3,11 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Filter from '../Filter';
 import Navbar from '../Navbar';
-import Sort from '../Sort';
 import FilterMobile from '../Filter/FilterMobile';
 
-const AdminInterface = ({ component, selectedStudent, selectedTeacher, page }) => {
+const AdminInterface = ({
+  component, selectedStudent, selectedTeacher, page, sortComponent,
+}) => {
   const [showFilter, setShowFilter] = useState(false);
   const handleShowFilter = () => {
     console.log(showFilter);
@@ -45,7 +46,7 @@ const AdminInterface = ({ component, selectedStudent, selectedTeacher, page }) =
                     Tri
                   </div>
                 )}
-                <Sort />
+                {sortComponent}
               </div>
             </div>
             {showFilter && (
@@ -76,6 +77,7 @@ AdminInterface.propTypes = {
   selectedStudent: PropTypes.string,
   selectedTeacher: PropTypes.string,
   page: PropTypes.string.isRequired,
+  sortComponent: PropTypes.elementType.isRequired,
 };
 
 AdminInterface.defaultProps = {

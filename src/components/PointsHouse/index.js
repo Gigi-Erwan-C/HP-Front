@@ -1,6 +1,5 @@
 import './style.scss';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
 import House from './House';
 // import houseData from '../../db/houses.json';
 

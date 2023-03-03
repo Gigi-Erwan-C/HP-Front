@@ -19,14 +19,23 @@ import PageNotFound from '../PageNotFound';
 import AdminInterface from '../AdminInterface';
 import AdminInterfaceStudents from '../AdminInterfaceStudents';
 import AdminInterfaceTeachers from '../AdminInterfaceTeachers';
+import SortHouse from '../SortHouse';
+import SortStudent from '../SortStudent';
+import SortUser from '../SortUser';
 import { sortHouseList } from '../../store/reducers/house';
 import './styles.scss';
+import { sortStudentList } from '../../store/reducers/student';
+import { setAdminStudentList } from '../../store/reducers/adminStudent';
+import { setUserList } from '../../store/reducers/adminUser';
 
 // == Composant
 const App = () => {
   const isLogged = useSelector((state) => state.user.isLogged);
   const userRole = useSelector((state) => state.user.role_id);
   const houseData = useSelector((state) => state.house.sortedList);
+  const studentData = useSelector((state) => state.student.sortedList);
+  const studentAdminData = useSelector((state) => state.adminStudent.studentList);
+  const userData = useSelector((state) => state.adminUser.userList);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHouses());
@@ -43,11 +52,63 @@ const App = () => {
         <Route path="/histoire" element={<Lore />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
         <Route path="/mon-compte" element={isLogged ? <Account /> : (<Navigate replace to="/" />)} />
-        <Route path="/mon-compte/mot-de-passe" element={isLogged ? <Password /> : (<Navigate replace to="/" />)} />
-        <Route path="/classement/maisons" element={isLogged ? <PointsManagement component={<PointsHouse />} selectedHouse="selected" page="page-house" sentArray={houseData} setArray={sortHouseList} /> : (<Navigate replace to="/" />)} />
-        <Route path="/classement/eleves" element={isLogged ? <PointsManagement component={<PointsStudents />} selectedStudent="selected" page="page-student" /> : (<Navigate replace to="/" />)} />
-        <Route path="/admin/eleves" element={isLogged && userRole === 1 ? <AdminInterface component={<AdminInterfaceStudents />} selectedStudent="selected" page="page-student" /> : (<Navigate replace to="/" />)} />
-        <Route path="/admin/utilisateurs" element={isLogged && userRole === 1 ? <AdminInterface component={<AdminInterfaceTeachers />} selectedTeacher="selected" page="page-house" /> : (<Navigate replace to="/" />)} />
+        <Route
+          path="/mon-compte/mot-de-passe"
+          element={isLogged
+            ? <Password /> : (<Navigate replace to="/" />)}
+        />
+        <Route
+          path="/classement/maisons"
+          element={isLogged
+            ? (
+              <PointsManagement
+                component={<PointsHouse />}
+                selectedHouse="selected"
+                page="page-house"
+                sortComponent={<SortHouse houseArray={houseData} setArray={sortHouseList} />}
+              />
+            )
+            : (<Navigate replace to="/" />)}
+        />
+        <Route
+          path="/classement/eleves"
+          element={isLogged
+            ? (
+              <PointsManagement
+                component={<PointsStudents />}
+                selectedStudent="selected"
+                page="page-student"
+                sortComponent={<SortStudent studentArray={studentData} setArray={sortStudentList} />}
+              />
+            )
+            : (<Navigate replace to="/" />)}
+        />
+        <Route
+          path="/admin/eleves"
+          element={isLogged && userRole === 1
+            ? (
+              <AdminInterface
+                component={<AdminInterfaceStudents />}
+                selectedStudent="selected"
+                page="page-student"
+                sortComponent={<SortUser userArray={studentAdminData} setArray={setAdminStudentList} />}
+              />
+            )
+            : (<Navigate replace to="/" />)}
+        />
+        <Route
+          path="/admin/utilisateurs"
+          element={isLogged && userRole === 1
+            ? (
+              <AdminInterface
+                component={<AdminInterfaceTeachers />}
+                selectedTeacher="selected"
+                page="page-house"
+                sortComponent={<SortUser userArray={userData} setArray={setUserList} />}
+              />
+            )
+            : (<Navigate replace to="/" />)}
+        />
         <Route path="*" element={<PageNotFound />} />
 
       </Routes>
