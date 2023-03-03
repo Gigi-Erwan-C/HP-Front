@@ -3,26 +3,23 @@ import Field from '../Login/Field';
 import './style.scss';
 
 const SearchBar = ({
-  onSubmit, value,
+ value, onChange, name,
 }) => (
-  <form className="search-bar-form" onSubmit={onSubmit}>
+  <form className="search-bar-form">
     <Field
       type="text"
       placeholder="Rechercher un élève par nom/prénom"
       value={value}
+      onChange={onChange}
+      name={name}
     />
-    <button
-      type="submit"
-      className="login-form-button"
-    >
-      OK
-    </button>
   </form>
 );
 
 export default SearchBar;
 
 SearchBar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
 };

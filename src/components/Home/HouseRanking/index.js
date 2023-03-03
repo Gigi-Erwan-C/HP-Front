@@ -7,7 +7,7 @@ const HouseRanking = () => {
   const houseData = useSelector((state) => state.house.list);
   // Cet array contient les données de points de nos maisons
   const housePoints = houseData.map((house) => (
-    parseInt(house.house_total_score, 16)
+    parseInt(house.houses_total_score, 16)
   ));
 
   const totalPoints = housePoints.reduce(

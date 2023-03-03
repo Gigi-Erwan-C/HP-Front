@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchAdminStudents, deleteStudent } from '../../api/students';
 import './style.scss';
+import { changeSearchStudent } from '../../store/reducers/student';
 import SearchBar from '../SearchBar';
 import Student from './Student';
 import AddStudentForm from './AddStudentForm';
@@ -9,6 +10,7 @@ import { changeTargetId, changeContentAndValue } from '../../store/reducers/admi
 
 const AdminInterfaceStudents = () => {
   const studentData = useSelector((state) => state.adminStudent.studentList);
+  const searchStudent = useSelector((state) => state.student.searchStudent);
   const dispatch = useDispatch();
   const handleClick = (id) => {
     dispatch(changeTargetId(id));
@@ -22,11 +24,22 @@ const AdminInterfaceStudents = () => {
   const handleInputChange = (value, name) => {
     dispatch(changeContentAndValue({ key: name, value: value }));
   };
+
+  const filteredStudents = searchStudent
+    ? studentData.filter((student) =>
+      student.firstname.toLowerCase().includes(searchStudent.toLowerCase())
+      || student.lastname.toLowerCase().includes(searchStudent.toLowerCase()))
+    : studentData;
+
+  const handleInputStudentChange = (value, name) => {
+    dispatch(changeSearchStudent({ key: name, value: value }));
+  };
+
   return (
     <div className="points-management-recipient">
       <AddStudentForm />
-      <SearchBar />
-      {studentData.map((student) => (
+      <SearchBar name="searchStudent" value={searchStudent} onChange={handleInputStudentChange} />
+      {filteredStudents.map((student) => (
         <Student
           key={student.id}
           {...student}

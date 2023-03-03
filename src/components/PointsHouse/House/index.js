@@ -10,7 +10,7 @@ import {
 import './style.scss';
 
 const House = ({
-  houseName, house_total_score, id,
+  houseName, houses_total_score, id,
 }) => {
   const content = useSelector((state) => state.addPoints.content);
   const valueContent = useSelector((state) => state.addPoints.value);
@@ -63,7 +63,7 @@ const House = ({
       <div className="point-student-header">
         <div className="house-header-info">
           <span className="house-point-name">Maison {houseName} </span>
-          <span className="house-point-points">{house_total_score} points </span>
+          <span className="house-point-points">{houses_total_score} points </span>
           {/* <span className="house-rank">Position {rank} </span> */}
         </div>
         <div className="point-house-manage">
@@ -165,6 +165,6 @@ export default House;
 
 House.propTypes = {
   houseName: PropTypes.string.isRequired,
-  house_total_score: PropTypes.number.isRequired,
+  houses_total_score: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
 };
