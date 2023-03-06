@@ -9,43 +9,35 @@ import {
 import './style.scss';
 
 const House = ({
-  houseName, houses_total_score, id,
+  houseName, houses_total_score, id, toggleAddPoint, showAdd, toggleDeletePoint, showDelete,
 }) => {
   const content = useSelector((state) => state.addPoints.content);
   const valueContent = useSelector((state) => state.addPoints.value);
   const user_id = useSelector((state) => state.user.id);
   const dispatch = useDispatch();
 
-  const [showAdd, setShowAddForm] = useState(false);
-  const [showDelete, setShowDeleteForm] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
 
   const manageAddPoint = () => {
-    setShowAddForm(!showAdd);
-    if (showDelete) {
-      setShowDeleteForm(!showDelete);
-    }
+    toggleAddPoint(id);
   };
   const manageDeletePoint = () => {
-    setShowDeleteForm(!showDelete);
-    if (showAdd) {
-      setShowAddForm(!showAdd);
-    }
+    toggleDeletePoint(id);
   };
 
   const handleAddPoint = (evt) => {
     evt.preventDefault();
     dispatch(addPointHouses());
-    setShowAddForm(!showAdd);
     dispatch(resetForm());
+    toggleAddPoint(id);
     setShouldRender(!shouldRender);
   };
 
   const handleRemovePoint = (evt) => {
     evt.preventDefault();
     dispatch(removePointHouses());
-    setShowDeleteForm(!showDelete);
     dispatch(resetForm());
+    toggleDeletePoint(id);
     setShouldRender(!shouldRender);
   };
 
@@ -165,4 +157,8 @@ House.propTypes = {
   houseName: PropTypes.string.isRequired,
   houses_total_score: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  toggleAddPoint: PropTypes.func.isRequired,
+  toggleDeletePoint: PropTypes.func.isRequired,
+  showAdd: PropTypes.bool.isRequired,
+  showDelete: PropTypes.bool.isRequired,
 };

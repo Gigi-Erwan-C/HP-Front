@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   changeContentAndValue, changeUser, selectStudent, resetForm,
@@ -17,16 +16,11 @@ const Student = ({
   const user_id = useSelector((state) => state.user.id);
   const dispatch = useDispatch();
 
-  // const [showDelete, setShowDeleteForm] = useState(false);
   const manageAddPoint = () => {
     toggleAddPoint(id);
   };
   const manageDeletePoint = () => {
     toggleDeletePoint(id);
-    // setShowDeleteForm(!showDelete);
-    // if (showAdd) {
-    //   setShowAddForm(!showAdd);
-    // }
   };
 
   const handleAddPoint = (evt) => {
