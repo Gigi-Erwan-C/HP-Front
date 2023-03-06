@@ -31,6 +31,9 @@ export const addPointHouses = () => async (dispatch, getState) => {
         console.log(response);
         dispatch(sendSuccessMessage('Vos points ont bien été ajoutés.'));
         dispatch(fetchHouses());
+        setTimeout(() => {
+          dispatch(sendSuccessMessage());
+        }, 5000);
       });
   }
   catch (e) {
@@ -56,6 +59,9 @@ export const removePointHouses = () => async (dispatch, getState) => {
         console.log(response);
         dispatch(sendSuccessMessage('Vos points ont bien été enlevés.'));
         dispatch(fetchHouses());
+        setTimeout(() => {
+          dispatch(sendSuccessMessage());
+        }, 5000);
       });
   }
   catch (e) {

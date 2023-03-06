@@ -56,6 +56,11 @@ export const addPointStudents = () => async (dispatch, getState) => {
       .then(() => {
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été ajoutés."));
         dispatch(fetchStudents());
+        dispatch(fetchAdminStudents());
+        dispatch(fetchTopStudents());
+        setTimeout(() => {
+          dispatch(sendSuccessMessage());
+        }, 5000);
       });
   }
   catch (e) {
@@ -79,6 +84,11 @@ export const removePointStudents = () => async (dispatch, getState) => {
       .then(() => {
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été enlevés."));
         dispatch(fetchStudents());
+        dispatch(fetchAdminStudents());
+        dispatch(fetchTopStudents());
+        setTimeout(() => {
+          dispatch(sendSuccessMessage());
+        }, 5000);
       });
   }
   catch (e) {
@@ -103,6 +113,8 @@ export const addStudent = () => async (dispatch, getState) => {
       score,
     });
     dispatch(fetchAdminStudents());
+    dispatch(fetchStudents());
+    dispatch(fetchTopStudents());
   }
   catch (e) {
     console.log(e);
@@ -117,6 +129,8 @@ export const deleteStudent = () => async (dispatch, getState) => {
   try {
     await axiosInstance.delete(`admin/student/${target_id}`);
     dispatch(fetchAdminStudents());
+    dispatch(fetchStudents());
+    dispatch(fetchTopStudents());
   }
   catch (e) {
     console.log(e);

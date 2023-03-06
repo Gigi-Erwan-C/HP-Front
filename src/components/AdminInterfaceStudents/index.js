@@ -26,8 +26,7 @@ const AdminInterfaceStudents = () => {
   };
 
   const filteredStudents = searchStudent
-    ? studentData.filter((student) =>
-      student.firstname.toLowerCase().includes(searchStudent.toLowerCase())
+    ? studentData.filter((student) => student.firstname.toLowerCase().includes(searchStudent.toLowerCase())
       || student.lastname.toLowerCase().includes(searchStudent.toLowerCase()))
     : studentData;
 

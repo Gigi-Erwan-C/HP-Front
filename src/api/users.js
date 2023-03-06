@@ -29,6 +29,9 @@ export const login = () => async (dispatch, getState) => {
   }
   catch (e) {
     dispatch(sendErrorMessage('Votre mot de passe ou votre email est incorrect'));
+    setTimeout(() => {
+      dispatch(sendErrorMessage());
+    }, 5000);
     console.log('Errorus Console-logus!!!', e);
   }
 };
@@ -101,6 +104,9 @@ export const changePassword = () => async (dispatch, getState) => {
       confirmation,
     });
     dispatch(sendSuccessMessage('Votre mot de passe a bien été modifié.'));
+    setTimeout(() => {
+      dispatch(sendSuccessMessage());
+    }, 5000);
   }
   catch (e) {
     console.log(e);
@@ -122,6 +128,9 @@ export const changeInfoUser = () => async (dispatch, getState) => {
     });
     dispatch(fetchUsers());
     dispatch(SuccessMessage("Les informations de l'utilisateur ont bien été modifiées."));
+    setTimeout(() => {
+      dispatch(SuccessMessage());
+    }, 5000);
   }
   catch (e) {
     console.log(e);
@@ -143,6 +152,9 @@ export const changeUserPassword = () => async (dispatch, getState) => {
     });
     dispatch(fetchUsers());
     dispatch(SuccessMessage("Le mot de passe de l'utilisateur a bien été modifié."));
+    setTimeout(() => {
+      dispatch(SuccessMessage());
+    }, 5000);
   }
   catch (e) {
     console.log(e);
