@@ -9,7 +9,7 @@ import { changeContentAndValue, changeHouse } from '../../../store/reducers/chan
 import { editStudent } from '../../../api/students';
 
 const Student = ({
-  firstname, lastname, house_name, class_name, handleFirstClick, onClickConfirm, id, house_id, toggleAddPoint, showAdd
+  firstname, lastname, house_name, class_name, handleFirstClick, onClickConfirm, id, house_id, toggleAddPoint, showAdd,
 }) => {
   const selectedStudent = useSelector((state) => state.changeStudent);
   const dispatch = useDispatch();
@@ -86,17 +86,19 @@ const Student = ({
         <form className="add-student-recipient" onSubmit={handleSubmit}>
           <div className="input-fields">
             <Field
-              name="lastname"
-              value={selectedStudent.lastname}
-              placeholder={lastname}
-              onChange={handleInputChange}
-            />
-            <Field
               name="firstname"
               value={selectedStudent.firstname}
               placeholder={firstname}
               onChange={handleInputChange}
             />
+
+            <Field
+              name="lastname"
+              value={selectedStudent.lastname}
+              placeholder={lastname}
+              onChange={handleInputChange}
+            />
+
             <Field
               name="class_name"
               value={selectedStudent.class_name}

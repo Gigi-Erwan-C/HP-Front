@@ -11,24 +11,25 @@ import wand from '../../../assets/img/wand.png';
 import './style.scss';
 
 const User = ({
-  firstname, lastname, role_id, handleClick, id, email, onClickConfirm,
+  firstname, lastname, role_id, handleClick, id, email, onClickConfirm, toggleAddPoint, showAdd,
 }) => {
   const dispatch = useDispatch();
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
   const [showFormPassword, setShowFormPassword] = useState(false);
-  const [showAdd, setShowAddForm] = useState(false);
   const newFirstName = useSelector((state) => state.changeUserInfo.firstname);
   const newLastName = useSelector((state) => state.changeUserInfo.lastname);
   const newEmail = useSelector((state) => state.changeUserInfo.email);
   const newRole_id = useSelector((state) => state.changeUserInfo.role_id);
 
   const showFormUser = () => {
-    setShowAddForm(!showAdd);
-    dispatch(saveUserFirstname(firstname));
-    dispatch(saveUserLastname(lastname));
-    dispatch(saveUserEmail(email));
-    dispatch(saveUserRoleId(role_id));
-    dispatch(saveUserId(id));
+    toggleAddPoint(id);
+    if (!showAdd) {
+      dispatch(saveUserFirstname(firstname));
+      dispatch(saveUserLastname(lastname));
+      dispatch(saveUserEmail(email));
+      dispatch(saveUserRoleId(role_id));
+      dispatch(saveUserId(id));
+    }
   };
 
   const manageFormPassword = () => {
@@ -50,7 +51,7 @@ const User = ({
   const handleChangeUser = (evt) => {
     evt.preventDefault();
     dispatch(changeInfoUser());
-    setShowAddForm(!showAdd);
+    toggleAddPoint(id);
   };
 
   const sendNewPassword = (evt) => {
@@ -163,4 +164,6 @@ User.propTypes = {
   handleClick: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   onClickConfirm: PropTypes.func.isRequired,
+  toggleAddPoint: PropTypes.func.isRequired,
+  showAdd: PropTypes.bool.isRequired,
 };
