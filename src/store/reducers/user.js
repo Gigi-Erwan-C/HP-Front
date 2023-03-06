@@ -2,13 +2,13 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
 export const initialState = {
-  errorMessage: null,
+  errorMessage: '',
   isLogged: false,
   email: '',
   password: '',
   firstname: '',
-  token: null,
-  id: null,
+  token: '',
+  id: '',
   oldPassword: '',
   newPassword: '',
   confirmation: '',

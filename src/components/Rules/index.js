@@ -21,7 +21,7 @@ const Rules = () => (
         <section className="accordion">
           <input type="checkbox" name="collapse" id="handle1" />
           <h2 className="handle">
-            <label for="handle1">1. Fonctionnement général</label>
+            <label htmlFor="handle1">1. Fonctionnement général</label>
           </h2>
           <div className="content rules-item-content">
             <img className="rules-img-left" src={rule1} alt="Regle n°1" />
@@ -50,7 +50,7 @@ const Rules = () => (
         <section className="accordion">
           <input type="checkbox" name="collapse" id="handle2" />
           <h2 className="handle">
-            <label for="handle2">2. Gagner et perdre des points</label>
+            <label htmlFor="handle2">2. Gagner et perdre des points</label>
           </h2>
           <div className="content rules-item-content">
             <div className="rules-item-content-text">
@@ -79,7 +79,7 @@ const Rules = () => (
         <section className="accordion">
           <input type="checkbox" name="collapse" id="handle3" />
           <h2 className="handle">
-            <label for="handle3">3. Répartition des sorciers</label>
+            <label htmlFor="handle3">3. Répartition des sorciers</label>
           </h2>
           <div className="content rules-item-content">
             <img className="rules-img-left" src={rule3} alt="Regle n°3" />
@@ -108,7 +108,7 @@ const Rules = () => (
         <section className="accordion">
           <input type="checkbox" name="collapse" id="handle4" />
           <h2 className="handle">
-            <label for="handle4">4. Les duels de Sorciers</label>
+            <label htmlFor="handle4">4. Les duels de Sorciers</label>
           </h2>
           <div className="content rules-item-content">
             <div className="rules-item-content-text">
@@ -137,7 +137,7 @@ const Rules = () => (
         <section className="accordion">
           <input type="checkbox" name="collapse" id="handle5" />
           <h2 className="handle">
-            <label for="handle5">5. Les paliers de classe</label>
+            <label htmlFor="handle5">5. Les paliers de classe</label>
           </h2>
           <div className="content rules-item-content">
             <img className="rules-img-left" src={rule5} alt="Regle n°5" />
@@ -166,7 +166,7 @@ const Rules = () => (
         <section className="accordion">
           <input type="checkbox" name="collapse" id="handle6" />
           <h2 className="handle">
-            <label for="handle6">6. Mon aventure</label>
+            <label htmlFor="handle6">6. Mon aventure</label>
           </h2>
           <div className="content rules-item-content">
             <div className="rules-item-content-text">
