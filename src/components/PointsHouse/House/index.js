@@ -163,6 +163,6 @@ export default House;
 
 House.propTypes = {
   houseName: PropTypes.string.isRequired,
-  houses_total_score: PropTypes.number.isRequired,
+  houses_total_score: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
 };

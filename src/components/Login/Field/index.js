@@ -36,11 +36,11 @@ const Field = ({
 };
 
 Field.propTypes = {
-  value: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 // == Export

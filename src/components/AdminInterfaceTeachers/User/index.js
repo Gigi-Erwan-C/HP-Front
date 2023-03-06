@@ -5,7 +5,7 @@ import { useState } from 'react';
 import {
   saveUserId, saveUserFirstname, saveUserLastname, saveUserRoleId, saveUserEmail, changeUserInfo, changeRole,
 } from '../../../store/reducers/changeUserInfo';
-import { changeInfoUser } from '../../../api/users';
+import { changeInfoUser, changeUserPassword } from '../../../api/users';
 import Field from '../../Login/Field';
 import wand from '../../../assets/img/wand.png';
 import './style.scss';
@@ -40,6 +40,7 @@ const User = ({
 
   const handleInputChange = (value, name) => {
     dispatch(changeUserInfo({ key: name, value: value }));
+    dispatch(saveUserId(id));
   };
 
   const handleRoleChange = (evt) => {
@@ -48,8 +49,14 @@ const User = ({
 
   const handleChangeUser = (evt) => {
     evt.preventDefault();
-    console.log("yes")
     dispatch(changeInfoUser());
+    setShowAddForm(!showAdd);
+  };
+
+  const sendNewPassword = (evt) => {
+    evt.preventDefault();
+    dispatch(changeUserPassword());
+    setShowFormPassword(!showFormPassword);
   };
 
   return (
@@ -67,11 +74,14 @@ const User = ({
               <div className="input-fields">
                 <Field
                   name="password"
+                  type="password"
+                  onChange={handleInputChange}
                   placeholder="Nouveau mot de passe"
                 />
                 <button
                   type="submit"
                   className="point-student-submit"
+                  onClick={sendNewPassword}
                 >
                   Valider
                 </button>

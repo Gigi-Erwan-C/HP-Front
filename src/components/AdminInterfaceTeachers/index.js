@@ -8,6 +8,7 @@ import { changeTargetId } from '../../store/reducers/adminUser';
 
 const AdminInterfaceTeachers = () => {
   const userData = useSelector((state) => state.adminUser.userList);
+  const successMessage = useSelector((state) => state.changeUserInfo.successMessage);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUsers());
@@ -22,6 +23,11 @@ const AdminInterfaceTeachers = () => {
   return (
     <div className="points-management-recipient">
       <AddUserForm />
+      {successMessage && (
+        <div className="success-message">
+          {successMessage}
+        </div>
+      )}
       {userData.map((user) => (
         <User
           key={user.id}

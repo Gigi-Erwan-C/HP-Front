@@ -4,6 +4,7 @@ import jwt from 'jwt-decode';
 import { handleLogged, sendErrorMessage, sendSuccessMessage } from '../store/reducers/user';
 import { axiosInstance } from './index';
 import { setUserList } from '../store/reducers/adminUser';
+import { SuccessMessage } from '../store/reducers/changeUserInfo';
 
 // eslint-disable-next-line import/prefer-default-export
 export const login = () => async (dispatch, getState) => {
@@ -35,7 +36,6 @@ export const login = () => async (dispatch, getState) => {
 export const fetchUsers = () => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.user;
-  console.log(token);
 
   try {
     const { data } = await axiosInstance.get('admin/user', {
@@ -55,7 +55,7 @@ export const addUser = () => async (dispatch, getState) => {
   const {
     lastname, firstname, email, password, role_id, user_id,
   } = state.adminUser;
-  console.log(role_id);
+
   try {
     await axiosInstance.post('admin/user', {
       lastname,
@@ -77,7 +77,7 @@ export const deleteUser = () => async (dispatch, getState) => {
   const {
     target_id,
   } = state.adminUser;
-  console.log(target_id);
+
   try {
     await axiosInstance.delete(`admin/user/${target_id}`);
     dispatch(fetchUsers());
@@ -93,7 +93,7 @@ export const changePassword = () => async (dispatch, getState) => {
     id, oldPassword, newPassword, confirmation,
   } = state.user;
   const password = newPassword;
-  console.log(id);
+
   try {
     await axiosInstance.patch(`user/${id}`, {
       oldPassword,
@@ -112,7 +112,7 @@ export const changeInfoUser = () => async (dispatch, getState) => {
   const {
     id, firstname, lastname, email, role_id,
   } = state.changeUserInfo;
-  console.log(id);
+
   try {
     await axiosInstance.patch(`admin/user/${id}`, {
       firstname,
@@ -121,6 +121,28 @@ export const changeInfoUser = () => async (dispatch, getState) => {
       role_id,
     });
     dispatch(fetchUsers());
+    dispatch(SuccessMessage("Les informations de l'utilisateur ont bien été modifiées."));
+  }
+  catch (e) {
+    console.log(e);
+  }
+};
+
+export const changeUserPassword = () => async (dispatch, getState) => {
+  const state = getState();
+  const {
+    id, password,
+  } = state.changeUserInfo;
+  console.log(id);
+
+  try {
+    await axiosInstance.patch(`admin/user/password/${id}`, {
+      id,
+      password,
+
+    });
+    dispatch(fetchUsers());
+    dispatch(SuccessMessage("Le mot de passe de l'utilisateur a bien été modifié."));
   }
   catch (e) {
     console.log(e);

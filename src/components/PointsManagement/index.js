@@ -128,8 +128,6 @@ PointsManagement.propTypes = {
   selectedStudent: PropTypes.string,
   selectedHouse: PropTypes.string,
   page: PropTypes.string.isRequired,
-  sentArray: PropTypes.array.isRequired,
-  setArray: PropTypes.func.isRequired,
   sortComponent: PropTypes.object.isRequired,
 };
 
