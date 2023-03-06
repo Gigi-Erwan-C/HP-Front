@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPointHouses, removePointHouses } from '../../../api/houses';
-import Field from '../../Login/Field';
+import Field from '../../Field';
 import {
   changeContentAndValue, changeUser, selectHouse, resetForm,
 } from '../../../store/reducers/addPoints';

@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import Header from '../Header';
+import Header from '../../Header';
 import './style.scss';
 
 const LegalNotice = () => (
@@ -16,8 +16,10 @@ const LegalNotice = () => (
       les étudiants de la formation o'clock. Il n’est en aucun cas affilié à <span>J.K. Rowling</span>,<span>Scholastic</span>,<span> Bloomsbury</span>,<span>Gallimard</span> ou <span>Time Warner Entertainment</span>.
     </p>
     <p>
-      « <span>Harry Potter</span> » et toutes les marques dérivées sont propriété et copyright de <span>Warner Bros</span> et de <span>J.K.
-      Rowling</span>. Les autres marques citées sur ce site sont déposées par les sociétés qui en sont propriétaires.
+      « <span>Harry Potter</span> » et toutes les marques dérivées sont propriété et copyright de <span>Warner Bros</span> et de 
+      <span>J.K.
+        Rowling
+      </span>. Les autres marques citées sur ce site sont déposées par les sociétés qui en sont propriétaires.
       L’ensemble de ce site est soumis au droit français.
     </p>
     <p className="margin-bottom">Sauf mention contraire, tous les éléments accessibles sur le site (textes, images, graphismes, logo, icônes, sons, logiciels, etc.)

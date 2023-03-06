@@ -4,7 +4,7 @@ import { addStudent } from '../../../api/students';
 import {
   changeContentAndValue, changeUser, changeHouse, resetForm,
 } from '../../../store/reducers/adminStudent';
-import Field from '../../Login/Field';
+import Field from '../../Field';
 import './style.scss';
 
 const AddStudentForm = () => {

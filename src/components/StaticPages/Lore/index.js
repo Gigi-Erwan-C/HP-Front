@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import Header from '../Header';
+import Header from '../../Header';
 import LoreDefault from './DefaultLore';
 import LoreGryffindor from './Gryffindor';
 import LoreHufflepuff from './Hufflepuff';
 import LoreSlytherin from './Slytherin';
 import LoreRavenclaw from './Ravenclaw';
 import SigilElement from './SigilElement';
-import gryffindorSigil from '../../assets/img/blason-gryffondor.png';
-import slytherinSigil from '../../assets/img/blason-serpentard.png';
-import ravenclawSigil from '../../assets/img/blason-serdaigle.png';
-import hufflepuffSigil from '../../assets/img/blason-poufsouffle.png';
+import gryffindorSigil from '../../../assets/img/blason-gryffondor.png';
+import slytherinSigil from '../../../assets/img/blason-serpentard.png';
+import ravenclawSigil from '../../../assets/img/blason-serdaigle.png';
+import hufflepuffSigil from '../../../assets/img/blason-poufsouffle.png';
 import './style.scss';
 
 const Lore = () => {

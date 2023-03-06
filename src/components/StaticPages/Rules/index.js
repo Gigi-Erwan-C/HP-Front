@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet';
-import Header from '../Header';
+import Header from '../../Header';
 import './style.scss';
-import rule1 from '../../assets/img/regle-1.jpg';
-import rule2 from '../../assets/img/regle-2.jpg';
-import rule3 from '../../assets/img/regle-3.jpg';
-import rule4 from '../../assets/img/regle-4.jpg';
-import rule5 from '../../assets/img/regle-5.jpg';
-import rule6 from '../../assets/img/regle-6.jpg';
+import rule1 from '../../../assets/img/regle-1.jpg';
+import rule2 from '../../../assets/img/regle-2.jpg';
+import rule3 from '../../../assets/img/regle-3.jpg';
+import rule4 from '../../../assets/img/regle-4.jpg';
+import rule5 from '../../../assets/img/regle-5.jpg';
+import rule6 from '../../../assets/img/regle-6.jpg';
 
 const Rules = () => (
   <div className="page-rules">

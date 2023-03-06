@@ -6,7 +6,7 @@ import {
   saveUserId, saveUserFirstname, saveUserLastname, saveUserRoleId, saveUserEmail, changeUserInfo, changeRole,
 } from '../../../store/reducers/changeUserInfo';
 import { changeInfoUser, changeUserPassword } from '../../../api/users';
-import Field from '../../Login/Field';
+import Field from '../../Field';
 import wand from '../../../assets/img/wand.png';
 import './style.scss';
 

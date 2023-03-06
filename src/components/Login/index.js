@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { changeEmailAndPassword } from '../../store/reducers/user';
 import Navbar from '../Navbar';
-import Field from './Field';
+import Field from '../Field';
 import { login } from '../../api/users';
 import './style.scss';
 

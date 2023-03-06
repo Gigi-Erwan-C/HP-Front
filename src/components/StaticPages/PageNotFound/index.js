@@ -1,5 +1,5 @@
-import Navbar from '../Navbar';
-import gif404 from '../../assets/img/404.gif';
+import Navbar from '../../Navbar';
+import gif404 from '../../../assets/img/404.gif';
 
 import './style.scss';
 

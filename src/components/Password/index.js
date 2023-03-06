@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeNewPassword } from '../../store/reducers/user';
 import { changePassword } from '../../api/users';
 import Navbar from '../Navbar';
-import Field from '../Login/Field';
+import Field from '../Field';
 import './style.scss';
 
 const Password = () => {

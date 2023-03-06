@@ -6,7 +6,7 @@ import {
   changeContentAndValue, changeUser, selectStudent, resetForm,
 } from '../../../store/reducers/addPoints';
 import { addPointStudents, removePointStudents } from '../../../api/students';
-import Field from '../../Login/Field';
+import Field from '../../Field';
 import './style.scss';
 
 const Student = ({
