@@ -9,14 +9,13 @@ import { changeContentAndValue, changeHouse } from '../../../store/reducers/chan
 import { editStudent } from '../../../api/students';
 
 const Student = ({
-  firstname, lastname, house_name, class_name, handleFirstClick, onClickConfirm, id, house_id,
+  firstname, lastname, house_name, class_name, handleFirstClick, onClickConfirm, id, house_id, toggleAddPoint, showAdd
 }) => {
   const selectedStudent = useSelector((state) => state.changeStudent);
   const dispatch = useDispatch();
-  const [showAdd, setShowAddForm] = useState(false);
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
   const manageAddPoint = () => {
-    setShowAddForm(!showAdd);
+    toggleAddPoint(id);
     if (!showAdd) {
       dispatch(changeContentAndValue({
         key: 'firstname',
@@ -54,7 +53,7 @@ const Student = ({
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(editStudent());
-    setShowAddForm(!showAdd);
+    toggleAddPoint(id);
   };
   return (
     <div className="point-student">
@@ -131,7 +130,9 @@ Student.propTypes = {
   house_name: PropTypes.string.isRequired,
   class_name: PropTypes.string.isRequired,
   handleFirstClick: PropTypes.func.isRequired,
+  toggleAddPoint: PropTypes.func.isRequired,
   onClickConfirm: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   house_id: PropTypes.number.isRequired,
+  showAdd: PropTypes.bool.isRequired,
 };
