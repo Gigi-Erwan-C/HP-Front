@@ -7,6 +7,7 @@ import {
   changeContentAndValue, changeUser, selectHouse, resetForm,
 } from '../../../store/reducers/addPoints';
 import './style.scss';
+import { Helmet } from 'react-helmet';
 
 const House = ({
   houseName, houses_total_score, id, toggleAddPoint, showAdd, toggleDeletePoint, showDelete,
@@ -49,7 +50,9 @@ const House = ({
 
   return (
     <div className="point-house">
-
+      <Helmet>
+        gestion des points des maisons
+      </Helmet>
       <div className="point-student-header">
         <div className="house-header-info">
           <span className="house-point-name">Maison {houseName} </span>
