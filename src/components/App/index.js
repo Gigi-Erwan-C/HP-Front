@@ -29,15 +29,6 @@ import { setAdminStudentList } from '../../store/reducers/adminStudent';
 import { setUserList } from '../../store/reducers/adminUser';
 
 // == Composant
-<<<<<<< HEAD
-const App = () => (
-  <div className="app">
-    <img src={reactLogo} alt="react logo" />
-    <h1>Composant : App</h1>
-  </div>
-);
-
-=======
 const App = () => {
   const isLogged = useSelector((state) => state.user.isLogged);
   const userRole = useSelector((state) => state.user.role_id);
@@ -125,6 +116,5 @@ const App = () => {
     </div>
   );
 };
->>>>>>> de78f00c7402e628bfb3be028d2fa9536e68c524
 // == Export
 export default App;
