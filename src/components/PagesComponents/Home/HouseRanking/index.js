@@ -1,18 +1,17 @@
 import { useSelector } from 'react-redux';
 import HourGlass from './Hourglass';
-// import houseData from '../../../db/houses.json';
 import './style.scss';
 
 const HouseRanking = () => {
   const houseData = useSelector((state) => state.house.list);
-  // Cet array contient les données de points de nos maisons
   const housePoints = houseData.map((house) => (
-    parseInt(house.houses_total_score, 16)
+    parseInt(house.houses_total_score, 10)
   ));
 
   const totalPoints = housePoints.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
   );
+  console.log(housePoints);
   return (
     <div className="house-ranking">
       <h2 className="ranking-type">

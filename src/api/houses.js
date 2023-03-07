@@ -27,6 +27,7 @@ export const addPointHouses = () => async (dispatch, getState) => {
       value,
       content,
       user_id,
+    }, {
       headers: {
         authorization: token,
       },
@@ -59,6 +60,7 @@ export const removePointHouses = () => async (dispatch, getState) => {
       value,
       content,
       user_id,
+    }, {
       headers: {
         authorization: token,
       },
