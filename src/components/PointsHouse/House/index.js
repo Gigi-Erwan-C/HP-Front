@@ -1,33 +1,63 @@
-/* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import Field from '../../Login/Field';
+import { useDispatch, useSelector } from 'react-redux';
+import { addPointHouses, removePointHouses } from '../../../api/houses';
+import Field from '../../ReusableComponents/Field';
+import {
+  changeContentAndValue, changeUser, selectHouse, resetForm,
+} from '../../../store/reducers/addPoints';
 import './style.scss';
+import { Helmet } from 'react-helmet';
 
 const House = ({
-  name, score, rank,
+  houseName, houses_total_score, id, toggleAddPoint, showAdd, toggleDeletePoint, showDelete,
 }) => {
-  const [showAdd, setShowAddForm] = useState(false);
-  const [showDelete, setShowDeleteForm] = useState(false);
+  const content = useSelector((state) => state.addPoints.content);
+  const valueContent = useSelector((state) => state.addPoints.value);
+  const user_id = useSelector((state) => state.user.id);
+  const dispatch = useDispatch();
+
+  const [shouldRender, setShouldRender] = useState(true);
+
   const manageAddPoint = () => {
-    setShowAddForm(!showAdd);
-    if (showDelete) {
-      setShowDeleteForm(!showDelete);
-    }
+    toggleAddPoint(id);
   };
   const manageDeletePoint = () => {
-    setShowDeleteForm(!showDelete);
-    if (showAdd) {
-      setShowAddForm(!showAdd);
-    }
+    toggleDeletePoint(id);
   };
+
+  const handleAddPoint = (evt) => {
+    evt.preventDefault();
+    dispatch(addPointHouses());
+    dispatch(resetForm());
+    toggleAddPoint(id);
+    setShouldRender(!shouldRender);
+  };
+
+  const handleRemovePoint = (evt) => {
+    evt.preventDefault();
+    dispatch(removePointHouses());
+    dispatch(resetForm());
+    toggleDeletePoint(id);
+    setShouldRender(!shouldRender);
+  };
+
+  const handleInputChange = (value, name) => {
+    dispatch(selectHouse(id));
+    dispatch(changeUser(user_id));
+    dispatch(changeContentAndValue({ key: name, value: value }));
+  };
+
   return (
     <div className="point-house">
+      <Helmet>
+        gestion des points des maisons
+      </Helmet>
       <div className="point-student-header">
         <div className="house-header-info">
-          <span className="house-point-name">Maison {name} </span>
-          <span className="house-point-points">{score} points </span>
-          <span className="house-rank">Position {rank} </span>
+          <span className="house-point-name">Maison {houseName} </span>
+          <span className="house-point-points">{houses_total_score} points </span>
+          {/* <span className="house-rank">Position {rank} </span> */}
         </div>
         <div className="point-house-manage">
           <div className="add" onClick={manageAddPoint}>+</div>
@@ -39,22 +69,22 @@ const House = ({
         <div className="point-house-footer">
           <div className="point-house-footer-manage">
             <span className="point-house-footer-text">Ajouter des points</span>
-            <form className="point-house-add">
+            <form className="point-house-add" onSubmit={handleAddPoint}>
               <Field
-                name="motif"
+                name="content"
                 placeholder="Motif"
                 type="text"
-                // onChange={changeField}
-                // value="email"
+                onChange={handleInputChange}
+                value={content}
               />
 
               <Field
-                name="note"
+                name="value"
                 placeholder="Note"
                 type="number"
                 className="field-note"
-                // onChange={changeField}
-                // value="email"
+                onChange={handleInputChange}
+                value={valueContent}
               />
 
               <button
@@ -78,47 +108,47 @@ const House = ({
       )}
 
       {showDelete && (
-        <div className="point-house-footer">
-          <div className="point-house-footer-manage">
-            <span className="point-house-footer-text">Enlever des points</span>
-            <form className="point-house-delete">
-              <Field
-                name="motif"
-                placeholder="Motif"
-                type="text"
-                  // onChange={changeField}
-                  // value="email"
-              />
+      <div className="point-house-footer">
+        <div className="point-house-footer-manage">
+          <span className="point-house-footer-text">Enlever des points</span>
+          <form className="point-house-delete" onSubmit={handleRemovePoint}>
+            <Field
+              name="content"
+              placeholder="Motif"
+              type="text"
+              onChange={handleInputChange}
+              value={content}
+            />
 
-              <Field
-                name="note"
-                placeholder="Note"
-                type="number"
-                className="field-note"
-                // onChange={changeField}
-                // value="email"
-              />
+            <Field
+              name="value"
+              placeholder="Note"
+              type="number"
+              className="field-note"
+              onChange={handleInputChange}
+              value={valueContent}
+            />
 
-              <button
-                type="submit"
-                className="point-house-submit"
-              >
-                Valider
-              </button>
+            <button
+              type="submit"
+              className="point-house-submit"
+            >
+              Valider
+            </button>
 
-              <button
-                type="button"
-                className="point-house-cancel"
-                onClick={manageDeletePoint}
-              >
-                Annuler
-              </button>
+            <button
+              type="button"
+              className="point-house-cancel"
+              onClick={manageDeletePoint}
+            >
+              Annuler
+            </button>
 
-
-            </form>
-          </div>
+          </form>
         </div>
+      </div>
       )}
+
     </div>
 
   );
@@ -127,7 +157,11 @@ const House = ({
 export default House;
 
 House.propTypes = {
-  name: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
-  rank: PropTypes.number.isRequired,
+  houseName: PropTypes.string.isRequired,
+  houses_total_score: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  toggleAddPoint: PropTypes.func.isRequired,
+  toggleDeletePoint: PropTypes.func.isRequired,
+  showAdd: PropTypes.bool.isRequired,
+  showDelete: PropTypes.bool.isRequired,
 };
