@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './style.scss';
-import Field from '../../Field';
+import Field from '../../ReusableComponents/Field';
 import wand from '../../../assets/img/wand.png';
 import { changeContentAndValue, changeHouse } from '../../../store/reducers/changeStudent';
 import { editStudent } from '../../../api/students';

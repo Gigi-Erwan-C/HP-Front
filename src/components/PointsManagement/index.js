@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { filterAllStudent } from '../../store/reducers/student';
-import Filter from '../Filter';
-import Navbar from '../Navbar';
+import Navbar from '../ReusableComponents/Navbar';
 import './style.scss';
-import FilterMobile from '../Filter/FilterMobile';
+import FilterMobile from '../ReusableComponents/Filter/FilterMobile';
 
 const PointsManagement = ({
   component, selectedStudent, selectedHouse, page, sortComponent,

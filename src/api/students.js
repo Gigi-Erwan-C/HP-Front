@@ -6,9 +6,15 @@ import { setAdminStudentList } from '../store/reducers/adminStudent';
 import { sendSuccessMessage } from '../store/reducers/addPoints';
 
 // eslint-disable-next-line import/prefer-default-export
-export const fetchStudents = () => async (dispatch) => {
+export const fetchStudents = () => async (dispatch, getState) => {
+  const state = getState();
+  const { token } = state.user;
   try {
-    const { data } = await axiosInstance.get('/student/total-score-and-house');
+    const { data } = await axiosInstance.get('/student/total-score-and-house', {
+      headers: {
+        authorization: token,
+      },
+    });
     // Dispatch à créer dans le reducer:
     dispatch(setStudentList(data));
   }
@@ -17,9 +23,15 @@ export const fetchStudents = () => async (dispatch) => {
   }
 };
 
-export const fetchAdminStudents = () => async (dispatch) => {
+export const fetchAdminStudents = () => async (dispatch, getState) => {
+  const state = getState();
+  const { token } = state.user;
   try {
-    const { data } = await axiosInstance.get('/student');
+    const { data } = await axiosInstance.get('/student', {
+      headers: {
+        authorization: token,
+      },
+    });
     // Dispatch à créer dans le reducer:
     dispatch(setAdminStudentList(data));
     console.log(data);
@@ -43,11 +55,15 @@ export const fetchTopStudents = () => async (dispatch) => {
 
 export const addPointStudents = () => async (dispatch, getState) => {
   const state = getState();
+  const { token } = state.user;
   const { value, content, user_id } = state.addPoints;
   const { student_id } = state.addPoints;
 
   try {
     await axiosInstance.post('point/add', {
+      headers: {
+        authorization: token,
+      },
       student_id,
       value,
       content,
@@ -65,21 +81,25 @@ export const addPointStudents = () => async (dispatch, getState) => {
   }
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
-    console.log(state.addPoints);
   }
 };
 
 export const removePointStudents = () => async (dispatch, getState) => {
   const state = getState();
+  const { token } = state.user;
   const { value, content, user_id } = state.addPoints;
   const { student_id } = state.addPoints;
 
   try {
     await axiosInstance.post('point/remove', {
-      student_id,
       value,
       content,
       user_id,
+      student_id,
+    }, {
+      headers: {
+        authorization: token,
+      },
     })
       .then(() => {
         dispatch(sendSuccessMessage("Vos points à l'élève ont bien été enlevés."));
@@ -99,6 +119,7 @@ export const removePointStudents = () => async (dispatch, getState) => {
 
 export const addStudent = () => async (dispatch, getState) => {
   const state = getState();
+  const { token } = state.user;
   const {
     lastname, firstname, class_name, user_id, house_id, score,
   } = state.adminStudent;
@@ -111,6 +132,10 @@ export const addStudent = () => async (dispatch, getState) => {
       user_id,
       house_id,
       score,
+    }, {
+      headers: {
+        authorization: token,
+      },
     });
     dispatch(fetchAdminStudents());
     dispatch(fetchStudents());
@@ -123,11 +148,16 @@ export const addStudent = () => async (dispatch, getState) => {
 
 export const deleteStudent = () => async (dispatch, getState) => {
   const state = getState();
+  const { token } = state.user;
   const {
     target_id,
   } = state.adminStudent;
   try {
-    await axiosInstance.delete(`admin/student/${target_id}`);
+    await axiosInstance.delete(`admin/student/${target_id}`, {
+      headers: {
+        authorization: token,
+      },
+    });
     dispatch(fetchAdminStudents());
     dispatch(fetchStudents());
     dispatch(fetchTopStudents());
@@ -139,13 +169,23 @@ export const deleteStudent = () => async (dispatch, getState) => {
 
 export const editStudent = () => async (dispatch, getState) => {
   const state = getState();
+  const { token } = state.user;
   const {
     lastname, firstname, class_name, house_id, score, target_id,
   } = state.changeStudent;
   const { user_id } = state.user.id;
   try {
     await axiosInstance.patch(`admin/student/${target_id}`, {
-      lastname, firstname, class_name, house_id, score, user_id,
+      lastname,
+      firstname,
+      class_name,
+      house_id,
+      score,
+      user_id,
+    }, {
+      headers: {
+        authorization: token,
+      },
     });
     dispatch(fetchAdminStudents());
     dispatch(fetchStudents());

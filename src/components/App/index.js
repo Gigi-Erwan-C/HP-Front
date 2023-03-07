@@ -8,7 +8,7 @@ import Lore from '../StaticPages/Lore';
 import PageNotFound from '../StaticPages/PageNotFound';
 import LegalNotice from '../StaticPages/LegalNotice';
 import Rules from '../StaticPages/Rules';
-import Footer from '../Footer';
+import Footer from '../ReusableComponents/Footer';
 import Home from '../Home';
 import Login from '../Login';
 import Account from '../Account';

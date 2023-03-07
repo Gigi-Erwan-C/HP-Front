@@ -17,14 +17,14 @@ export const login = () => async (dispatch, getState) => {
       password,
     })
       .then((response) => {
-        const { token } = response.data.result;
+        const { token } = response.data;
         const user = jwt(token);
-        axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.result.token}`;
+        axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         dispatch(handleLogged({
           ...user,
           token,
         }));
-        return response.data.result;
+        return response.data;
       });
   }
   catch (e) {
@@ -39,22 +39,22 @@ export const login = () => async (dispatch, getState) => {
 export const fetchUsers = () => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.user;
-
   try {
     const { data } = await axiosInstance.get('admin/user', {
       headers: {
-        token,
+        authorization: token,
       },
     });
     dispatch(setUserList(data));
   }
   catch (e) {
-    console.log('Errorus Console-logus!!!', e);
+    console.log('Errorus Console-logus!!! Tu ne peux pas récupérer les users!', e);
   }
 };
 
 export const addUser = () => async (dispatch, getState) => {
   const state = getState();
+  const { token } = state.user;
   const {
     lastname, firstname, email, password, role_id, user_id,
   } = state.adminUser;
@@ -67,6 +67,10 @@ export const addUser = () => async (dispatch, getState) => {
       password,
       role_id,
       user_id,
+    }, {
+      headers: {
+        authorization: token,
+      },
     });
     dispatch(fetchUsers());
   }
@@ -77,12 +81,17 @@ export const addUser = () => async (dispatch, getState) => {
 
 export const deleteUser = () => async (dispatch, getState) => {
   const state = getState();
+  const { token } = state.user;
   const {
     target_id,
   } = state.adminUser;
 
   try {
-    await axiosInstance.delete(`admin/user/${target_id}`);
+    await axiosInstance.delete(`admin/user/${target_id}`, {
+      headers: {
+        authorization: token,
+      },
+    });
     dispatch(fetchUsers());
   }
   catch (e) {
@@ -92,17 +101,24 @@ export const deleteUser = () => async (dispatch, getState) => {
 
 export const changePassword = () => async (dispatch, getState) => {
   const state = getState();
+  const { token } = state.user;
   const {
     id, oldPassword, newPassword, confirmation,
   } = state.user;
   const password = newPassword;
+  console.log(confirmation);
 
   try {
     await axiosInstance.patch(`user/${id}`, {
       oldPassword,
       password,
       confirmation,
+    }, {
+      headers: {
+        authorization: token,
+      },
     });
+
     dispatch(sendSuccessMessage('Votre mot de passe a bien été modifié.'));
     setTimeout(() => {
       dispatch(sendSuccessMessage());
@@ -115,16 +131,21 @@ export const changePassword = () => async (dispatch, getState) => {
 
 export const changeInfoUser = () => async (dispatch, getState) => {
   const state = getState();
+  const { token } = state.user;
   const {
     id, firstname, lastname, email, role_id,
   } = state.changeUserInfo;
 
   try {
-    await axiosInstance.patch(`admin/user/${id}`, {
+    await axiosInstance.patch(`/admin/user/${id}`, {
       firstname,
       lastname,
       email,
       role_id,
+    }, {
+      headers: {
+        authorization: token,
+      },
     });
     dispatch(fetchUsers());
     dispatch(SuccessMessage("Les informations de l'utilisateur ont bien été modifiées."));
@@ -139,6 +160,7 @@ export const changeInfoUser = () => async (dispatch, getState) => {
 
 export const changeUserPassword = () => async (dispatch, getState) => {
   const state = getState();
+  const { token } = state.user;
   const {
     id, password,
   } = state.changeUserInfo;
@@ -148,7 +170,10 @@ export const changeUserPassword = () => async (dispatch, getState) => {
     await axiosInstance.patch(`admin/user/password/${id}`, {
       id,
       password,
-
+    }, {
+      headers: {
+        authorization: token,
+      },
     });
     dispatch(fetchUsers());
     dispatch(SuccessMessage("Le mot de passe de l'utilisateur a bien été modifié."));

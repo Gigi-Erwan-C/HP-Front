@@ -23,6 +23,7 @@ export const sendErrorMessage = createAction('user/sendErrorMessage');
 export const logout = createAction('user/logout');
 export const changeNewPassword = createAction('user/changeNewPassword');
 export const sendSuccessMessage = createAction('user/sendSuccessMessage');
+export const resetForm = createAction('user/resetForm');
 
 const userReducer = createReducer(initialState, (builder) => {
   builder
@@ -52,6 +53,11 @@ const userReducer = createReducer(initialState, (builder) => {
     })
     .addCase(sendSuccessMessage, (state, action) => {
       state.confirmMessage = action.payload;
+    })
+    .addCase(resetForm, (state) => {
+      state.oldPassword = '';
+      state.newPassword = '';
+      state.confirmation = '';
     });
 });
 

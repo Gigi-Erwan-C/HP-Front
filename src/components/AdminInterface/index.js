@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { filterAllStudentAdmin } from '../../store/reducers/adminStudent';
-import Filter from '../Filter';
-import Navbar from '../Navbar';
-import FilterMobile from '../Filter/FilterMobile';
+import Navbar from '../ReusableComponents/Navbar';
+import FilterMobile from '../ReusableComponents/Filter/FilterMobile';
 
 const AdminInterface = ({
   component, selectedStudent, selectedTeacher, page, sortComponent,

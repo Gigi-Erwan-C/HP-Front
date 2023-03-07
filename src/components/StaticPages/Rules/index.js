@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import Header from '../../Header';
+import Header from '../../ReusableComponents/Header';
 import './style.scss';
 import rule1 from '../../../assets/img/regle-1.jpg';
 import rule2 from '../../../assets/img/regle-2.jpg';

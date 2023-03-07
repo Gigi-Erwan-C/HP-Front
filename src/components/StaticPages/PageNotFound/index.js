@@ -1,4 +1,4 @@
-import Navbar from '../../Navbar';
+import Navbar from '../../ReusableComponents/Navbar';
 import gif404 from '../../../assets/img/404.gif';
 
 import './style.scss';

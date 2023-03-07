@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import Header from '../../Header';
+import Header from '../../ReusableComponents/Header';
 import './style.scss';
 
 const LegalNotice = () => (

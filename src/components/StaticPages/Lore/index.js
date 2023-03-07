@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import Header from '../../Header';
+import Header from '../../ReusableComponents/Header';
 import LoreDefault from './DefaultLore';
 import LoreGryffindor from './Gryffindor';
 import LoreHufflepuff from './Hufflepuff';
