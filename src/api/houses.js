@@ -22,15 +22,20 @@ export const addPointHouses = () => async (dispatch, getState) => {
   const { token } = state.user;
 
   try {
-    await axiosInstance.post('point/add', {
-      house_id,
-      value,
-      content,
-      user_id,
-      headers: {
-        authorization: token,
+    await axiosInstance.post(
+      'point/add',
+      {
+        house_id,
+        value,
+        content,
+        user_id,
       },
-    })
+      {
+        headers: {
+          authorization: token,
+        },
+      },
+    )
       .then((response) => {
         console.log(response);
         dispatch(sendSuccessMessage('Vos points ont bien été ajoutés.'));
