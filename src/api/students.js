@@ -32,9 +32,7 @@ export const fetchAdminStudents = () => async (dispatch, getState) => {
         authorization: token,
       },
     });
-    // Dispatch à créer dans le reducer:
     dispatch(setAdminStudentList(data));
-    console.log(data);
   }
   catch (e) {
     console.log('Dommage, ça n\'a pas marché', e);
@@ -44,9 +42,7 @@ export const fetchAdminStudents = () => async (dispatch, getState) => {
 export const fetchTopStudents = () => async (dispatch) => {
   try {
     const { data } = await axiosInstance.get('/student/top5');
-    // Dispatch à créer dans le reducer:
     dispatch(setTopStudentList(data));
-    // console.log(data);
   }
   catch (e) {
     console.log('Dommage, ça n\'a pas marché', e);
@@ -114,7 +110,6 @@ export const removePointStudents = () => async (dispatch, getState) => {
   }
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
-    console.log(state.addPoints);
   }
 };
 
@@ -124,7 +119,6 @@ export const addStudent = () => async (dispatch, getState) => {
   const {
     lastname, firstname, class_name, user_id, house_id, score,
   } = state.adminStudent;
-  console.log(house_id);
   try {
     await axiosInstance.post('admin/student', {
       lastname,

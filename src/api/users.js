@@ -106,7 +106,6 @@ export const changePassword = () => async (dispatch, getState) => {
     id, oldPassword, newPassword, confirmation,
   } = state.user;
   const password = newPassword;
-  console.log(confirmation);
 
   try {
     await axiosInstance.patch(`user/${id}`, {
@@ -164,7 +163,6 @@ export const changeUserPassword = () => async (dispatch, getState) => {
   const {
     id, password,
   } = state.changeUserInfo;
-  console.log(id);
 
   try {
     await axiosInstance.patch(`admin/user/password/${id}`, {

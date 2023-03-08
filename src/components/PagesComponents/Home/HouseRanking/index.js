@@ -11,7 +11,6 @@ const HouseRanking = () => {
   const totalPoints = housePoints.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
   );
-  console.log(housePoints);
   return (
     <div className="house-ranking">
       <h2 className="ranking-type">

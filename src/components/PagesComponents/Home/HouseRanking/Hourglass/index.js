@@ -29,7 +29,6 @@ const Hourglass = ({
             <div className="points" />
           </div>
           <div className="middle" />
-          {/* <div className="bottom-first" /> */}
           <div className="bottom-second">
             <div className="points" />
           </div>
@@ -37,7 +36,6 @@ const Hourglass = ({
       </div>
       <div className="top-bottom">
         <h3 className="current-points">{houses_total_score} points</h3>
-        {/* <span className="gained-points">(+ {0} points depuis [DATE])</span> */}
         <h2 className="house-name">{name}</h2>
         <span className="house-name__english">{nameInEnglish}</span>
       </div>

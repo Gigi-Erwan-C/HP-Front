@@ -27,7 +27,6 @@ const Account = () => {
       <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
       <div className="account">
         <h1>Bienvenue sur votre compte {userName && (userName)} </h1>
-        {/* Ajouter un onclick pour la deconnexion */}
         <NavLink to="/" className="account-disconnect" onClick={handleLogout}>
           Se déconnecter
         </NavLink>

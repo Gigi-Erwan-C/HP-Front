@@ -16,13 +16,11 @@ const PointsManagement = ({
   const studentData = useSelector((state) => state.student.list);
   const dispatch = useDispatch();
   const handleShowFilter = () => {
-    console.log(showFilter);
     setShowFilter(!showFilter);
   };
 
   const handleCheckboxChange = (event) => {
     const house = event.target.value;
-    console.log(house);
     setSelectedHouses((prevSelectedHouses) => {
       if (prevSelectedHouses.includes(house)) {
         return prevSelectedHouses.filter((selectdHouse) => selectdHouse !== house);

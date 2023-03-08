@@ -8,6 +8,7 @@ export const initialState = {
   student_id: '',
   user_id: null,
   successMessage: null,
+  logPoints: [],
 };
 
 export const changeContentAndValue = createAction('addPoints/changeContentAndValue');
@@ -16,6 +17,7 @@ export const selectStudent = createAction('addPoints/selectStudent');
 export const changeUser = createAction('addPoints/changeUser');
 export const sendSuccessMessage = createAction('addPoints/sendSuccessMessage');
 export const resetForm = createAction('addPoints/resetForm');
+export const updateLogPoints = createAction('addPoints/updateLogPoints');
 
 const addPointsReducer = createReducer(initialState, (builder) => {
   builder
@@ -37,6 +39,9 @@ const addPointsReducer = createReducer(initialState, (builder) => {
     .addCase(resetForm, (state) => {
       state.content = '';
       state.value = '';
+    })
+    .addCase(updateLogPoints, (state, action) => {
+      state.logPoints = action.payload;
     });
 });
 

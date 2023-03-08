@@ -33,7 +33,6 @@ export const addPointHouses = () => async (dispatch, getState) => {
       },
     })
       .then((response) => {
-        console.log(response);
         dispatch(sendSuccessMessage('Vos points ont bien été ajoutés.'));
         dispatch(fetchHouses());
         setTimeout(() => {
@@ -43,7 +42,6 @@ export const addPointHouses = () => async (dispatch, getState) => {
   }
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
-    console.log(state.addPoints);
   }
 };
 
@@ -76,6 +74,5 @@ export const removePointHouses = () => async (dispatch, getState) => {
   }
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
-    console.log(state.addPoints);
   }
 };
