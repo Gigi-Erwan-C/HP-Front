@@ -1,0 +1,30 @@
+.log-container {
+    border: 1px solid #c9c9c9;
+    margin: 3rem;
+}
+
+.log-item {
+  display:flex;
+  justify-content: space-around;
+  padding-top:1.2rem;
+  padding-bottom:1.2rem;
+}
+
+.log-item:nth-child(odd) {
+  background:#f2f2f2;
+}
+.log-points {
+  font-weight:700;
+}
+
+.log-student-name, .log-points {
+  width:100px;
+}
+
+.log-house-name, .log-teacher {
+  width:200px;
+}
+
+.log-reason {
+  width:250px;
+}

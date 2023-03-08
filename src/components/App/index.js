@@ -22,6 +22,7 @@ import AdminInterfaceTeachers from '../PagesComponents/AdminInterface/AdminInter
 import SortHouse from '../ReusableComponents/SortHouse';
 import SortStudent from '../ReusableComponents/SortStudent';
 import SortUser from '../ReusableComponents/SortUser';
+import PointsLog from '../PagesComponents/PointsLog';
 import './styles.scss';
 import { sortHouseList } from '../../store/reducers/house';
 import { setStudentList } from '../../store/reducers/student';
@@ -51,6 +52,7 @@ const App = () => {
         <Route path="/login" element={isLogged ? (<Navigate replace to="/mon-compte" />) : <Login />} />
         <Route path="/histoire" element={<Lore />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
+        <Route path="/historique-des-points" element={isLogged ? <PointsLog /> : (<Navigate replace to="/" />)} />
         <Route path="/mon-compte" element={isLogged ? <Account /> : (<Navigate replace to="/" />)} />
         <Route
           path="/mon-compte/mot-de-passe"

@@ -9,6 +9,7 @@ import student from '../../../assets/img/student.png';
 import house from '../../../assets/img/house.png';
 import password from '../../../assets/img/password.png';
 import user from '../../../assets/img/user.png';
+import list from '../../../assets/img/liste.png';
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ const Account = () => {
           <Item link="/admin/utilisateurs" image={user} name="Gestion des utilisateurs" />
           )}
           <Item link="/mon-compte/mot-de-passe" image={password} name="Modification de mot de passe" />
+          <Item link="/historique-des-points" image={list} name="Historique des points" />
         </div>
       </div>
     </div>
