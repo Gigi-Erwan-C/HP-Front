@@ -49,3 +49,10 @@
 .points-management-recipient .field-input {
   width:230px;
 }
+
+
+@media (max-width: 942px) { 
+.points-management-recipient .field-input {
+  width:100%;
+}
+}
