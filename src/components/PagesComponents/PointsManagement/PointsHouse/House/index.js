@@ -18,6 +18,7 @@ const House = ({
   const dispatch = useDispatch();
 
   const [shouldRender, setShouldRender] = useState(true);
+  const [isCustom, setIsCustom] = useState(false);
 
   const manageAddPoint = () => {
     toggleAddPoint(id);
@@ -45,7 +46,15 @@ const House = ({
   const handleInputChange = (value, name) => {
     dispatch(selectHouse(id));
     dispatch(changeUser(user_id));
-    dispatch(changeContentAndValue({ key: name, value: value }));
+    if (name === 'content' && value === 'Autre') {
+      dispatch(changeContentAndValue({ key: name, value }));
+      setIsCustom(true);
+    }
+    else {
+      setIsCustom(false);
+      dispatch(changeContentAndValue({ key: name, value }));
+    }
+    // dispatch(changeContentAndValue({ key: name, value: value }));
   };
 
   return (
@@ -69,13 +78,24 @@ const House = ({
           <div className="point-house-footer-manage">
             <span className="point-house-footer-text">Ajouter des points</span>
             <form className="point-house-add" onSubmit={handleAddPoint}>
-              <Field
-                name="content"
-                placeholder="Motif"
-                type="text"
-                onChange={handleInputChange}
+              <select
+                className="select-menu"
                 value={content}
-              />
+                onChange={(e) => handleInputChange(e.target.value, 'content')}
+              >
+                <option value="">Selectionez une raison:</option>
+                <option value="Réajustement">Réajustement</option>
+                <option value="Autre">Autre...</option>
+              </select>
+              {isCustom ? (
+                <Field
+                  name="content"
+                  placeholder="Motif"
+                  type="text"
+                  onChange={(value) => dispatch(changeContentAndValue({ key: 'content', value }))}
+                  value={content}
+                />
+              ) : null}
 
               <Field
                 name="value"
@@ -111,13 +131,32 @@ const House = ({
         <div className="point-house-footer-manage">
           <span className="point-house-footer-text">Enlever des points</span>
           <form className="point-house-delete" onSubmit={handleRemovePoint}>
-            <Field
-              name="content"
-              placeholder="Motif"
-              type="text"
-              onChange={handleInputChange}
+            <select
+              className="select-menu"
               value={content}
-            />
+              onChange={(e) => handleInputChange(e.target.value, 'content')}
+            >
+              <option value="">Selectionez une raison:</option>
+              <option value="Réajustement">Réajustement</option>
+              <option value="Je participe activement">Je participe activement</option>
+              <option value="J’aide un camarade qui en a besoin (tutorat)">J’aide un camarade qui en a besoin (tutorat)</option>
+              <option value="J’ai fais mes devoirs sérieusement">J’ai fais mes devoirs sérieusement</option>
+              <option value="Je suis fair-play ">Je suis fair-play </option>
+              <option value="Je travaille en autonomie calmement">Je travaille en autonomie calmement</option>
+              <option value="Je passe un niveau sur Pix ">Je passe un niveau sur Pix </option>
+              <option value="Je règle une situation de conflit sans l’intervention d’un adulte "> Je règle une situation de conflit sans l’intervention d’un adulte </option>
+              <option value="Je travaille en groupe de manière efficace et calme ">Je travaille en groupe de manière efficace et calme </option>
+              <option value="Autre">Autre...</option>
+            </select>
+            {isCustom ? (
+              <Field
+                name="content"
+                placeholder="Motif"
+                type="text"
+                onChange={(value) => dispatch(changeContentAndValue({ key: 'content', value }))}
+                value={content}
+              />
+            ) : null}
 
             <Field
               name="value"

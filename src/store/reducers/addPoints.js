@@ -3,7 +3,8 @@ import { createAction, createReducer } from '@reduxjs/toolkit';
 
 export const initialState = {
   content: '',
-  value: '',
+  value: 5,
+  selectedOption: '',
   house_id: '',
   student_id: '',
   user_id: null,
