@@ -39,6 +39,9 @@ const AdminInterface = ({
       <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
       <div className={`professor-interface-container ${page} ${showFilter ? 'show-filter' : ''}`}>
         <h2 className="professor-interface-title">Interface administrateur</h2>
+        <NavLink to="/mon-compte" className="back-account">
+          &#60; Retour à mon compte
+        </NavLink>
         <div className="professor-interface">
           <FilterMobile handleShowFilter={handleShowFilter} />
           <div className="profesor-filter">

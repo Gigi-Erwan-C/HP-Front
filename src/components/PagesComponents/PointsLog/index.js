@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import LogItem from './LogItem';
 import Navbar from '../../ReusableComponents/Navbar';
 import { fetchPoints } from '../../../api/points';
@@ -21,7 +22,10 @@ const PointsLog = () => {
       </Helmet>
       <Navbar classColor="logo grey" classLinkColor="menu-link grey" classColorBurger="grey" />
       <div className="professor-interface-container">
-        <h2 className="professor-interface-title">Historique des points</h2>
+        <h2 className="professor-interface-title"> Historique des points</h2>
+        <NavLink to="/mon-compte" className="back-account">
+          &#60; Retour à mon compte
+        </NavLink>
         <div className="professor-interface">
           <div className="profesor-filter">
             <div className="professor-interface-top">
