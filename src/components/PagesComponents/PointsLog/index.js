@@ -37,6 +37,14 @@ const PointsLog = () => {
             </div>
           </div>
           <section className="log-container">
+            <article className="log-item">
+              <div className="log-date">Date</div>
+              <div className="log-student-name">Elève</div>
+              <div className="log-house-name">Maison</div>
+              <div className="log-points">Points</div>
+              <div className="log-reason">Motif</div>
+              <div className="log-teacher">Professeur</div>
+            </article>
             {pointList.map((point) => (
               <LogItem key={point.id} {...point} />
             ))}
