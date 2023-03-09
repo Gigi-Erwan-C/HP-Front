@@ -8,6 +8,7 @@ export const fetchHouses = () => async (dispatch) => {
     const { data } = await axiosInstance.get('house/total-score');
     dispatch(setHouseList(data));
     dispatch(sortHouseList(data));
+    console.log('accio API!!!');
   }
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
