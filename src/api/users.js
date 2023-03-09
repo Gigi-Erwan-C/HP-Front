@@ -9,7 +9,8 @@ import { SuccessMessage } from '../store/reducers/changeUserInfo';
 // eslint-disable-next-line import/prefer-default-export
 export const login = () => async (dispatch, getState) => {
   const state = getState();
-  const { email, password } = state.user;
+  const { password } = state.user;
+  const email = state.user.email.toLowerCase();
 
   try {
     await axiosInstance.post('auth', {
