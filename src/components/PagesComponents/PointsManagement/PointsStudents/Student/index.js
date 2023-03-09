@@ -49,6 +49,7 @@ const Student = ({
     else {
       setIsCustom(false);
       dispatch(changeContentAndValue({ key: name, value }));
+      dispatch(changeContentAndValue({ key: 'content', value: null }));
     }
   };
 

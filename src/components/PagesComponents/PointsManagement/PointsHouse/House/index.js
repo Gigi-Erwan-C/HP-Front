@@ -48,6 +48,7 @@ const House = ({
     dispatch(changeUser(user_id));
     if (name === 'content' && value === 'Autre') {
       dispatch(changeContentAndValue({ key: name, value }));
+      dispatch(changeContentAndValue({ key: 'content', value: null }));
       setIsCustom(true);
     }
     else {
