@@ -11,8 +11,10 @@ const Hourglass = ({
       @keyframes points${firstLetter} {
         0% {
           height: 0%;
+          max-height:100%;
         }
         100% {
+          max-height: 100%;
           height: ${percentage}%;
         }
       }
