@@ -1,14 +1,11 @@
-// == Import
+// == Import modules
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHouses } from '../../api/houses';
 import { fetchStudents, fetchTopStudents } from '../../api/students';
-import Lore from '../StaticPagesComponents/Lore';
-import PageNotFound from '../StaticPagesComponents/PageNotFound';
-import LegalNotice from '../StaticPagesComponents/LegalNotice';
-import Rules from '../StaticPagesComponents/Rules';
-import Footer from '../ReusableComponents/Footer';
+
+// Import des composants pages qui nécéssitent des appels APIs
 import Home from '../PagesComponents/Home';
 import Login from '../PagesComponents/Login';
 import Account from '../PagesComponents/Account';
@@ -19,19 +16,30 @@ import PointsStudents from '../PagesComponents/PointsManagement/PointsStudents';
 import AdminInterface from '../PagesComponents/AdminInterface';
 import AdminInterfaceStudents from '../PagesComponents/AdminInterface/AdminInterfaceStudents';
 import AdminInterfaceTeachers from '../PagesComponents/AdminInterface/AdminInterfaceTeachers';
+import PointsLog from '../PagesComponents/PointsLog';
+// Import des composants pages qui sont réutilisés dans différentes pages
 import SortHouse from '../ReusableComponents/SortHouse';
 import SortStudent from '../ReusableComponents/SortStudent';
+import Footer from '../ReusableComponents/Footer';
 import SortUser from '../ReusableComponents/SortUser';
-import PointsLog from '../PagesComponents/PointsLog';
+// Import des composants pages qui ont du contenu statique qui ne changera pas (ou presque)
 import TeamProject from '../StaticPagesComponents/TeamProject';
-import './styles.scss';
+import Lore from '../StaticPagesComponents/Lore';
+import PageNotFound from '../StaticPagesComponents/PageNotFound';
+import LegalNotice from '../StaticPagesComponents/LegalNotice';
+import Rules from '../StaticPagesComponents/Rules';
+import AboutPage from '../StaticPagesComponents/AboutPage';
+
+// Import des reducers
 import { sortHouseList } from '../../store/reducers/house';
 import { setStudentList } from '../../store/reducers/student';
 import { setAdminStudentList } from '../../store/reducers/adminStudent';
 import { setUserList } from '../../store/reducers/adminUser';
 
+import './styles.scss';
 // == Composant
 const App = () => {
+  // Appels de nos state redux avec useSelector
   const isLogged = useSelector((state) => state.user.isLogged);
   const userRole = useSelector((state) => state.user.role_id);
   const houseData = useSelector((state) => state.house.sortedList);
@@ -39,6 +47,7 @@ const App = () => {
   const studentAdminData = useSelector((state) => state.adminStudent.studentList);
   const userData = useSelector((state) => state.adminUser.userList);
   const dispatch = useDispatch();
+  // Appel API pour l'affichage sur la homepage et l'affichage des utilisateurs
   useEffect(() => {
     dispatch(fetchHouses());
     dispatch(fetchStudents());
@@ -53,6 +62,7 @@ const App = () => {
         <Route path="/login" element={isLogged ? (<Navigate replace to="/mon-compte" />) : <Login />} />
         <Route path="/histoire" element={<Lore />} />
         <Route path="/mentions-legales" element={<LegalNotice />} />
+        <Route path="/a-propos" element={<AboutPage />} />
         <Route path="/equipe-projet" element={<TeamProject />} />
         <Route path="/historique-des-points" element={isLogged ? <PointsLog /> : (<Navigate replace to="/" />)} />
         <Route path="/mon-compte" element={isLogged ? <Account /> : (<Navigate replace to="/" />)} />
