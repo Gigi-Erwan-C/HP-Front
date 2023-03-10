@@ -52,9 +52,9 @@ export const fetchTopStudents = () => async (dispatch) => {
 export const addPointStudents = () => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.user;
-  const { value, content, user_id } = state.addPoints;
-  const { student_id } = state.addPoints;
-
+  const { value, content, user_id, student_id } = state.addPoints;
+  console.log(content);
+  console.log(value);
   try {
     await axiosInstance.post('point/add', {
       student_id,
@@ -84,15 +84,16 @@ export const addPointStudents = () => async (dispatch, getState) => {
 export const removePointStudents = () => async (dispatch, getState) => {
   const state = getState();
   const { token } = state.user;
-  const { value, content, user_id } = state.addPoints;
-  const { student_id } = state.addPoints;
+  const { value, content, user_id, student_id } = state.addPoints;
 
   try {
+    console.log(value);
+    console.log(content);
     await axiosInstance.post('point/remove', {
       value,
       content,
-      user_id,
       student_id,
+      user_id,
     }, {
       headers: {
         authorization: token,
@@ -168,7 +169,7 @@ export const editStudent = () => async (dispatch, getState) => {
   const {
     lastname, firstname, class_name, house_id, score, target_id,
   } = state.changeStudent;
-  const { user_id } = state.user.id;
+  const user_id = state.user.id;
   try {
     await axiosInstance.patch(`admin/student/${target_id}`, {
       lastname,

@@ -44,12 +44,15 @@ const Student = ({
     dispatch(changeUser(user_id));
     if (name === 'content' && value === 'Autre') {
       dispatch(changeContentAndValue({ key: name, value }));
+      dispatch(changeContentAndValue({ key: 'content', value: null }));
       setIsCustom(true);
+    }
+    else if (name === 'value' && isCustom) {
+      dispatch(changeContentAndValue({ key: name, value }));
     }
     else {
       setIsCustom(false);
       dispatch(changeContentAndValue({ key: name, value }));
-      dispatch(changeContentAndValue({ key: 'content', value: null }));
     }
   };
 
@@ -81,7 +84,7 @@ const Student = ({
                 <option value="Réajustement">Réajustement</option>
                 <option value="Je participe activement">Je participe activement</option>
                 <option value="J’aide un camarade qui en a besoin (tutorat)">J’aide un camarade qui en a besoin (tutorat)</option>
-                <option value="J’ai fais mes devoirs sérieusement">J’ai fais mes devoirs sérieusement</option>
+                <option value="J’ai fais mes devoirs sérieusement">J’ai fait mes devoirs sérieusement</option>
                 <option value="Je suis fair-play ">Je suis fair-play </option>
                 <option value="Je travaille en autonomie calmement">Je travaille en autonomie calmement</option>
                 <option value="Je passe un niveau sur Pix ">Je passe un niveau sur Pix </option>
@@ -138,7 +141,7 @@ const Student = ({
               value={content}
               onChange={(e) => handleInputChange(e.target.value, 'content')}
             >
-              <option value="">Selectionez une raison:</option>
+              <option value="Aucune raison selectionnée">Selectionez une raison:</option>
               <option value="Réajustement">Réajustement</option>
               <option value="Je bavarde">Je bavarde</option>
               <option value="J’oublie mon matériel">J’oublie mon matériel</option>

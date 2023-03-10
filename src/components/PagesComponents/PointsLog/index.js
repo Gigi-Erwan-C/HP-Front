@@ -45,9 +45,11 @@ const PointsLog = () => {
               <div className="log-reason">Motif</div>
               <div className="log-teacher">Professeur</div>
             </article>
-            {pointList.map((point) => (
-              <LogItem key={point.id} {...point} />
-            ))}
+            <div className="log-item-container">
+              {pointList.map((point) => (
+                <LogItem key={point.id} {...point} />
+              ))}
+            </div>
           </section>
         </div>
       </div>

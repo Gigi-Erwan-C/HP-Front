@@ -51,11 +51,13 @@ const House = ({
       dispatch(changeContentAndValue({ key: 'content', value: null }));
       setIsCustom(true);
     }
+    else if (name === 'value' && isCustom) {
+      dispatch(changeContentAndValue({ key: name, value }));
+    }
     else {
       setIsCustom(false);
       dispatch(changeContentAndValue({ key: name, value }));
     }
-    // dispatch(changeContentAndValue({ key: name, value: value }));
   };
 
   return (
@@ -139,14 +141,6 @@ const House = ({
             >
               <option value="">Selectionez une raison:</option>
               <option value="Réajustement">Réajustement</option>
-              <option value="Je participe activement">Je participe activement</option>
-              <option value="J’aide un camarade qui en a besoin (tutorat)">J’aide un camarade qui en a besoin (tutorat)</option>
-              <option value="J’ai fais mes devoirs sérieusement">J’ai fais mes devoirs sérieusement</option>
-              <option value="Je suis fair-play ">Je suis fair-play </option>
-              <option value="Je travaille en autonomie calmement">Je travaille en autonomie calmement</option>
-              <option value="Je passe un niveau sur Pix ">Je passe un niveau sur Pix </option>
-              <option value="Je règle une situation de conflit sans l’intervention d’un adulte "> Je règle une situation de conflit sans l’intervention d’un adulte </option>
-              <option value="Je travaille en groupe de manière efficace et calme ">Je travaille en groupe de manière efficace et calme </option>
               <option value="Autre">Autre...</option>
             </select>
             {isCustom ? (

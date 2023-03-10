@@ -39,7 +39,7 @@ const addPointsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(resetForm, (state) => {
       state.content = '';
-      state.value = '';
+      state.value = 5;
     })
     .addCase(updateLogPoints, (state, action) => {
       state.logPoints = action.payload;

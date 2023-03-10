@@ -164,10 +164,8 @@ export const changeUserPassword = () => async (dispatch, getState) => {
   const {
     id, password,
   } = state.changeUserInfo;
-
   try {
     await axiosInstance.patch(`admin/user/password/${id}`, {
-      id,
       password,
     }, {
       headers: {

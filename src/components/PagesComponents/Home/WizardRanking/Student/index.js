@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import './style.scss';
@@ -36,7 +37,6 @@ Student.propTypes = {
   lastname: PropTypes.string,
   house_name: PropTypes.string,
   total_score: PropTypes.number,
-  // house_name_in_english: PropTypes.string.isRequired,
   houseLogo: PropTypes.string,
 };
 

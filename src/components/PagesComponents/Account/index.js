@@ -33,11 +33,11 @@ const Account = () => {
         <div className="account-list">
           <Item link="/classement/eleves" image={student} name="Les élèves" />
           <Item link="/classement/maisons" image={house} name="Les maisons" />
+          <Item link="/historique-des-points" image={list} name="Historique des points" />
           {userRole === 1 && (
           <Item link="/admin/utilisateurs" image={user} name="Gestion des utilisateurs" />
           )}
           <Item link="/mon-compte/mot-de-passe" image={password} name="Modification de mot de passe" />
-          <Item link="/historique-des-points" image={list} name="Historique des points" />
         </div>
       </div>
     </div>

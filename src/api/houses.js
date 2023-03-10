@@ -8,7 +8,6 @@ export const fetchHouses = () => async (dispatch) => {
     const { data } = await axiosInstance.get('house/total-score');
     dispatch(setHouseList(data));
     dispatch(sortHouseList(data));
-    console.log('accio API!!!');
   }
   catch (e) {
     console.log('Errorus Console-logus!!!', e);
@@ -18,7 +17,7 @@ export const fetchHouses = () => async (dispatch) => {
 export const addPointHouses = () => async (dispatch, getState) => {
   const state = getState();
   const {
-    value, content, user_id, house_id,
+    value, content, house_id, user_id,
   } = state.addPoints;
   const { token } = state.user;
 
@@ -33,7 +32,7 @@ export const addPointHouses = () => async (dispatch, getState) => {
         authorization: token,
       },
     })
-      .then((response) => {
+      .then(() => {
         dispatch(sendSuccessMessage('Vos points ont bien été ajoutés.'));
         dispatch(fetchHouses());
         setTimeout(() => {
@@ -49,7 +48,7 @@ export const addPointHouses = () => async (dispatch, getState) => {
 export const removePointHouses = () => async (dispatch, getState) => {
   const state = getState();
   const {
-    value, content, user_id, house_id,
+    value, content, house_id, user_id,
   } = state.addPoints;
   const { token } = state.user;
 

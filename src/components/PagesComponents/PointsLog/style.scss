@@ -3,8 +3,11 @@
 .log-container {
     border: 1px solid #c9c9c9;
     margin: 3rem;
-    height: 400px;
-    overflow: scroll;
+}
+
+.log-item-container {
+  overflow: scroll;
+  height: 400px;
 }
 
 .log-item {
@@ -21,6 +24,11 @@
 .log-item:first-child {
   background:vars.$color-grey;
   color:vars.$color-white;
+}
+
+.log-item-container .log-item:first-child {
+  background:#f2f2f2;
+  color:vars.$color-grey;
 }
 
 .log-points {
@@ -48,7 +56,7 @@
     flex-direction: column;
   }
 
-  .log-reason, .log-student-name, .log-points, .log-house-name, .log-teacher {
+  .log-reason, .log-student-name, .log-points, .log-house-name, .log-teacher, .log-date {
     width:100%;
     padding-left:1rem;
     padding-bottom:1rem;
